@@ -1,0 +1,318 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.alpharamen.customer"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+11-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:6:5-79
+11-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:6:22-76
+12    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+12-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:7:5-81
+12-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:7:22-78
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:8:5-67
+13-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:8:22-64
+14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+14-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:9:5-79
+14-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:9:22-76
+15
+16    <uses-permission-sdk-23 android:name="android.permission.CAMERA" />
+16-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:11:5-72
+16-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:11:29-69
+17    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+17-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:12:5-88
+17-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:12:29-85
+18
+19    <uses-permission android:name="android.permission.CALL_PHONE" />
+19-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:120:5-69
+19-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:120:22-66
+20    <uses-permission android:name="android.permission.INTERNET" />
+20-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:8:5-67
+20-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:8:22-64
+21    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+21-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:124:5-80
+21-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:124:22-77
+22
+23    <uses-feature
+23-->[com.google.android.gms:play-services-maps:16.1.0] /Users/tinaxu/.gradle/caches/transforms-3/f6e6e51de9dd41e3194a30360a3e1a04/transformed/jetified-play-services-maps-16.1.0/AndroidManifest.xml:26:5-28:35
+24        android:glEsVersion="0x00020000"
+24-->[com.google.android.gms:play-services-maps:16.1.0] /Users/tinaxu/.gradle/caches/transforms-3/f6e6e51de9dd41e3194a30360a3e1a04/transformed/jetified-play-services-maps-16.1.0/AndroidManifest.xml:27:9-41
+25        android:required="true" />
+25-->[com.google.android.gms:play-services-maps:16.1.0] /Users/tinaxu/.gradle/caches/transforms-3/f6e6e51de9dd41e3194a30360a3e1a04/transformed/jetified-play-services-maps-16.1.0/AndroidManifest.xml:28:9-32
+26
+27    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+27-->[io.nlopez.smartlocation:library:3.3.3] /Users/tinaxu/.gradle/caches/transforms-3/20b454e1cac70d284a7f705442af4dbc/transformed/jetified-library-3.3.3/AndroidManifest.xml:15:5-98
+27-->[io.nlopez.smartlocation:library:3.3.3] /Users/tinaxu/.gradle/caches/transforms-3/20b454e1cac70d284a7f705442af4dbc/transformed/jetified-library-3.3.3/AndroidManifest.xml:15:22-95
+28    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" /> <!-- Required by older versions of Google Play services to create GCM registration tokens -->
+28-->[io.nlopez.smartlocation:library:3.3.3] /Users/tinaxu/.gradle/caches/transforms-3/20b454e1cac70d284a7f705442af4dbc/transformed/jetified-library-3.3.3/AndroidManifest.xml:16:5-94
+28-->[io.nlopez.smartlocation:library:3.3.3] /Users/tinaxu/.gradle/caches/transforms-3/20b454e1cac70d284a7f705442af4dbc/transformed/jetified-library-3.3.3/AndroidManifest.xml:16:22-91
+29    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+29-->[com.google.android.gms:play-services-gcm:16.1.0] /Users/tinaxu/.gradle/caches/transforms-3/4e417c73181aa48d3b71571cb21ee570/transformed/jetified-play-services-gcm-16.1.0/AndroidManifest.xml:23:5-82
+29-->[com.google.android.gms:play-services-gcm:16.1.0] /Users/tinaxu/.gradle/caches/transforms-3/4e417c73181aa48d3b71571cb21ee570/transformed/jetified-play-services-gcm-16.1.0/AndroidManifest.xml:23:22-79
+30
+31    <application
+31-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:14:5-117:19
+32        android:name="com.alpharamen.customer.application.BaseApp"
+32-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:15:9-67
+33        android:allowBackup="true"
+33-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:16:9-35
+34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+34-->[androidx.core:core:1.0.0] /Users/tinaxu/.gradle/caches/transforms-3/8a53ddb15aac41e4e5039620e3237a36/transformed/core-1.0.0/AndroidManifest.xml:22:18-86
+35        android:debuggable="true"
+36        android:icon="@mipmap/ic_food_hub_icon"
+36-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:17:9-48
+37        android:label="@string/app_name"
+37-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:18:9-41
+38        android:roundIcon="@mipmap/ic_food_hub_icon"
+38-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:19:9-53
+39        android:supportsRtl="true"
+39-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:20:9-35
+40        android:testOnly="true"
+41        android:theme="@style/AppTheme"
+41-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:21:9-40
+42        android:usesCleartextTraffic="true" >
+42-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:22:9-44
+43        <activity
+43-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:24:9-26:46
+44            android:name="com.alpharamen.customer.view.ui.address_list.AddressListActivity"
+44-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:25:13-92
+45            android:launchMode="singleTop" />
+45-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:26:13-43
+46        <activity
+46-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:27:9-30:55
+47            android:name="com.alpharamen.customer.view.ui.track_item.TrackItemActivity"
+47-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:28:13-88
+48            android:launchMode="singleTop"
+48-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:29:13-43
+49            android:theme="@style/ThemeTranslucent" />
+49-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:30:13-52
+50        <activity
+50-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:31:9-33:46
+51            android:name="com.alpharamen.customer.view.ui.filter_result.FilterResultActivity"
+51-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:32:13-94
+52            android:launchMode="singleTop" />
+52-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:33:13-43
+53        <activity
+53-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:34:9-39:58
+54            android:name="com.alpharamen.customer.view.ui.filter.FilterActivity"
+54-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:35:13-81
+55            android:label="@string/title_activity_filter"
+55-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:36:13-58
+56            android:launchMode="singleTop"
+56-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:37:13-43
+57            android:theme="@style/AppTheme.NoActionBar"
+57-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:38:13-56
+58            android:windowSoftInputMode="adjustResize" />
+58-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:39:13-55
+59        <activity
+59-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:40:9-44:58
+60            android:name="com.alpharamen.customer.view.ui.change_address.ChangeAddressActivity"
+60-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:41:13-96
+61            android:launchMode="singleTop"
+61-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:42:13-43
+62            android:theme="@style/ThemeOnBoard"
+62-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:43:13-48
+63            android:windowSoftInputMode="adjustResize" />
+63-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:44:13-55
+64        <activity
+64-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:45:9-47:46
+65            android:name="com.alpharamen.customer.view.ui.about_us.AboutUsActivity"
+65-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:46:13-84
+66            android:launchMode="singleTop" />
+66-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:47:13-43
+67        <activity
+67-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:48:9-50:46
+68            android:name="com.alpharamen.customer.view.ui.myorders.MyOrdersActivity"
+68-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:49:13-85
+69            android:launchMode="singleTop" />
+69-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:50:13-43
+70        <activity
+70-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:51:9-53:46
+71            android:name="com.alpharamen.customer.view.ui.change_location.ChangeLocationActivity"
+71-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:52:13-98
+72            android:launchMode="singleTop" />
+72-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:53:13-43
+73        <activity
+73-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:54:9-57:58
+74            android:name="com.alpharamen.customer.view.ui.edit_profile.EditProfileActivity"
+74-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:55:13-92
+75            android:launchMode="singleTop"
+75-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:56:13-43
+76            android:windowSoftInputMode="adjustResize" />
+76-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:57:13-55
+77        <activity
+77-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:58:9-60:46
+78            android:name="com.alpharamen.customer.view.ui.order_placed.OrderPlacedActivity"
+78-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:59:13-92
+79            android:launchMode="singleTop" />
+79-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:60:13-43
+80        <activity
+80-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:61:9-63:46
+81            android:name="com.alpharamen.customer.view.ui.offer_detail.OfferDetailActivity"
+81-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:62:13-92
+82            android:launchMode="singleTop" />
+82-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:63:13-43
+83        <activity
+83-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:64:9-67:55
+84            android:name="com.alpharamen.customer.view.ui.hub_detail_page.DetailHubActivity"
+84-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:65:13-93
+85            android:launchMode="singleTop"
+85-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:66:13-43
+86            android:theme="@style/ThemeTranslucent" />
+86-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:67:13-52
+87        <activity
+87-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:68:9-72:55
+88            android:name="com.alpharamen.customer.view.ui.food_item_detail_page.FoodDetailActivity"
+88-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:69:13-100
+89            android:launchMode="singleTop"
+89-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:71:13-43
+90            android:screenOrientation="portrait"
+90-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:70:13-49
+91            android:theme="@style/ThemeTranslucent" />
+91-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:72:13-52
+92        <activity
+92-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:73:9-76:51
+93            android:name="com.alpharamen.customer.view.ui.onboarding.OnboardActivity"
+93-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:74:13-86
+94            android:launchMode="singleTop"
+94-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:75:13-43
+95            android:theme="@style/ThemeOnBoard" />
+95-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:76:13-48
+96        <activity
+96-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:77:9-83:20
+97            android:name="com.alpharamen.customer.view.ui.home_page.HomeActivity"
+97-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:78:13-82
+98            android:launchMode="singleTop"
+98-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:80:13-43
+99            android:screenOrientation="portrait"
+99-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:79:13-49
+100            android:windowSoftInputMode="adjustResize" >
+100-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:81:13-55
+101        </activity>
+102        <activity
+102-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:84:9-93:20
+103            android:name="com.alpharamen.customer.view.ui.splash.SplashActivity"
+103-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:85:13-81
+104            android:screenOrientation="portrait"
+104-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:86:13-49
+105            android:theme="@style/ThemeTranslucent" >
+105-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:87:13-52
+106            <intent-filter>
+106-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:88:13-92:29
+107                <action android:name="android.intent.action.MAIN" />
+107-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:89:17-69
+107-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:89:25-66
+108
+109                <category android:name="android.intent.category.LAUNCHER" />
+109-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:91:17-77
+109-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:91:27-74
+110            </intent-filter>
+111        </activity>
+112        <activity
+112-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:94:9-97:52
+113            android:name="com.alpharamen.customer.view.ui.notification.NotificationActivity"
+113-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:95:13-93
+114            android:launchMode="singleTop"
+114-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:96:13-43
+115            android:screenOrientation="portrait" />
+115-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:97:13-49
+116        <activity
+116-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:98:9-105:20
+117            android:name="com.alpharamen.customer.view.ui.login.LoginActivity"
+117-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:99:13-79
+118            android:launchMode="singleTop"
+118-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:101:13-43
+119            android:screenOrientation="portrait"
+119-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:100:13-49
+120            android:theme="@style/ThemeSignUp"
+120-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:102:13-47
+121            android:windowSoftInputMode="adjustResize" >
+121-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:103:13-55
+122        </activity>
+123        <activity
+123-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:106:9-112:20
+124            android:name="com.alpharamen.customer.view.ui.signup.SignupActivity"
+124-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:107:13-81
+125            android:launchMode="singleTop"
+125-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:108:13-43
+126            android:theme="@style/ThemeSignUp"
+126-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:109:13-47
+127            android:windowSoftInputMode="adjustResize" >
+127-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:110:13-55
+128        </activity>
+129
+130        <meta-data
+130-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:114:9-116:55
+131            android:name="com.google.android.geo.API_KEY"
+131-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:115:13-58
+132            android:value="@string/google_maps_key" />
+132-->/Users/tinaxu/Desktop/RamenRestaurantApp_Team4/app/src/main/AndroidManifest.xml:116:13-52
+133
+134        <activity
+134-->[com.karumi:dexter:5.0.0] /Users/tinaxu/.gradle/caches/transforms-3/904a6bd119ca11b50872a1d57bf333dd/transformed/jetified-dexter-5.0.0/AndroidManifest.xml:27:9-29:72
+135            android:name="com.karumi.dexter.DexterActivity"
+135-->[com.karumi:dexter:5.0.0] /Users/tinaxu/.gradle/caches/transforms-3/904a6bd119ca11b50872a1d57bf333dd/transformed/jetified-dexter-5.0.0/AndroidManifest.xml:28:13-60
+136            android:theme="@style/Dexter.Internal.Theme.Transparent" /> <!-- Needs to be explicitly declared on P+ -->
+136-->[com.karumi:dexter:5.0.0] /Users/tinaxu/.gradle/caches/transforms-3/904a6bd119ca11b50872a1d57bf333dd/transformed/jetified-dexter-5.0.0/AndroidManifest.xml:29:13-69
+137        <uses-library
+137-->[com.google.android.gms:play-services-maps:16.1.0] /Users/tinaxu/.gradle/caches/transforms-3/f6e6e51de9dd41e3194a30360a3e1a04/transformed/jetified-play-services-maps-16.1.0/AndroidManifest.xml:33:9-35:40
+138            android:name="org.apache.http.legacy"
+138-->[com.google.android.gms:play-services-maps:16.1.0] /Users/tinaxu/.gradle/caches/transforms-3/f6e6e51de9dd41e3194a30360a3e1a04/transformed/jetified-play-services-maps-16.1.0/AndroidManifest.xml:34:13-50
+139            android:required="false" />
+139-->[com.google.android.gms:play-services-maps:16.1.0] /Users/tinaxu/.gradle/caches/transforms-3/f6e6e51de9dd41e3194a30360a3e1a04/transformed/jetified-play-services-maps-16.1.0/AndroidManifest.xml:35:13-37
+140
+141        <service
+141-->[io.nlopez.smartlocation:library:3.3.3] /Users/tinaxu/.gradle/caches/transforms-3/20b454e1cac70d284a7f705442af4dbc/transformed/jetified-library-3.3.3/AndroidManifest.xml:19:9-21:40
+142            android:name="io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
+142-->[io.nlopez.smartlocation:library:3.3.3] /Users/tinaxu/.gradle/caches/transforms-3/20b454e1cac70d284a7f705442af4dbc/transformed/jetified-library-3.3.3/AndroidManifest.xml:20:13-132
+143            android:exported="false" />
+143-->[io.nlopez.smartlocation:library:3.3.3] /Users/tinaxu/.gradle/caches/transforms-3/20b454e1cac70d284a7f705442af4dbc/transformed/jetified-library-3.3.3/AndroidManifest.xml:21:13-37
+144        <service
+144-->[io.nlopez.smartlocation:library:3.3.3] /Users/tinaxu/.gradle/caches/transforms-3/20b454e1cac70d284a7f705442af4dbc/transformed/jetified-library-3.3.3/AndroidManifest.xml:22:9-24:40
+145            android:name="io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService"
+145-->[io.nlopez.smartlocation:library:3.3.3] /Users/tinaxu/.gradle/caches/transforms-3/20b454e1cac70d284a7f705442af4dbc/transformed/jetified-library-3.3.3/AndroidManifest.xml:23:13-127
+146            android:exported="false" />
+146-->[io.nlopez.smartlocation:library:3.3.3] /Users/tinaxu/.gradle/caches/transforms-3/20b454e1cac70d284a7f705442af4dbc/transformed/jetified-library-3.3.3/AndroidManifest.xml:24:13-37
+147        <service
+147-->[io.nlopez.smartlocation:library:3.3.3] /Users/tinaxu/.gradle/caches/transforms-3/20b454e1cac70d284a7f705442af4dbc/transformed/jetified-library-3.3.3/AndroidManifest.xml:25:9-27:40
+148            android:name="io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService"
+148-->[io.nlopez.smartlocation:library:3.3.3] /Users/tinaxu/.gradle/caches/transforms-3/20b454e1cac70d284a7f705442af4dbc/transformed/jetified-library-3.3.3/AndroidManifest.xml:26:13-120
+149            android:exported="false" />
+149-->[io.nlopez.smartlocation:library:3.3.3] /Users/tinaxu/.gradle/caches/transforms-3/20b454e1cac70d284a7f705442af4dbc/transformed/jetified-library-3.3.3/AndroidManifest.xml:27:13-37
+150
+151        <activity
+151-->[com.google.android.gms:play-services-base:16.1.0] /Users/tinaxu/.gradle/caches/transforms-3/d5a1c6b8e57002a4996d1972239dc4a7/transformed/jetified-play-services-base-16.1.0/AndroidManifest.xml:23:9-26:75
+152            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+152-->[com.google.android.gms:play-services-base:16.1.0] /Users/tinaxu/.gradle/caches/transforms-3/d5a1c6b8e57002a4996d1972239dc4a7/transformed/jetified-play-services-base-16.1.0/AndroidManifest.xml:24:13-79
+153            android:exported="false"
+153-->[com.google.android.gms:play-services-base:16.1.0] /Users/tinaxu/.gradle/caches/transforms-3/d5a1c6b8e57002a4996d1972239dc4a7/transformed/jetified-play-services-base-16.1.0/AndroidManifest.xml:25:13-37
+154            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+154-->[com.google.android.gms:play-services-base:16.1.0] /Users/tinaxu/.gradle/caches/transforms-3/d5a1c6b8e57002a4996d1972239dc4a7/transformed/jetified-play-services-base-16.1.0/AndroidManifest.xml:26:13-72
+155
+156        <meta-data
+156-->[com.google.android.gms:play-services-basement:16.2.0] /Users/tinaxu/.gradle/caches/transforms-3/2f85c7b8eaf85332b2309a3722a13cb4/transformed/jetified-play-services-basement-16.2.0/AndroidManifest.xml:23:9-25:69
+157            android:name="com.google.android.gms.version"
+157-->[com.google.android.gms:play-services-basement:16.2.0] /Users/tinaxu/.gradle/caches/transforms-3/2f85c7b8eaf85332b2309a3722a13cb4/transformed/jetified-play-services-basement-16.2.0/AndroidManifest.xml:24:13-58
+158            android:value="@integer/google_play_services_version" />
+158-->[com.google.android.gms:play-services-basement:16.2.0] /Users/tinaxu/.gradle/caches/transforms-3/2f85c7b8eaf85332b2309a3722a13cb4/transformed/jetified-play-services-basement-16.2.0/AndroidManifest.xml:25:13-66
+159
+160        <provider
+160-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/tinaxu/.gradle/caches/transforms-3/fc01ac93f21b510ddfefc2a04e309b48/transformed/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:23:9-27:43
+161            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+161-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/tinaxu/.gradle/caches/transforms-3/fc01ac93f21b510ddfefc2a04e309b48/transformed/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:24:13-79
+162            android:authorities="com.alpharamen.customer.lifecycle-process"
+162-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/tinaxu/.gradle/caches/transforms-3/fc01ac93f21b510ddfefc2a04e309b48/transformed/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:25:13-69
+163            android:exported="false"
+163-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/tinaxu/.gradle/caches/transforms-3/fc01ac93f21b510ddfefc2a04e309b48/transformed/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:26:13-37
+164            android:multiprocess="true" />
+164-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/tinaxu/.gradle/caches/transforms-3/fc01ac93f21b510ddfefc2a04e309b48/transformed/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:27:13-40
+165    </application>
+166
+167</manifest>
