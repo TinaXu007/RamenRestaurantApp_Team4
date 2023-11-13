@@ -1,0 +1,300 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > OrderPlacedActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.ui.order_placed</a>
+</div>
+
+<h1>Coverage Summary for Class: OrderPlacedActivity (com.alpharamen.customer.view.ui.order_placed)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">OrderPlacedActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">OrderPlacedActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">OrderPlacedActivity$1$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">OrderPlacedActivity$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/41)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.ui.order_placed;
+&nbsp;
+&nbsp;import androidx.lifecycle.ViewModelProviders;
+&nbsp;import android.content.Context;
+&nbsp;import android.content.Intent;
+&nbsp;import android.os.Bundle;
+&nbsp;import android.os.Handler;
+&nbsp;import androidx.recyclerview.widget.LinearLayoutManager;
+&nbsp;import android.view.View;
+&nbsp;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.base.BaseActivity;
+&nbsp;import com.alpharamen.customer.data.models.OrderdItemsModel;
+&nbsp;import com.alpharamen.customer.databinding.ActivityOrderPlacedBinding;
+&nbsp;import com.alpharamen.customer.factory.ViewModelProviderFactory;
+&nbsp;import com.alpharamen.customer.view.adapter.OrderedItemsAdapter;
+&nbsp;import com.alpharamen.customer.view.listener.OnAdapterSelectedListener;
+&nbsp;import com.alpharamen.customer.view.ui.track_item.TrackItemActivity;
+&nbsp;import com.alpharamen.customer.viewmodel.PaymentViewModel;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import javax.inject.Inject;
+&nbsp;
+<b class="nc">&nbsp;public class OrderPlacedActivity extends BaseActivity&lt;ActivityOrderPlacedBinding, PaymentViewModel&gt; implements View.OnClickListener {</b>
+&nbsp;
+&nbsp;    ActivityOrderPlacedBinding dataBinding;
+&nbsp;    PaymentViewModel paymentViewModel;
+<b class="nc">&nbsp;    List&lt;OrderdItemsModel&gt; orderdItemsModels = new ArrayList&lt;&gt;();</b>
+&nbsp;    OrderedItemsAdapter orderedItemsAdapter;
+&nbsp;    @Inject
+&nbsp;    ViewModelProviderFactory mViewModelFactory;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getBindingVariable() {
+<b class="nc">&nbsp;        return BR.payment;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getLayoutId() {
+<b class="nc">&nbsp;        return R.layout.activity_order_placed;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public PaymentViewModel getBindingObject() {
+<b class="nc">&nbsp;        return paymentViewModel;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;        paymentViewModel = ViewModelProviders.of(this, mViewModelFactory).get(PaymentViewModel.class);</b>
+<b class="nc">&nbsp;        dataBinding = getViewDataBinding();</b>
+<b class="nc">&nbsp;        dataBinding.setListener(this::onClick);</b>
+<b class="nc">&nbsp;        dataBinding.lottieAnimationView.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;        dataBinding.textViewPaymentProcessing.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;        dataBinding.textViewSuccess.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;        dataBinding.constraintLayoutOrderPlaced.setVisibility(View.GONE);</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        new Handler().postDelayed(new Runnable() {</b>
+&nbsp;            @Override
+&nbsp;            public void run() {
+<b class="nc">&nbsp;                dataBinding.lottieAnimationView.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                dataBinding.textViewPaymentProcessing.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                dataBinding.textViewSuccess.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;                new Handler().postDelayed(new Runnable() {</b>
+&nbsp;                    @Override
+&nbsp;                    public void run() {
+<b class="nc">&nbsp;                        dataBinding.textViewSuccess.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                        showOrderPlaced();</b>
+&nbsp;
+&nbsp;                    }
+&nbsp;                }, 1500);
+&nbsp;
+&nbsp;            }
+&nbsp;        }, 4000);
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void showOrderPlaced() {
+&nbsp;
+<b class="nc">&nbsp;        dataBinding.constraintLayoutOrderPlaced.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;        populateData();</b>
+<b class="nc">&nbsp;        orderedItemsAdapter = new OrderedItemsAdapter(orderdItemsModels, onAdapterSelectedListener);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),</b>
+&nbsp;                LinearLayoutManager.HORIZONTAL, false));
+<b class="nc">&nbsp;        dataBinding.recyclerView.setHasFixedSize(true);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerView.setAdapter(orderedItemsAdapter);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    OnAdapterSelectedListener&lt;OrderdItemsModel&gt; onAdapterSelectedListener = new OnAdapterSelectedListener&lt;OrderdItemsModel&gt;() {</b>
+&nbsp;        @Override
+&nbsp;        public void onAdapterSelected(OrderdItemsModel model) {
+&nbsp;
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public void onAdapterString(String text) {
+&nbsp;
+<b class="nc">&nbsp;        }</b>
+&nbsp;    };
+&nbsp;
+&nbsp;    private void populateData() {
+&nbsp;
+<b class="nc">&nbsp;        orderdItemsModels.add(new OrderdItemsModel(0, R.drawable.login_image));</b>
+<b class="nc">&nbsp;        orderdItemsModels.add(new OrderdItemsModel(0, R.drawable.login_image));</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onClick(View v) {
+&nbsp;
+<b class="nc">&nbsp;        if (v == dataBinding.imageViewPrevArrow) {</b>
+<b class="nc">&nbsp;            onBackPressed();</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.textViewTrackItem) {</b>
+&nbsp;
+<b class="nc">&nbsp;            Intent i = TrackItemActivity.newIntent(getApplicationContext());</b>
+<b class="nc">&nbsp;            startActivity(i);</b>
+<b class="nc">&nbsp;            overridePendingTransition(0, 0);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Intent newIntent(Context context) {
+&nbsp;
+<b class="nc">&nbsp;        return new Intent(context, OrderPlacedActivity.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

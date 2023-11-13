@@ -1,0 +1,319 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > NotificationRowItemBindingImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.databinding</a>
+</div>
+
+<h1>Coverage Summary for Class: NotificationRowItemBindingImpl (com.alpharamen.customer.databinding)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">NotificationRowItemBindingImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/93)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.databinding;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import androidx.annotation.NonNull;
+&nbsp;import androidx.annotation.Nullable;
+&nbsp;import android.view.View;
+&nbsp;@SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;public class NotificationRowItemBindingImpl extends NotificationRowItemBinding implements com.alpharamen.customer.generated.callback.OnClickListener.Listener {
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    private static final androidx.databinding.ViewDataBinding.IncludedLayouts sIncludes;
+&nbsp;    @Nullable
+&nbsp;    private static final android.util.SparseIntArray sViewsWithIds;
+&nbsp;    static {
+<b class="nc">&nbsp;        sIncludes = null;</b>
+<b class="nc">&nbsp;        sViewsWithIds = null;</b>
+&nbsp;    }
+&nbsp;    // views
+&nbsp;    @NonNull
+&nbsp;    private final android.widget.LinearLayout mboundView0;
+&nbsp;    // variables
+&nbsp;    @Nullable
+&nbsp;    private final android.view.View.OnClickListener mCallback5;
+&nbsp;    // values
+&nbsp;    // listeners
+&nbsp;    // Inverse Binding Event Handlers
+&nbsp;
+&nbsp;    public NotificationRowItemBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
+<b class="nc">&nbsp;        this(bindingComponent, root, mapBindings(bindingComponent, root, 4, sIncludes, sViewsWithIds));</b>
+&nbsp;    }
+&nbsp;    private NotificationRowItemBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
+<b class="nc">&nbsp;        super(bindingComponent, root, 1</b>
+&nbsp;            , (android.widget.ImageView) bindings[1]
+&nbsp;            , (android.widget.TextView) bindings[3]
+&nbsp;            , (android.widget.TextView) bindings[2]
+&nbsp;            );
+<b class="nc">&nbsp;        this.imgSample.setTag(null);</b>
+<b class="nc">&nbsp;        this.mboundView0 = (android.widget.LinearLayout) bindings[0];</b>
+<b class="nc">&nbsp;        this.mboundView0.setTag(null);</b>
+<b class="nc">&nbsp;        this.txtDesc.setTag(null);</b>
+<b class="nc">&nbsp;        this.txtTitle.setTag(null);</b>
+<b class="nc">&nbsp;        setRootTag(root);</b>
+&nbsp;        // listeners
+<b class="nc">&nbsp;        mCallback5 = new com.alpharamen.customer.generated.callback.OnClickListener(this, 1);</b>
+<b class="nc">&nbsp;        invalidateAll();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void invalidateAll() {
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;                mDirtyFlags = 0x10L;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        requestRebind();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean hasPendingBindings() {
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            if (mDirtyFlags != 0) {</b>
+<b class="nc">&nbsp;                return true;</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean setVariable(int variableId, @Nullable Object variable)  {
+<b class="nc">&nbsp;        boolean variableSet = true;</b>
+<b class="nc">&nbsp;        if (BR.item == variableId) {</b>
+<b class="nc">&nbsp;            setItem((com.alpharamen.customer.data.models.NotificationModel) variable);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        else if (BR.listener == variableId) {</b>
+<b class="nc">&nbsp;            setListener((com.alpharamen.customer.view.listener.OnAdapterSelectedListener) variable);</b>
+&nbsp;        }
+&nbsp;        else {
+<b class="nc">&nbsp;            variableSet = false;</b>
+&nbsp;        }
+<b class="nc">&nbsp;            return variableSet;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setItem(@Nullable com.alpharamen.customer.data.models.NotificationModel Item) {
+<b class="nc">&nbsp;        updateRegistration(0, Item);</b>
+<b class="nc">&nbsp;        this.mItem = Item;</b>
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            mDirtyFlags |= 0x1L;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        notifyPropertyChanged(BR.item);</b>
+<b class="nc">&nbsp;        super.requestRebind();</b>
+&nbsp;    }
+&nbsp;    public void setListener(@Nullable com.alpharamen.customer.view.listener.OnAdapterSelectedListener Listener) {
+<b class="nc">&nbsp;        this.mListener = Listener;</b>
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            mDirtyFlags |= 0x2L;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        notifyPropertyChanged(BR.listener);</b>
+<b class="nc">&nbsp;        super.requestRebind();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected boolean onFieldChange(int localFieldId, Object object, int fieldId) {
+<b class="nc">&nbsp;        switch (localFieldId) {</b>
+&nbsp;            case 0 :
+<b class="nc">&nbsp;                return onChangeItem((com.alpharamen.customer.data.models.NotificationModel) object, fieldId);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;    private boolean onChangeItem(com.alpharamen.customer.data.models.NotificationModel Item, int fieldId) {
+<b class="nc">&nbsp;        if (fieldId == BR._all) {</b>
+<b class="nc">&nbsp;            synchronized(this) {</b>
+<b class="nc">&nbsp;                    mDirtyFlags |= 0x1L;</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;            return true;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        else if (fieldId == BR.imageUrl) {</b>
+<b class="nc">&nbsp;            synchronized(this) {</b>
+<b class="nc">&nbsp;                    mDirtyFlags |= 0x4L;</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;            return true;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        else if (fieldId == BR.categoryName) {</b>
+<b class="nc">&nbsp;            synchronized(this) {</b>
+<b class="nc">&nbsp;                    mDirtyFlags |= 0x8L;</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;            return true;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void executeBindings() {
+<b class="nc">&nbsp;        long dirtyFlags = 0;</b>
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            dirtyFlags = mDirtyFlags;</b>
+<b class="nc">&nbsp;            mDirtyFlags = 0;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        java.lang.String itemImageUrl = null;</b>
+<b class="nc">&nbsp;        com.alpharamen.customer.data.models.NotificationModel item = mItem;</b>
+<b class="nc">&nbsp;        java.lang.String itemCategoryName = null;</b>
+<b class="nc">&nbsp;        com.alpharamen.customer.view.listener.OnAdapterSelectedListener&lt;?&gt; listener = mListener;</b>
+&nbsp;
+<b class="nc">&nbsp;        if ((dirtyFlags &amp; 0x1dL) != 0) {</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;            if ((dirtyFlags &amp; 0x15L) != 0) {</b>
+&nbsp;
+<b class="nc">&nbsp;                    if (item != null) {</b>
+&nbsp;                        // read item.imageUrl
+<b class="nc">&nbsp;                        itemImageUrl = item.getImageUrl();</b>
+&nbsp;                    }
+&nbsp;            }
+<b class="nc">&nbsp;            if ((dirtyFlags &amp; 0x19L) != 0) {</b>
+&nbsp;
+<b class="nc">&nbsp;                    if (item != null) {</b>
+&nbsp;                        // read item.categoryName
+<b class="nc">&nbsp;                        itemCategoryName = item.getCategoryName();</b>
+&nbsp;                    }
+&nbsp;            }
+&nbsp;        }
+&nbsp;        // batch finished
+<b class="nc">&nbsp;        if ((dirtyFlags &amp; 0x15L) != 0) {</b>
+&nbsp;            // api target 1
+&nbsp;
+<b class="nc">&nbsp;            com.alpharamen.customer.view.adapter.BindingAdapters.loadImage(this.imgSample, itemImageUrl);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if ((dirtyFlags &amp; 0x10L) != 0) {</b>
+&nbsp;            // api target 1
+&nbsp;
+<b class="nc">&nbsp;            this.mboundView0.setOnClickListener(mCallback5);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if ((dirtyFlags &amp; 0x19L) != 0) {</b>
+&nbsp;            // api target 1
+&nbsp;
+<b class="nc">&nbsp;            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.txtDesc, itemCategoryName);</b>
+<b class="nc">&nbsp;            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.txtTitle, itemCategoryName);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;    // Listener Stub Implementations
+&nbsp;    // callback impls
+&nbsp;    public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
+&nbsp;        // localize variables for thread safety
+&nbsp;        // listener != null
+<b class="nc">&nbsp;        boolean listenerJavaLangObjectNull = false;</b>
+&nbsp;        // listener
+<b class="nc">&nbsp;        com.alpharamen.customer.view.listener.OnAdapterSelectedListener listener = mListener;</b>
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        listenerJavaLangObjectNull = (listener) != (null);</b>
+<b class="nc">&nbsp;        if (listenerJavaLangObjectNull) {</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;            if ((txtTitle) != (null)) {</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;                txtTitle.getText();</b>
+<b class="nc">&nbsp;                if ((txtTitle.getText()) != (null)) {</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;                    txtTitle.getText().toString();</b>
+&nbsp;
+<b class="nc">&nbsp;                    listener.onAdapterString(txtTitle.getText().toString());</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;    // dirty flag
+<b class="nc">&nbsp;    private  long mDirtyFlags = 0xffffffffffffffffL;</b>
+&nbsp;    /* flag mapping
+&nbsp;        flag 0 (0x1L): item
+&nbsp;        flag 1 (0x2L): listener
+&nbsp;        flag 2 (0x3L): item.imageUrl
+&nbsp;        flag 3 (0x4L): item.categoryName
+&nbsp;        flag 4 (0x5L): null
+&nbsp;    flag mapping end*/
+&nbsp;    //end
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

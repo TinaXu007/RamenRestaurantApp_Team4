@@ -1,0 +1,411 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SearchItemListModel</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.data.models</a>
+</div>
+
+<h1>Coverage Summary for Class: SearchItemListModel (com.alpharamen.customer.data.models)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SearchItemListModel</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/43)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">SearchItemListModel$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/21)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/46)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.data.models;
+&nbsp;
+&nbsp;import androidx.room.Entity;
+&nbsp;import androidx.room.Ignore;
+&nbsp;import androidx.room.PrimaryKey;
+&nbsp;import android.os.Parcel;
+&nbsp;import android.os.Parcelable;
+&nbsp;
+&nbsp;import com.google.gson.annotations.Expose;
+&nbsp;import com.google.gson.annotations.SerializedName;
+&nbsp;
+&nbsp;@Entity(tableName = &quot;SearchItemListModel&quot;)
+&nbsp;public class SearchItemListModel implements Parcelable {
+&nbsp;
+&nbsp;    @PrimaryKey
+&nbsp;    @SerializedName(&quot;id&quot;)
+&nbsp;    @Expose
+&nbsp;    private Integer id;
+&nbsp;    @SerializedName(&quot;category_id&quot;)
+&nbsp;    @Expose
+&nbsp;    private Integer categoryId;
+&nbsp;    @SerializedName(&quot;product_title&quot;)
+&nbsp;    @Expose
+&nbsp;    private String productTitle;
+&nbsp;    @SerializedName(&quot;product_rate&quot;)
+&nbsp;    @Expose
+&nbsp;    private String productRate;
+&nbsp;    @SerializedName(&quot;hotel_name&quot;)
+&nbsp;    @Expose
+&nbsp;    private String hotelName;
+&nbsp;
+&nbsp;    private int itemType;
+&nbsp;
+<b class="nc">&nbsp;    protected SearchItemListModel(Parcel in) {</b>
+<b class="nc">&nbsp;        if (in.readByte() == 0) {</b>
+<b class="nc">&nbsp;            id = null;</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            id = in.readInt();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (in.readByte() == 0) {</b>
+<b class="nc">&nbsp;            categoryId = null;</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            categoryId = in.readInt();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        productTitle = in.readString();</b>
+<b class="nc">&nbsp;        productRate = in.readString();</b>
+<b class="nc">&nbsp;        hotelName = in.readString();</b>
+<b class="nc">&nbsp;        itemType = in.readInt();</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    public static final Creator&lt;SearchItemListModel&gt; CREATOR = new Creator&lt;SearchItemListModel&gt;() {</b>
+&nbsp;        @Override
+&nbsp;        public SearchItemListModel createFromParcel(Parcel in) {
+<b class="nc">&nbsp;            return new SearchItemListModel(in);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public SearchItemListModel[] newArray(int size) {
+<b class="nc">&nbsp;            return new SearchItemListModel[size];</b>
+&nbsp;        }
+&nbsp;    };
+&nbsp;
+&nbsp;    public int getItemType() {
+<b class="nc">&nbsp;        return itemType;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setItemType(int itemType) {
+<b class="nc">&nbsp;        this.itemType = itemType;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    public SearchItemListModel() {</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Ignore
+<b class="nc">&nbsp;    public SearchItemListModel(Integer id, String productTitle, String productRate, String hotelName) {</b>
+<b class="nc">&nbsp;        this.id = id;</b>
+<b class="nc">&nbsp;        this.productTitle = productTitle;</b>
+<b class="nc">&nbsp;        this.productRate = productRate;</b>
+<b class="nc">&nbsp;        this.hotelName = hotelName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Integer getId() {
+<b class="nc">&nbsp;        return id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setId(Integer id) {
+<b class="nc">&nbsp;        this.id = id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Integer getCategoryId() {
+<b class="nc">&nbsp;        return categoryId;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setCategoryId(Integer categoryId) {
+<b class="nc">&nbsp;        this.categoryId = categoryId;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getProductTitle() {
+<b class="nc">&nbsp;        return productTitle;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setProductTitle(String productTitle) {
+<b class="nc">&nbsp;        this.productTitle = productTitle;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getProductRate() {
+<b class="nc">&nbsp;        return productRate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setProductRate(String productRate) {
+<b class="nc">&nbsp;        this.productRate = productRate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getHotelName() {
+<b class="nc">&nbsp;        return hotelName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setHotelName(String hotelName) {
+<b class="nc">&nbsp;        this.hotelName = hotelName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int describeContents() {
+<b class="nc">&nbsp;        return 0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void writeToParcel(Parcel dest, int flags) {
+<b class="nc">&nbsp;        if (id == null) {</b>
+<b class="nc">&nbsp;            dest.writeByte((byte) 0);</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            dest.writeByte((byte) 1);</b>
+<b class="nc">&nbsp;            dest.writeInt(id);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (categoryId == null) {</b>
+<b class="nc">&nbsp;            dest.writeByte((byte) 0);</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            dest.writeByte((byte) 1);</b>
+<b class="nc">&nbsp;            dest.writeInt(categoryId);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        dest.writeString(productTitle);</b>
+<b class="nc">&nbsp;        dest.writeString(productRate);</b>
+<b class="nc">&nbsp;        dest.writeString(hotelName);</b>
+<b class="nc">&nbsp;        dest.writeInt(itemType);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+&nbsp;
+&nbsp;/*
+&nbsp;    @PrimaryKey
+&nbsp;    @SerializedName(&quot;id&quot;)
+&nbsp;    @Expose
+&nbsp;    private Integer id;
+&nbsp;    @SerializedName(&quot;category_id&quot;)
+&nbsp;    @Expose
+&nbsp;    private Integer categoryId;
+&nbsp;    @SerializedName(&quot;product_title&quot;)
+&nbsp;    @Expose
+&nbsp;    private String productTitle;
+&nbsp;    @SerializedName(&quot;product_rate&quot;)
+&nbsp;    @Expose
+&nbsp;    private String productRate;
+&nbsp;    @SerializedName(&quot;hotel_name&quot;)
+&nbsp;    @Expose
+&nbsp;    private String hotelName;
+&nbsp;
+&nbsp;    private int itemType;
+&nbsp;
+&nbsp;    protected SearchItemListModel(Parcel in) {
+&nbsp;        if (in.readByte() == 0) {
+&nbsp;            id = null;
+&nbsp;        } else {
+&nbsp;            id = in.readInt();
+&nbsp;        }
+&nbsp;        if (in.readByte() == 0) {
+&nbsp;            categoryId = null;
+&nbsp;        } else {
+&nbsp;            categoryId = in.readInt();
+&nbsp;        }
+&nbsp;        productTitle = in.readString();
+&nbsp;        productRate = in.readString();
+&nbsp;        hotelName = in.readString();
+&nbsp;        itemType = in.readInt();
+&nbsp;    }
+&nbsp;
+&nbsp;    public static final Creator&lt;SearchItemListModel&gt; CREATOR = new Creator&lt;SearchItemListModel&gt;() {
+&nbsp;        @Override
+&nbsp;        public SearchItemListModel createFromParcel(Parcel in) {
+&nbsp;            return new SearchItemListModel(in);
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public SearchItemListModel[] newArray(int size) {
+&nbsp;            return new SearchItemListModel[size];
+&nbsp;        }
+&nbsp;    };
+&nbsp;
+&nbsp;    public int getItemType() {
+&nbsp;        return itemType;
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setItemType(int itemType) {
+&nbsp;        this.itemType = itemType;
+&nbsp;    }
+&nbsp;
+&nbsp;    public SearchItemListModel() {
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Ignore
+&nbsp;    public SearchItemListModel(Integer id, String productTitle, String productRate, String hotelName) {
+&nbsp;        this.id = id;
+&nbsp;        this.productTitle = productTitle;
+&nbsp;        this.productRate = productRate;
+&nbsp;        this.hotelName = hotelName;
+&nbsp;    }
+&nbsp;
+&nbsp;    public Integer getId() {
+&nbsp;        return id;
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setId(Integer id) {
+&nbsp;        this.id = id;
+&nbsp;    }
+&nbsp;
+&nbsp;    public Integer getCategoryId() {
+&nbsp;        return categoryId;
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setCategoryId(Integer categoryId) {
+&nbsp;        this.categoryId = categoryId;
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getProductTitle() {
+&nbsp;        return productTitle;
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setProductTitle(String productTitle) {
+&nbsp;        this.productTitle = productTitle;
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getProductRate() {
+&nbsp;        return productRate;
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setProductRate(String productRate) {
+&nbsp;        this.productRate = productRate;
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getHotelName() {
+&nbsp;        return hotelName;
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setHotelName(String hotelName) {
+&nbsp;        this.hotelName = hotelName;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int describeContents() {
+&nbsp;        return 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void writeToParcel(Parcel dest, int flags) {
+&nbsp;        if (id == null) {
+&nbsp;            dest.writeByte((byte) 0);
+&nbsp;        } else {
+&nbsp;            dest.writeByte((byte) 1);
+&nbsp;            dest.writeInt(id);
+&nbsp;        }
+&nbsp;        if (categoryId == null) {
+&nbsp;            dest.writeByte((byte) 0);
+&nbsp;        } else {
+&nbsp;            dest.writeByte((byte) 1);
+&nbsp;            dest.writeInt(categoryId);
+&nbsp;        }
+&nbsp;        dest.writeString(productTitle);
+&nbsp;        dest.writeString(productRate);
+&nbsp;        dest.writeString(hotelName);
+&nbsp;        dest.writeInt(itemType);
+&nbsp;    }*/
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

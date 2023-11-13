@@ -1,0 +1,497 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > PreferencesHandler</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.data.local.preference</a>
+</div>
+
+<h1>Coverage Summary for Class: PreferencesHandler (com.alpharamen.customer.data.local.preference)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PreferencesHandler</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/32)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/110)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.data.local.preference;
+&nbsp;
+&nbsp;import android.content.Context;
+&nbsp;import android.content.SharedPreferences;
+&nbsp;import android.content.SharedPreferences.Editor;
+&nbsp;
+&nbsp;import com.alpharamen.customer.dagger.ApplicationContext;
+&nbsp;
+&nbsp;import java.util.Map;
+&nbsp;
+&nbsp;import javax.inject.Inject;
+&nbsp;import javax.inject.Singleton;
+&nbsp;
+&nbsp;@Singleton
+&nbsp;public class PreferencesHandler {
+&nbsp;
+&nbsp;    private static final String SHARED_PREFERENCES_KEY = &quot;com.alpharamen.promode.musicapp&quot;;
+&nbsp;    private Context mContext;
+&nbsp;    static PreferencesHandler mThis;
+&nbsp;
+&nbsp;    @Inject
+<b class="nc">&nbsp;    PreferencesHandler(@ApplicationContext Context c) {</b>
+&nbsp;
+<b class="nc">&nbsp;        mContext = c;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static PreferencesHandler getInstance(Context c) {
+&nbsp;
+<b class="nc">&nbsp;        if (mThis == null) {</b>
+<b class="nc">&nbsp;            mThis = new PreferencesHandler(c);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return mThis;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return {@link SharedPreferences} for the application that has been saved
+&nbsp;     * with the key DwConstants.SHARED_PREFERENCES_KEY and in
+&nbsp;     * Context.MODE_PRIVATE mode
+&nbsp;     */
+&nbsp;    private SharedPreferences getAppSharedPreferencesObject() {
+&nbsp;
+<b class="nc">&nbsp;        return mContext.getSharedPreferences(SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the value from the app&#39;s {@link SharedPreferences} in private
+&nbsp;     * mode with the &lt;b&gt;key&lt;/b&gt; provided
+&nbsp;     * &lt;p/&gt;
+&nbsp;     *
+&nbsp;     * @param key : Key used to save the value in the
+&nbsp;     *            {@linkplain SharedPreferences}&lt;br&gt;
+&nbsp;     * @return {@link Object} the value that has been saved with the respective
+&nbsp;     * &lt;b&gt;key&lt;/b&gt;. Returns &lt;b&gt;null&lt;/b&gt; if no value is found
+&nbsp;     * &lt;p/&gt;
+&nbsp;     * &lt;i&gt;&lt;b&gt;Note:&lt;/b&gt; The {@link Object} can be {@link String},
+&nbsp;     * {@link Float}, {@link Long}, {@link Boolean} or
+&nbsp;     * {@link Integer} &lt;/i&gt;
+&nbsp;     */
+&nbsp;    public Object getValue(String key) {
+&nbsp;
+<b class="nc">&nbsp;        if (key == null) {</b>
+<b class="nc">&nbsp;            return null;</b>
+&nbsp;        }
+&nbsp;        Map&lt;String, ?&gt; allPreferences;
+<b class="nc">&nbsp;        SharedPreferences preferences = getAppSharedPreferencesObject();</b>
+<b class="nc">&nbsp;        allPreferences = preferences.getAll();</b>
+<b class="nc">&nbsp;        for (Map.Entry&lt;String, ?&gt; entry : allPreferences.entrySet()) {</b>
+<b class="nc">&nbsp;            if (entry.getKey().equals(key))</b>
+<b class="nc">&nbsp;                return entry.getValue();</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Saves the value to the app&#39;s {@link SharedPreferences} in private mode
+&nbsp;     * with the &lt;b&gt;key&lt;/b&gt; provided
+&nbsp;     * &lt;p/&gt;
+&nbsp;     *
+&nbsp;     * @param key    : Key used to save the value in the
+&nbsp;     *               {@linkplain SharedPreferences}&lt;br&gt;
+&nbsp;     * @param object : This object will be saved to the {@link SharedPreferences}
+&nbsp;     *               &lt;b&gt; with key&lt;/b&gt;&lt;br&gt;
+&nbsp;     * @return {@link Boolean}; &lt;b&gt;true&lt;/b&gt;, if the value is saved successfully,
+&nbsp;     * else returns &lt;b&gt;false &lt;/b&gt;
+&nbsp;     */
+&nbsp;    public boolean saveSharedPreferences(String key, boolean object) {
+&nbsp;
+<b class="nc">&nbsp;        if (key == null) {</b>
+<b class="nc">&nbsp;            return false;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        SharedPreferences preferences = getAppSharedPreferencesObject();</b>
+<b class="nc">&nbsp;        Editor sharedPreferencesEditor = preferences.edit();</b>
+<b class="nc">&nbsp;        sharedPreferencesEditor.putBoolean(key, object);</b>
+<b class="nc">&nbsp;        return sharedPreferencesEditor.commit();</b>
+&nbsp;
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Saves the value to the app&#39;s {@link SharedPreferences} in private mode
+&nbsp;     * with the &lt;b&gt;key&lt;/b&gt; provided
+&nbsp;     * &lt;p/&gt;
+&nbsp;     *
+&nbsp;     * @param key    : Key used to save the value in the
+&nbsp;     *               {@linkplain SharedPreferences}&lt;br&gt;
+&nbsp;     * @param object : This object will be saved to the {@link SharedPreferences}
+&nbsp;     *               &lt;b&gt; with key&lt;/b&gt;&lt;br&gt;
+&nbsp;     * @return {@link Boolean}; &lt;b&gt;true&lt;/b&gt;, if the value is saved successfully,
+&nbsp;     * else returns &lt;b&gt;false &lt;/b&gt;
+&nbsp;     */
+&nbsp;    public boolean saveSharedPreferences(String key, float object) {
+&nbsp;
+<b class="nc">&nbsp;        if (key == null) {</b>
+<b class="nc">&nbsp;            return false;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        SharedPreferences preferences = getAppSharedPreferencesObject();</b>
+<b class="nc">&nbsp;        Editor sharedPreferencesEditor = preferences.edit();</b>
+<b class="nc">&nbsp;        sharedPreferencesEditor.putFloat(key, object);</b>
+<b class="nc">&nbsp;        return sharedPreferencesEditor.commit();</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Saves the value to the app&#39;s {@link SharedPreferences} in private mode
+&nbsp;     * with the &lt;b&gt;key&lt;/b&gt; provided
+&nbsp;     * &lt;p/&gt;
+&nbsp;     *
+&nbsp;     * @param key    : Key used to save the value in the
+&nbsp;     *               {@linkplain SharedPreferences}&lt;br&gt;
+&nbsp;     * @param object : This object will be saved to the {@link SharedPreferences}
+&nbsp;     *               &lt;b&gt; with key&lt;/b&gt;&lt;br&gt;
+&nbsp;     * @return {@link Boolean}; &lt;b&gt;true&lt;/b&gt;, if the value is saved successfully,
+&nbsp;     * else returns &lt;b&gt;false &lt;/b&gt;
+&nbsp;     */
+&nbsp;    public boolean saveSharedPreferences(String key, int object) {
+&nbsp;
+<b class="nc">&nbsp;        if (key == null) {</b>
+<b class="nc">&nbsp;            return false;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        SharedPreferences preferences = getAppSharedPreferencesObject();</b>
+<b class="nc">&nbsp;        Editor sharedPreferencesEditor = preferences.edit();</b>
+<b class="nc">&nbsp;        sharedPreferencesEditor.putInt(key, object);</b>
+<b class="nc">&nbsp;        return sharedPreferencesEditor.commit();</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Saves the value to the app&#39;s {@link SharedPreferences} in private mode
+&nbsp;     * with the &lt;b&gt;key&lt;/b&gt; provided
+&nbsp;     * &lt;p/&gt;
+&nbsp;     *
+&nbsp;     * @param key    : Key used to save the value in the
+&nbsp;     *               {@linkplain SharedPreferences}&lt;br&gt;
+&nbsp;     * @param object : This object will be saved to the {@link SharedPreferences}
+&nbsp;     *               &lt;b&gt; with key&lt;/b&gt;&lt;br&gt;
+&nbsp;     * @return {@link Boolean}; &lt;b&gt;true&lt;/b&gt;, if the value is saved successfully,
+&nbsp;     * else returns &lt;b&gt;false &lt;/b&gt;
+&nbsp;     */
+&nbsp;    public boolean saveSharedPreferences(String key, long object) {
+&nbsp;
+<b class="nc">&nbsp;        if (key == null) {</b>
+<b class="nc">&nbsp;            return false;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        SharedPreferences preferences = getAppSharedPreferencesObject();</b>
+<b class="nc">&nbsp;        Editor sharedPreferencesEditor = preferences.edit();</b>
+<b class="nc">&nbsp;        sharedPreferencesEditor.putLong(key, object);</b>
+<b class="nc">&nbsp;        return sharedPreferencesEditor.commit();</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Saves the value to the app&#39;s {@link SharedPreferences} in private mode
+&nbsp;     * with the &lt;b&gt;key&lt;/b&gt; provided
+&nbsp;     * &lt;p/&gt;
+&nbsp;     *
+&nbsp;     * @param key    : Key used to save the value in the
+&nbsp;     *               {@linkplain SharedPreferences}&lt;br&gt;
+&nbsp;     * @param object : This object will be saved to the {@link SharedPreferences}
+&nbsp;     *               &lt;b&gt; with key&lt;/b&gt;&lt;br&gt;
+&nbsp;     * @return {@link Boolean}; &lt;b&gt;true&lt;/b&gt;, if the value is saved successfully,
+&nbsp;     * else returns &lt;b&gt;false &lt;/b&gt;
+&nbsp;     */
+&nbsp;    public boolean saveSharedPreferences(String key, String object) {
+&nbsp;
+<b class="nc">&nbsp;        if ((key == null) || (object == null)) {</b>
+<b class="nc">&nbsp;            return false;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        SharedPreferences preferences = getAppSharedPreferencesObject();</b>
+<b class="nc">&nbsp;        Editor sharedPreferencesEditor = preferences.edit();</b>
+<b class="nc">&nbsp;        sharedPreferencesEditor.putString(key, object);</b>
+<b class="nc">&nbsp;        return sharedPreferencesEditor.commit();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public void saveUserToken(String userToken) {
+&nbsp;
+<b class="nc">&nbsp;        saveSharedPreferences(&quot;userToken&quot;, userToken);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getUserToken() {
+&nbsp;
+<b class="nc">&nbsp;        Object prefObj = getValue(&quot;userToken&quot;);</b>
+<b class="nc">&nbsp;        if (prefObj != null) {</b>
+<b class="nc">&nbsp;            return (String) prefObj;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return (String) prefObj;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean getBoolean(String key) {
+&nbsp;
+<b class="nc">&nbsp;        Object prefObj = getValue(key);</b>
+<b class="nc">&nbsp;        if (prefObj != null) {</b>
+<b class="nc">&nbsp;            return (Boolean) prefObj;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    public void saveAppConfiguration(String configuration) {
+&nbsp;
+<b class="nc">&nbsp;        saveSharedPreferences(&quot;configuration&quot;, configuration);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getAppConfiguration() {
+&nbsp;
+<b class="nc">&nbsp;        Object prefObj = getValue(&quot;configuration&quot;);</b>
+<b class="nc">&nbsp;        if (prefObj != null) {</b>
+<b class="nc">&nbsp;            return (String) prefObj;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return (String) prefObj;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    public void saveGoogleToken(String googleToken) {
+&nbsp;
+<b class="nc">&nbsp;        saveSharedPreferences(&quot;googleToken&quot;, googleToken);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getGoogleToken() {
+&nbsp;
+<b class="nc">&nbsp;        Object prefObj = getValue(&quot;googleToken&quot;);</b>
+<b class="nc">&nbsp;        if (prefObj != null) {</b>
+<b class="nc">&nbsp;            return (String) prefObj;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return (String) prefObj;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public void saveGoogleId(String googleId) {
+&nbsp;
+<b class="nc">&nbsp;        saveSharedPreferences(&quot;googleId&quot;, googleId);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getGoogleId() {
+&nbsp;
+<b class="nc">&nbsp;        Object prefObj = getValue(&quot;googleId&quot;);</b>
+<b class="nc">&nbsp;        if (prefObj != null) {</b>
+<b class="nc">&nbsp;            return (String) prefObj;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return (String) prefObj;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    public void saveFacbookToken(String facebookToken) {
+&nbsp;
+<b class="nc">&nbsp;        saveSharedPreferences(&quot;facebookToken&quot;, facebookToken);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getFacebookToken() {
+&nbsp;
+<b class="nc">&nbsp;        Object prefObj = getValue(&quot;facebookToken&quot;);</b>
+<b class="nc">&nbsp;        if (prefObj != null) {</b>
+<b class="nc">&nbsp;            return (String) prefObj;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return (String) prefObj;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    public void saveFacebookId(String facebookId) {
+&nbsp;
+<b class="nc">&nbsp;        saveSharedPreferences(&quot;facebookId&quot;, facebookId);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getFacebookId() {
+&nbsp;
+<b class="nc">&nbsp;        Object prefObj = getValue(&quot;facebookId&quot;);</b>
+<b class="nc">&nbsp;        if (prefObj != null) {</b>
+<b class="nc">&nbsp;            return (String) prefObj;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return (String) prefObj;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    public void saveEmail(String emailId) {
+&nbsp;
+<b class="nc">&nbsp;        saveSharedPreferences(&quot;emailId&quot;, emailId);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getEmail() {
+&nbsp;
+<b class="nc">&nbsp;        Object prefObj = getValue(&quot;emailId&quot;);</b>
+<b class="nc">&nbsp;        if (prefObj != null) {</b>
+<b class="nc">&nbsp;            return (String) prefObj;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return (String) prefObj;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    public void saveLoginType(String loginType) {
+&nbsp;
+<b class="nc">&nbsp;        saveSharedPreferences(&quot;loginType&quot;, loginType);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getLoginType() {
+&nbsp;
+<b class="nc">&nbsp;        Object prefObj = getValue(&quot;loginType&quot;);</b>
+<b class="nc">&nbsp;        if (prefObj != null) {</b>
+<b class="nc">&nbsp;            return (String) prefObj;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return (String) prefObj;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public void saveDeviceRegId(String deviceRegId) {
+&nbsp;
+<b class="nc">&nbsp;        saveSharedPreferences(&quot;deviceRegId&quot;, deviceRegId);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getDeviceRegId() {
+&nbsp;
+<b class="nc">&nbsp;        Object prefObj = getValue(&quot;deviceRegId&quot;);</b>
+<b class="nc">&nbsp;        if (prefObj != null) {</b>
+<b class="nc">&nbsp;            return (String) prefObj;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return (String) prefObj;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public void savePasssword(String password) {
+&nbsp;
+<b class="nc">&nbsp;        saveSharedPreferences(&quot;password&quot;, password);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getPassword() {
+&nbsp;
+<b class="nc">&nbsp;        Object prefObj = getValue(&quot;password&quot;);</b>
+<b class="nc">&nbsp;        if (prefObj != null) {</b>
+<b class="nc">&nbsp;            return (String) prefObj;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return (String) prefObj;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getPreferenceValue(String key) {
+&nbsp;
+<b class="nc">&nbsp;        Object prefObj = getValue(key);</b>
+<b class="nc">&nbsp;        if (prefObj != null) {</b>
+<b class="nc">&nbsp;            return (String) prefObj;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return &quot;&quot;;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getIntPreferenceValue(String key) {
+&nbsp;
+<b class="nc">&nbsp;        Object prefObj = getValue(key);</b>
+<b class="nc">&nbsp;        if (prefObj != null) {</b>
+<b class="nc">&nbsp;            if (prefObj instanceof Integer)</b>
+<b class="nc">&nbsp;            return (int) prefObj;</b>
+<b class="nc">&nbsp;            else if (prefObj instanceof Float)</b>
+<b class="nc">&nbsp;                return Math.round((Float) prefObj);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return -1;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

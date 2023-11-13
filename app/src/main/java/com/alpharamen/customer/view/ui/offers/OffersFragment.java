@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.View;
 
@@ -106,36 +107,40 @@ public class OffersFragment extends BaseFragment<FragmentOffersBinding, OffersVi
             ((HomeActivity) getActivity()).loadOffersFragment();
         }
         populatData();
-
+        offersAdapter = new OffersAdapter(offersModels, this);
+        datainding.recyclerViewOffers.setLayoutManager(new LinearLayoutManager(getContext(),
+                LinearLayoutManager.VERTICAL, false));
+        datainding.recyclerViewOffers.setHasFixedSize(true);
+        datainding.recyclerViewOffers.setAdapter(offersAdapter);
 
     }
 
     private void populatData() {
 
-        offersModels.add(new OffersModel("FIRST50 offer", "20 June 2019 - 30 December 2019",
-                R.drawable.special_offer, "FIRST50"));
-        offersModels.add(new OffersModel("ALPHARAMENPROMO offer", "20 June 2019 - 30 December 2019",
-                R.drawable.special_offer, "ALPHARAMENPROMO"));
-        offersModels.add(new OffersModel("FLAT50 offer", "20 June 2019 - 30 December 2019",
-                R.drawable.special_offer, "FLAT50"));
-        offersModels.add(new OffersModel("ALPHARAMENPROMO offer ", "20 June 2019 - 30 December 2019",
-                R.drawable.special_offer, "ALPHARAMENPROMO"));
-        offersModels.add(new OffersModel("FIRST50 offer", "20 June 2019 - 30 December 2019",
-                R.drawable.special_offer, "FIRST50"));
-        offersModels.add(new OffersModel("FLAT50 offer", "20 June 2019 - 30 December 2019",
-                R.drawable.special_offer, "FLAT50"));
-        offersModels.add(new OffersModel("FLAT50 offer", "20 June 2019 - 30 December 2019",
-                R.drawable.special_offer, "FLAT50"));
-        offersModels.add(new OffersModel("FLAT50 offer", "20 June 2019 - 30 December 2019",
-                R.drawable.special_offer, "FLAT50"));
-        offersModels.add(new OffersModel("FLAT50 offer", "20 June 2019 - 30 December 2019",
-                R.drawable.special_offer, "FLAT50"));
-        offersModels.add(new OffersModel("FLAT50 offer", "20 June 2019 - 30 December 2019",
-                R.drawable.special_offer, "FLAT50"));
-        offersModels.add(new OffersModel("FLAT50 offer", "20 June 2019 - 30 December 2019",
-                R.drawable.special_offer, "FLAT50"));
-        offersModels.add(new OffersModel("FLAT50 offer", "20 June 2019 - 30 December 2019",
-                R.drawable.special_offer, "FLAT50"));
+        offersModels.add(new OffersModel("FREE LARGE BUBBLE TEA", "1 OCTOBER 2023 - 31 December 2023",
+                R.drawable.special_offer, "FREEBT"));
+        offersModels.add(new OffersModel("TUESDAY RAMEN OFFER", "1 OCTOBER 2023 - 31 December 2023",
+                R.drawable.special_offer, "TUERAMEN"));
+        offersModels.add(new OffersModel("FREE NOODLES", "1 OCTOBER 2023 - 31 December 2023",
+                R.drawable.special_offer, "FREENOODLES OFFER"));
+        offersModels.add(new OffersModel("BUY ONE GET ONE FOR 50% ", "1 OCTOBER 2023 - 31 December 2023",
+                R.drawable.special_offer, "BUYHALF"));
+        offersModels.add(new OffersModel("FREE GYOZA", "1 OCTOBER 2023 - 31 December 2023",
+                R.drawable.special_offer, "FREEGYOZA"));
+        offersModels.add(new OffersModel("BUY ONE DRINK GET SECOND FREE", "1 OCTOBER 2023 - 31 December 2023",
+                R.drawable.special_offer, "SECONDFREE"));
+        offersModels.add(new OffersModel("ONE FREE EXTRA ADD ON", "1 OCTOBER 2023 - 31 December 2023",
+                R.drawable.special_offer, "FREEADD"));
+        offersModels.add(new OffersModel("BUY ONE RAMEN GET SECOND FREE", "1 OCTOBER 2023 - 31 December 2023",
+                R.drawable.special_offer, "RAMENFREE"));
+        offersModels.add(new OffersModel("25% OFF FOR ALL ORDER", "1 OCTOBER 2023 - 31 December 2023",
+                R.drawable.special_offer, "25OFF"));
+        offersModels.add(new OffersModel("10% OFF FOR DRINK", "1 OCTOBER 2023 - 31 December 2023",
+                R.drawable.special_offer, "DRINK10"));
+        offersModels.add(new OffersModel("$5 OFF FOR ORDER OVER $30", "1 OCTOBER 2023 - 31 December 2023",
+                R.drawable.special_offer, "ORDER5"));
+        offersModels.add(new OffersModel("$10 OFF GOT ORDER OVER $50", "1 OCTOBER 2023 - 31 December 2023",
+                R.drawable.special_offer, "ORDER10"));
 
     }
 

@@ -1,0 +1,484 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SearchItemFragment</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.ui.search</a>
+</div>
+
+<h1>Coverage Summary for Class: SearchItemFragment (com.alpharamen.customer.view.ui.search)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SearchItemFragment</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/65)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">SearchItemFragment$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">SearchItemFragment$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">SearchItemFragment$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">SearchItemFragment$4</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">SearchItemFragment$5</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/23)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/97)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.ui.search;
+&nbsp;
+&nbsp;
+&nbsp;import androidx.lifecycle.Observer;
+&nbsp;import androidx.lifecycle.ViewModelProviders;
+&nbsp;import android.content.Intent;
+&nbsp;import android.os.Bundle;
+&nbsp;import android.os.Handler;
+&nbsp;import androidx.annotation.NonNull;
+&nbsp;import androidx.annotation.Nullable;
+&nbsp;import androidx.fragment.app.Fragment;
+&nbsp;import androidx.recyclerview.widget.LinearLayoutManager;
+&nbsp;import androidx.recyclerview.widget.RecyclerView;
+&nbsp;import android.text.Editable;
+&nbsp;import android.text.TextWatcher;
+&nbsp;import android.view.View;
+&nbsp;import android.widget.Toast;
+&nbsp;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.base.BaseFragment;
+&nbsp;import com.alpharamen.customer.data.models.SearchItemListModel;
+&nbsp;import com.alpharamen.customer.data.models.SearchResponseModel;
+&nbsp;import com.alpharamen.customer.databinding.FragmentSearchItemBinding;
+&nbsp;import com.alpharamen.customer.factory.ViewModelProviderFactory;
+&nbsp;import com.alpharamen.customer.view.adapter.SearchAdapterNew;
+&nbsp;import com.alpharamen.customer.view.listener.OnAdapterSelectedListener;
+&nbsp;import com.alpharamen.customer.view.ui.filter.FilterActivity;
+&nbsp;import com.alpharamen.customer.view.ui.home_page.HomeActivity;
+&nbsp;import com.alpharamen.customer.viewmodel.SearchViewModel;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import javax.inject.Inject;
+&nbsp;
+&nbsp;/**
+&nbsp; * A simple {@link Fragment} subclass.
+&nbsp; * Use the {@link SearchItemFragment#newInstance} factory method to
+&nbsp; * create an instance of this fragment.
+&nbsp; */
+&nbsp;public class SearchItemFragment extends BaseFragment&lt;FragmentSearchItemBinding, SearchViewModel&gt; implements View.OnClickListener {
+&nbsp;    // TODO: Rename parameter arguments, choose names that match
+&nbsp;    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+&nbsp;    private static final String ARG_PARAM1 = &quot;param1&quot;;
+&nbsp;    private static final String ARG_PARAM2 = &quot;param2&quot;;
+&nbsp;
+&nbsp;    // TODO: Rename and change types of parameters
+&nbsp;    private String mParam1;
+&nbsp;    private String mParam2;
+&nbsp;
+&nbsp;    FragmentSearchItemBinding dataBinding;
+<b class="nc">&nbsp;    List&lt;SearchItemListModel&gt; recentItemModelList = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    ArrayList&lt;SearchItemListModel&gt; itemList = new ArrayList&lt;&gt;();</b>
+&nbsp;    SearchAdapterNew searchAdapterNew;
+&nbsp;    SearchViewModel searchViewModel;
+&nbsp;
+&nbsp;    @Inject
+&nbsp;    ViewModelProviderFactory viewModelProviderFactory;
+&nbsp;
+<b class="nc">&nbsp;    public SearchItemFragment() {</b>
+&nbsp;        // Required empty public constructor
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Use this factory method to create a new instance of
+&nbsp;     * this fragment using the provided parameters.
+&nbsp;     *
+&nbsp;     * @param param1 Parameter 1.
+&nbsp;     * @param param2 Parameter 2.
+&nbsp;     * @return A new instance of fragment SearchItemFragment.
+&nbsp;     */
+&nbsp;    // TODO: Rename and change types and number of parameters
+&nbsp;    public static SearchItemFragment newInstance(String param1, String param2) {
+<b class="nc">&nbsp;        SearchItemFragment fragment = new SearchItemFragment();</b>
+<b class="nc">&nbsp;        Bundle args = new Bundle();</b>
+<b class="nc">&nbsp;        args.putString(ARG_PARAM1, param1);</b>
+<b class="nc">&nbsp;        args.putString(ARG_PARAM2, param2);</b>
+<b class="nc">&nbsp;        fragment.setArguments(args);</b>
+<b class="nc">&nbsp;        return fragment;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getBindingVariable() {
+<b class="nc">&nbsp;        return BR.search;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getLayoutId() {
+<b class="nc">&nbsp;        return R.layout.fragment_search_item;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Object getBindingObject() {
+<b class="nc">&nbsp;        return searchViewModel;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;        if (getArguments() != null) {</b>
+<b class="nc">&nbsp;            mParam1 = getArguments().getString(ARG_PARAM1);</b>
+<b class="nc">&nbsp;            mParam2 = getArguments().getString(ARG_PARAM2);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+&nbsp;
+<b class="nc">&nbsp;        searchViewModel = ViewModelProviders.of(this, viewModelProviderFactory).get(SearchViewModel.class);</b>
+<b class="nc">&nbsp;        super.onViewCreated(view, savedInstanceState);</b>
+<b class="nc">&nbsp;        dataBinding = getViewDataBinding();</b>
+<b class="nc">&nbsp;        dataBinding.setSearch(searchViewModel);</b>
+<b class="nc">&nbsp;        dataBinding.setListener(this::onClick);</b>
+&nbsp;
+<b class="nc">&nbsp;        if (getActivity() != null &amp;&amp; getActivity() instanceof HomeActivity) {</b>
+&nbsp;
+<b class="nc">&nbsp;            ((HomeActivity) getActivity()).loadSearchFragment();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        dataBinding.editTextSearch.requestFocus();</b>
+<b class="nc">&nbsp;        dataBinding.editTextSearch.performClick();</b>
+&nbsp;        // dataBinding.recyclerViewSearchItems.setNestedScrollingEnabled(false);
+<b class="nc">&nbsp;        itemList.clear();</b>
+<b class="nc">&nbsp;        searchViewModel.fetchSearchItemList();</b>
+&nbsp;
+<b class="nc">&nbsp;        searchAdapterNew = new SearchAdapterNew(itemList, selectedListener);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewSearchItems.setLayoutManager(new LinearLayoutManager(getContext(),</b>
+&nbsp;                LinearLayoutManager.VERTICAL, false));
+<b class="nc">&nbsp;        dataBinding.recyclerViewSearchItems.setHasFixedSize(true);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewSearchItems.setAdapter(searchAdapterNew);</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        Bundle arguments = getArguments();</b>
+<b class="nc">&nbsp;        if (arguments != null) {</b>
+&nbsp;
+<b class="nc">&nbsp;            String select = arguments.getString(&quot;SET&quot;, &quot;&quot;);</b>
+<b class="nc">&nbsp;            if (select.equals(&quot;0&quot;)) {</b>
+<b class="nc">&nbsp;                dataBinding.setSelection(0);</b>
+&nbsp;
+<b class="nc">&nbsp;            } else if (select.equals(&quot;1&quot;)) {</b>
+<b class="nc">&nbsp;                dataBinding.setSelection(1);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        dataBinding.recyclerViewSearchItems.addOnScrollListener(new RecyclerView.OnScrollListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+<b class="nc">&nbsp;                super.onScrollStateChanged(recyclerView, newState);</b>
+<b class="nc">&nbsp;                hideKeyboard();</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        searchViewModel.getMutableLiveData().observe(this, new Observer&lt;SearchResponseModel&gt;() {</b>
+&nbsp;            @Override
+&nbsp;            public void onChanged(@Nullable SearchResponseModel searchResponseModel) {
+&nbsp;
+<b class="nc">&nbsp;                itemList.clear();</b>
+<b class="nc">&nbsp;                searchAdapterNew.notifyDataSetChanged();</b>
+<b class="nc">&nbsp;                if (searchResponseModel != null &amp;&amp; searchResponseModel.getData().size() &gt; 0) {</b>
+<b class="nc">&nbsp;                    for (SearchItemListModel model : searchResponseModel.getData()) {</b>
+<b class="nc">&nbsp;                        model.setItemType(1);</b>
+<b class="nc">&nbsp;                    }</b>
+<b class="nc">&nbsp;                    itemList.addAll(searchResponseModel.getData());</b>
+&nbsp;                } else {
+<b class="nc">&nbsp;                    Toast.makeText(getContext(), &quot;no response&quot;, Toast.LENGTH_SHORT).show();</b>
+&nbsp;                }
+&nbsp;
+<b class="nc">&nbsp;                searchAdapterNew.notifyDataSetChanged();</b>
+<b class="nc">&nbsp;                searchAdapterNew.setFilter(dataBinding.editTextSearch.getText().toString());</b>
+&nbsp;
+&nbsp;            }
+&nbsp;
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        searchViewModel.observeSearchItemLiveData().observe(getViewLifecycleOwner() != null ? getViewLifecycleOwner() : this, searchItemListModels -&gt; {</b>
+&nbsp;
+<b class="nc">&nbsp;            if (searchItemListModels != null &amp;&amp; !searchItemListModels.isEmpty()) {</b>
+<b class="nc">&nbsp;                recentItemModelList = searchItemListModels;</b>
+<b class="nc">&nbsp;                for (SearchItemListModel model : recentItemModelList) {</b>
+<b class="nc">&nbsp;                    model.setItemType(0);</b>
+<b class="nc">&nbsp;                }</b>
+&nbsp;
+<b class="nc">&nbsp;                itemList.addAll(recentItemModelList);</b>
+<b class="nc">&nbsp;                searchAdapterNew.notifyDataSetChanged();</b>
+&nbsp;                // searchViewModel.apiCall(&quot;&quot;);
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        dataBinding.editTextSearch.addTextChangedListener(new TextWatcher() {</b>
+&nbsp;            @Override
+&nbsp;            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+&nbsp;
+<b class="nc">&nbsp;            }</b>
+&nbsp;
+&nbsp;            @Override
+&nbsp;            public void onTextChanged(CharSequence s, int start, int before, int count) {
+&nbsp;
+<b class="nc">&nbsp;                if (s.length() == 0) {</b>
+<b class="nc">&nbsp;                    dataBinding.textViewRecentSearch.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;                    itemList.clear();</b>
+<b class="nc">&nbsp;                    searchViewModel.fetchSearchItemList();</b>
+&nbsp;
+<b class="nc">&nbsp;                } else if (s.length() &gt; 0) {</b>
+<b class="nc">&nbsp;                    itemList.clear();</b>
+<b class="nc">&nbsp;                    searchViewModel.apiCall(s.toString());</b>
+<b class="nc">&nbsp;                    dataBinding.textViewRecentSearch.setVisibility(View.GONE);</b>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;                }
+&nbsp;
+&nbsp;
+&nbsp;            }
+&nbsp;
+&nbsp;            @Override
+&nbsp;            public void afterTextChanged(Editable s) {
+&nbsp;
+<b class="nc">&nbsp;            }</b>
+&nbsp;        });
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    OnAdapterSelectedListener&lt;SearchItemListModel&gt; selectedListener = new OnAdapterSelectedListener&lt;SearchItemListModel&gt;() {</b>
+&nbsp;        @Override
+&nbsp;        public void onAdapterSelected(SearchItemListModel model) {
+&nbsp;
+<b class="nc">&nbsp;            searchViewModel.insertProductLocal(model);</b>
+<b class="nc">&nbsp;            if (getActivity() != null) {</b>
+&nbsp;
+<b class="nc">&nbsp;                ((HomeActivity) (getActivity())).openSearchFoodDetail(model);</b>
+&nbsp;            }
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public void onAdapterString(String text) {
+&nbsp;
+<b class="nc">&nbsp;        }</b>
+&nbsp;    };
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onClick(View v) {
+&nbsp;
+<b class="nc">&nbsp;        if (v == dataBinding.textViewFoods) {</b>
+<b class="nc">&nbsp;            dataBinding.setSelection(1);</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.textViewHubs) {</b>
+<b class="nc">&nbsp;            dataBinding.setSelection(0);</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.imageViewFilter) {</b>
+&nbsp;
+<b class="nc">&nbsp;            if (getActivity() != null) {</b>
+<b class="nc">&nbsp;                dataBinding.imageViewFilter.setClickable(false);</b>
+<b class="nc">&nbsp;                Intent i = FilterActivity.newIntent(getActivity());</b>
+<b class="nc">&nbsp;                startActivityForResult(i, 102);</b>
+<b class="nc">&nbsp;                getActivity().overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);</b>
+<b class="nc">&nbsp;                new Handler().postDelayed(new Runnable() {</b>
+&nbsp;                    @Override
+&nbsp;                    public void run() {
+<b class="nc">&nbsp;                        dataBinding.imageViewFilter.setClickable(true);</b>
+&nbsp;                    }
+&nbsp;                }, 1000);
+&nbsp;            }
+&nbsp;
+&nbsp;
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+<b class="nc">&nbsp;        super.onActivityResult(requestCode, resultCode, data);</b>
+<b class="nc">&nbsp;        if (requestCode == 102) {</b>
+<b class="nc">&nbsp;            if (data != null &amp;&amp; data.getExtras() != null) {</b>
+<b class="nc">&nbsp;                Bundle bundle = data.getExtras();</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

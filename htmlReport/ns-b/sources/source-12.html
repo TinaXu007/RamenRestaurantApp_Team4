@@ -1,0 +1,175 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > MyordersItemModel</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.data.models</a>
+</div>
+
+<h1>Coverage Summary for Class: MyordersItemModel (com.alpharamen.customer.data.models)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MyordersItemModel</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.data.models;
+&nbsp;
+&nbsp;import androidx.databinding.BaseObservable;
+&nbsp;import androidx.databinding.Bindable;
+&nbsp;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;
+&nbsp;
+&nbsp;public class MyordersItemModel extends BaseObservable {
+&nbsp;    String itemname, restName, rate, status;
+&nbsp;    int id;
+&nbsp;
+<b class="nc">&nbsp;    boolean selected = false;</b>
+&nbsp;
+<b class="nc">&nbsp;    public MyordersItemModel(String itemname, String restName, String rate, String status, int id) {</b>
+<b class="nc">&nbsp;        this.itemname = itemname;</b>
+<b class="nc">&nbsp;        this.restName = restName;</b>
+<b class="nc">&nbsp;        this.rate = rate;</b>
+<b class="nc">&nbsp;        this.status = status;</b>
+<b class="nc">&nbsp;        this.id = id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Bindable
+&nbsp;    public boolean isSelected() {
+<b class="nc">&nbsp;        return selected;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setSelected(boolean selected) {
+<b class="nc">&nbsp;        this.selected = selected;</b>
+<b class="nc">&nbsp;        notifyPropertyChanged(BR.selected);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getId() {
+<b class="nc">&nbsp;        return id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setId(int id) {
+<b class="nc">&nbsp;        this.id = id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getItemname() {
+<b class="nc">&nbsp;        return itemname;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setItemname(String itemname) {
+<b class="nc">&nbsp;        this.itemname = itemname;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getRestName() {
+<b class="nc">&nbsp;        return restName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setRestName(String restName) {
+<b class="nc">&nbsp;        this.restName = restName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getRate() {
+<b class="nc">&nbsp;        return rate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setRate(String rate) {
+<b class="nc">&nbsp;        this.rate = rate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getStatus() {
+<b class="nc">&nbsp;        return status;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setStatus(String status) {
+<b class="nc">&nbsp;        this.status = status;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

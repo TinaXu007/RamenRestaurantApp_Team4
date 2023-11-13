@@ -1,0 +1,651 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CartFragment</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.ui.cart</a>
+</div>
+
+<h1>Coverage Summary for Class: CartFragment (com.alpharamen.customer.view.ui.cart)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CartFragment</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/90)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CartFragment$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CartFragment$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CartFragment$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CartFragment$3$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CartFragment$3$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/24)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CartFragment$4</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CartFragment$5</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/31)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/159)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.ui.cart;
+&nbsp;
+&nbsp;import androidx.lifecycle.ViewModelProviders;
+&nbsp;import android.content.Context;
+&nbsp;import android.content.Intent;
+&nbsp;import android.graphics.Color;
+&nbsp;import android.graphics.drawable.ColorDrawable;
+&nbsp;import android.os.Bundle;
+&nbsp;
+&nbsp;import androidx.annotation.NonNull;
+&nbsp;import androidx.annotation.Nullable;
+&nbsp;import androidx.fragment.app.Fragment;
+&nbsp;import androidx.appcompat.app.AlertDialog;
+&nbsp;import androidx.recyclerview.widget.LinearLayoutManager;
+&nbsp;
+&nbsp;import android.os.Handler;
+&nbsp;import android.view.LayoutInflater;
+&nbsp;import android.view.View;
+&nbsp;import android.view.ViewTreeObserver;
+&nbsp;import android.view.WindowManager;
+&nbsp;import android.widget.TextView;
+&nbsp;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.base.BaseFragment;
+&nbsp;import com.alpharamen.customer.data.models.AddressListModel;
+&nbsp;import com.alpharamen.customer.data.models.CartItemModel;
+&nbsp;import com.alpharamen.customer.databinding.FragmentCartBinding;
+&nbsp;import com.alpharamen.customer.factory.ViewModelProviderFactory;
+&nbsp;import com.alpharamen.customer.view.adapter.CartItemAdapterNew;
+&nbsp;import com.alpharamen.customer.view.listener.CartItemQuantityChangeListener;
+&nbsp;import com.alpharamen.customer.view.listener.OnAdapterSelectedListener;
+&nbsp;import com.alpharamen.customer.view.ui.address_list.AddressListActivity;
+&nbsp;import com.alpharamen.customer.view.ui.home_page.HomeActivity;
+&nbsp;import com.alpharamen.customer.view.ui.order_placed.OrderPlacedActivity;
+&nbsp;import com.alpharamen.customer.viewmodel.CartViewModel;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import javax.inject.Inject;
+&nbsp;
+&nbsp;/**
+&nbsp; * A simple {@link Fragment} subclass.
+&nbsp; */
+<b class="nc">&nbsp;public class CartFragment extends BaseFragment&lt;FragmentCartBinding, CartViewModel&gt; implements View.OnClickListener {</b>
+&nbsp;    // TODO: Rename parameter arguments, choose names that match
+&nbsp;    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+&nbsp;    private static final String ARG_PARAM1 = &quot;param1&quot;;
+&nbsp;    private static final String ARG_PARAM2 = &quot;param2&quot;;
+&nbsp;
+&nbsp;    // TODO: Rename and change types of parameters
+&nbsp;    private String mParam1;
+&nbsp;    private String mParam2;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    List&lt;CartItemModel&gt; cartItemModels = new ArrayList&lt;&gt;();</b>
+&nbsp;    CartItemAdapterNew cartItemAdapter;
+&nbsp;    CartItemModel itemModel;
+&nbsp;    private AlertDialog alertDialog;
+<b class="nc">&nbsp;    int no = 1;</b>
+<b class="nc">&nbsp;    float totalAmount = 0;</b>
+<b class="nc">&nbsp;    float deliveryCharge = 0;</b>
+&nbsp;    int listSize;
+<b class="nc">&nbsp;    int itemsQuantity = 1;</b>
+&nbsp;    @Inject
+&nbsp;    ViewModelProviderFactory mVviewModelFactory;
+&nbsp;    FragmentCartBinding dataBinding;
+&nbsp;    CartViewModel cartViewModel;
+&nbsp;
+<b class="nc">&nbsp;    public CartFragment() {</b>
+&nbsp;        // Required empty public constructor
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return A new instance of fragment CartFragment.
+&nbsp;     */
+&nbsp;    // TODO: Rename and change types and number of parameters
+&nbsp;    public static CartFragment newInstance(String param1, String param2) {
+<b class="nc">&nbsp;        CartFragment fragment = new CartFragment();</b>
+<b class="nc">&nbsp;        Bundle args = new Bundle();</b>
+<b class="nc">&nbsp;        args.putString(ARG_PARAM1, param1);</b>
+<b class="nc">&nbsp;        args.putString(ARG_PARAM2, param2);</b>
+<b class="nc">&nbsp;        fragment.setArguments(args);</b>
+<b class="nc">&nbsp;        return fragment;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;        if (getArguments() != null) {</b>
+<b class="nc">&nbsp;            mParam1 = getArguments().getString(ARG_PARAM1);</b>
+<b class="nc">&nbsp;            mParam2 = getArguments().getString(ARG_PARAM2);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+<b class="nc">&nbsp;        cartViewModel = ViewModelProviders.of(this, mVviewModelFactory).get(CartViewModel.class);</b>
+<b class="nc">&nbsp;        super.onViewCreated(view, savedInstanceState);</b>
+<b class="nc">&nbsp;        dataBinding = getViewDataBinding();</b>
+<b class="nc">&nbsp;        dataBinding.setCart(cartViewModel);</b>
+<b class="nc">&nbsp;        dataBinding.setListener(this);</b>
+&nbsp;
+<b class="nc">&nbsp;        populateData();</b>
+&nbsp;        //dataBinding.nestedScrollView.scrollTo(0, 0);
+&nbsp;       /* dataBinding.recyclerViewCartItems.setNestedScrollingEnabled(false);
+&nbsp;        dataBinding.nestedScrollView.fullScroll(View.FOCUS_UP);
+&nbsp;        dataBinding.nestedScrollView.fullScroll(View.FOCUS_UP);*/
+&nbsp;
+&nbsp;        //dataBinding.nestedScrollView.smoothScrollTo(0,0);
+&nbsp;
+<b class="nc">&nbsp;        dataBinding.nestedScrollView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onGlobalLayout() {
+<b class="nc">&nbsp;                final int scrollViewHeight = dataBinding.nestedScrollView.getHeight();</b>
+<b class="nc">&nbsp;                if (scrollViewHeight &gt; 0) {</b>
+<b class="nc">&nbsp;                    dataBinding.nestedScrollView.getViewTreeObserver().removeOnGlobalLayoutListener(this);</b>
+&nbsp;
+&nbsp;/* //nested scroll view scroll to bottom
+&nbsp;                    final View lastView = dataBinding.nestedScrollView.getChildAt(dataBinding.nestedScrollView.getChildCount() - 1);
+&nbsp;                    final int lastViewBottom = lastView.getBottom() + dataBinding.nestedScrollView.getPaddingBottom();
+&nbsp;                    final int deltaScrollY = lastViewBottom - scrollViewHeight - dataBinding.nestedScrollView.getScrollY();
+&nbsp;                    *//* If you want to see the scroll animation, call this. *//*
+&nbsp;                    dataBinding.nestedScrollView.smoothScrollBy(0, deltaScrollY);
+&nbsp;                    *//* If you don&#39;t want, call this. *//*
+&nbsp;                    dataBinding.nestedScrollView.scrollBy(0, deltaScrollY);*/
+&nbsp;
+&nbsp;                    //nested scroll view scroll to top
+<b class="nc">&nbsp;                    final View firstView = dataBinding.nestedScrollView.getChildAt(dataBinding.nestedScrollView.getChildCount() - 1);</b>
+<b class="nc">&nbsp;                    final int lastViewTop = firstView.getTop() + dataBinding.nestedScrollView.getPaddingTop();</b>
+<b class="nc">&nbsp;                    final int deltaScrollY = lastViewTop - scrollViewHeight - dataBinding.nestedScrollView.getScrollY();</b>
+<b class="nc">&nbsp;                    dataBinding.nestedScrollView.smoothScrollBy(0, deltaScrollY);</b>
+<b class="nc">&nbsp;                    dataBinding.nestedScrollView.scrollBy(0, deltaScrollY);</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        });
+<b class="nc">&nbsp;        dataBinding.textViewRate.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;        dataBinding.textViewCheckout.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;        dataBinding.lottieAnimationView.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;        dataBinding.cardViewOrderDetails.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;        dataBinding.cardViewAddress.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;        dataBinding.textViewContinueShopping.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;        dataBinding.textViewNoItems.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewCartItems.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;        cartItemAdapter = new CartItemAdapterNew(cartItemModels, selectedListener, cartItemQuantityChangeListener);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewCartItems.setLayoutManager(new LinearLayoutManager(getContext(),</b>
+&nbsp;                LinearLayoutManager.VERTICAL, false));
+<b class="nc">&nbsp;        dataBinding.recyclerViewCartItems.setHasFixedSize(true);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewCartItems.setAdapter(cartItemAdapter);</b>
+&nbsp;
+<b class="nc">&nbsp;        if (getActivity() != null &amp;&amp; getActivity() instanceof HomeActivity) {</b>
+&nbsp;
+<b class="nc">&nbsp;            ((HomeActivity) getActivity()).hideBottomBar();</b>
+<b class="nc">&nbsp;            ((HomeActivity) getActivity()).loadCartFragment();</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        refreshList();</b>
+&nbsp;
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void refreshList() {
+<b class="nc">&nbsp;        totalAmount = 0;</b>
+&nbsp;
+<b class="nc">&nbsp;        for (CartItemModel cartItemModel : cartItemModels) {</b>
+&nbsp;
+<b class="nc">&nbsp;            totalAmount = totalAmount + (Float.valueOf(cartItemModel.getRate()) * cartItemModel.getNo());</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        listSize = cartItemModels.size();</b>
+&nbsp;
+<b class="nc">&nbsp;        priceCalculation(listSize, totalAmount);</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void priceCalculation(int size, float Amount) {
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        dataBinding.textViewPriceOfItems.setText(String.valueOf(Amount));</b>
+<b class="nc">&nbsp;        deliveryCharge = Float.valueOf(dataBinding.textViewDelivery.getText().toString());</b>
+<b class="nc">&nbsp;        dataBinding.textViewFinalAmount.setText(String.valueOf(deliveryCharge + totalAmount));</b>
+<b class="nc">&nbsp;        dataBinding.textViewItemPrice.setText(&quot;Price (&quot; + size + &quot; items)&quot;);</b>
+<b class="nc">&nbsp;        dataBinding.textViewRate.setText(String.valueOf(deliveryCharge + totalAmount));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    CartItemQuantityChangeListener cartItemQuantityChangeListener = new CartItemQuantityChangeListener() {</b>
+&nbsp;        @Override
+&nbsp;        public void increaseQuantity(CartItemModel cartItemModel) {
+<b class="nc">&nbsp;            totalAmount = totalAmount + (Float.valueOf(cartItemModel.getRate()));</b>
+<b class="nc">&nbsp;            priceCalculation(listSize, totalAmount);</b>
+&nbsp;
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public void decreaseQuantity(CartItemModel cartItemModel) {
+&nbsp;
+<b class="nc">&nbsp;            totalAmount = totalAmount - (Float.valueOf(cartItemModel.getRate()));</b>
+<b class="nc">&nbsp;            priceCalculation(listSize, totalAmount);</b>
+&nbsp;
+&nbsp;
+&nbsp;        }
+&nbsp;    };
+&nbsp;
+<b class="nc">&nbsp;    OnAdapterSelectedListener&lt;CartItemModel&gt; selectedListener = new OnAdapterSelectedListener&lt;CartItemModel&gt;() {</b>
+&nbsp;        @Override
+&nbsp;        public void onAdapterSelected(CartItemModel model) {
+&nbsp;
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public void onAdapterString(String text) {
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());</b>
+<b class="nc">&nbsp;            LayoutInflater inflater = CartFragment.this.getLayoutInflater();</b>
+<b class="nc">&nbsp;            View dialogView = inflater.inflate(R.layout.cart_item_delete_diologue, null);</b>
+<b class="nc">&nbsp;            TextView cancel = dialogView.findViewById(R.id.textView_cancel);</b>
+<b class="nc">&nbsp;            TextView delete = dialogView.findViewById(R.id.text_view_delete);</b>
+<b class="nc">&nbsp;            dialogBuilder.setView(dialogView);</b>
+<b class="nc">&nbsp;            cancel.setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;                @Override
+&nbsp;                public void onClick(View v) {
+<b class="nc">&nbsp;                    if (alertDialog != null &amp;&amp; alertDialog.isShowing()) {</b>
+<b class="nc">&nbsp;                        alertDialog.dismiss();</b>
+&nbsp;
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            });
+<b class="nc">&nbsp;            delete.setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;                @Override
+&nbsp;                public void onClick(View v) {
+<b class="nc">&nbsp;                    for (CartItemModel cartItemModel : cartItemModels) {</b>
+<b class="nc">&nbsp;                        if (cartItemModel.getId() == Integer.parseInt(text)) {</b>
+<b class="nc">&nbsp;                            if (alertDialog != null &amp;&amp; alertDialog.isShowing()) {</b>
+<b class="nc">&nbsp;                                int index = cartItemModels.indexOf(cartItemModel);</b>
+<b class="nc">&nbsp;                                cartItemModels.remove(cartItemModel);</b>
+<b class="nc">&nbsp;                                cartItemAdapter.notifyItemRangeChanged(0, cartItemModels.size() - 1);</b>
+<b class="nc">&nbsp;                                showToast(cartItemModel.getItenName() + &quot; is removed&quot;);</b>
+&nbsp;                                //cartItemAdapter.notifyItemRemoved(index);
+<b class="nc">&nbsp;                                cartItemAdapter.notifyDataSetChanged();</b>
+&nbsp;
+<b class="nc">&nbsp;                                refreshList();</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;                                alertDialog.dismiss();</b>
+&nbsp;
+<b class="nc">&nbsp;                            }</b>
+&nbsp;                            break;
+&nbsp;                        }
+<b class="nc">&nbsp;                    }</b>
+<b class="nc">&nbsp;                    if (cartItemModels.size() == 0) {</b>
+&nbsp;                        // dataBinding.setEmpty(0);
+<b class="nc">&nbsp;                        dataBinding.textViewRate.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                        dataBinding.textViewCheckout.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                        dataBinding.lottieAnimationView.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;                        dataBinding.cardViewOrderDetails.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                        dataBinding.cardViewAddress.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                        dataBinding.textViewContinueShopping.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;                        dataBinding.textViewNoItems.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;                        dataBinding.recyclerViewCartItems.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                        if (getActivity() != null &amp;&amp; getActivity() instanceof HomeActivity) {</b>
+&nbsp;
+<b class="nc">&nbsp;                            ((HomeActivity) getActivity()).showBottomBar();</b>
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            });
+<b class="nc">&nbsp;            alertDialog = dialogBuilder.create();</b>
+<b class="nc">&nbsp;            if (alertDialog.getWindow() != null) {</b>
+<b class="nc">&nbsp;                alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));</b>
+&nbsp;            }
+<b class="nc">&nbsp;            alertDialog.show();</b>
+<b class="nc">&nbsp;            WindowManager.LayoutParams lp = new WindowManager.LayoutParams();</b>
+&nbsp;
+&nbsp;            // lp.copyFrom(alertDialog.getWindow().getAttributes());
+<b class="nc">&nbsp;            lp.copyFrom(alertDialog.getWindow().getAttributes());</b>
+&nbsp;
+<b class="nc">&nbsp;            alertDialog.getWindow().setAttributes(lp);</b>
+&nbsp;
+&nbsp;
+&nbsp;        }
+&nbsp;    };
+&nbsp;
+&nbsp;    private void populateData() {
+&nbsp;
+<b class="nc">&nbsp;        cartItemModels.add(new CartItemModel(&quot;Chicken Biriyani&quot;, &quot;Mintzza Food Mall&quot;, &quot;100&quot;, 0, 1));</b>
+<b class="nc">&nbsp;        cartItemModels.add(new CartItemModel(&quot;Kuzhi Manthi&quot;, &quot;Mintzza Food Mall&quot;, &quot;200&quot;, 1, 1));</b>
+<b class="nc">&nbsp;        cartItemModels.add(new CartItemModel(&quot;Fried Rice&quot;, &quot;Mintzza Food Mall&quot;, &quot;150&quot;, 2, 1));</b>
+<b class="nc">&nbsp;        cartItemModels.add(new CartItemModel(&quot;Porotta&quot;, &quot;Mintzza Food Mall&quot;, &quot;400&quot;, 3, 1));</b>
+<b class="nc">&nbsp;        cartItemModels.add(new CartItemModel(&quot;Alfaham&quot;, &quot;Mintzza Food Mall&quot;, &quot;250&quot;, 4, 1));</b>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onAttach(Context context) {
+<b class="nc">&nbsp;        super.onAttach(context);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onDetach() {
+<b class="nc">&nbsp;        super.onDetach();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getBindingVariable() {
+<b class="nc">&nbsp;        return BR.cart;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getLayoutId() {
+<b class="nc">&nbsp;        return R.layout.fragment_cart;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public CartViewModel getBindingObject() {
+<b class="nc">&nbsp;        return cartViewModel;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onClick(View v) {
+<b class="nc">&nbsp;        if (v == dataBinding.imageViewPrevArrow) {</b>
+<b class="nc">&nbsp;            if (getActivity() != null &amp;&amp; getActivity() instanceof HomeActivity) {</b>
+&nbsp;
+<b class="nc">&nbsp;                ((HomeActivity) getActivity()).onBackPressed();</b>
+&nbsp;
+&nbsp;            }
+<b class="nc">&nbsp;        } else if (v == dataBinding.textViewContinueShopping) {</b>
+<b class="nc">&nbsp;            if (getActivity() != null &amp;&amp; getActivity() instanceof HomeActivity) {</b>
+&nbsp;
+<b class="nc">&nbsp;                ((HomeActivity) getActivity()).onBackPressed();</b>
+<b class="nc">&nbsp;                getActivity().overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right);</b>
+&nbsp;            }
+<b class="nc">&nbsp;        } else if (v == dataBinding.textViewCheckout) {</b>
+<b class="nc">&nbsp;            if (getActivity() != null) {</b>
+<b class="nc">&nbsp;                startActivity(OrderPlacedActivity.newIntent(getContext()));</b>
+&nbsp;
+<b class="nc">&nbsp;                getActivity().overridePendingTransition(0, 0);</b>
+&nbsp;            }
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.textViewChangeAddress) {</b>
+&nbsp;
+<b class="nc">&nbsp;            if (getActivity() != null) {</b>
+&nbsp;
+<b class="nc">&nbsp;                dataBinding.textViewChangeAddress.setClickable(false);</b>
+<b class="nc">&nbsp;                Intent i = AddressListActivity.newIntent(getActivity());</b>
+<b class="nc">&nbsp;                startActivityForResult(i, 100);</b>
+<b class="nc">&nbsp;                getActivity().overridePendingTransition(0, 0);</b>
+<b class="nc">&nbsp;                new Handler().postDelayed(new Runnable() {</b>
+&nbsp;                    @Override
+&nbsp;                    public void run() {
+<b class="nc">&nbsp;                        dataBinding.textViewChangeAddress.setClickable(true);</b>
+&nbsp;                    }
+&nbsp;                }, 1000);
+&nbsp;            }
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+<b class="nc">&nbsp;        super.onActivityResult(requestCode, resultCode, data);</b>
+&nbsp;
+<b class="nc">&nbsp;        dataBinding.nestedScrollView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onGlobalLayout() {
+<b class="nc">&nbsp;                final int scrollViewHeight = dataBinding.nestedScrollView.getHeight();</b>
+<b class="nc">&nbsp;                if (scrollViewHeight &gt; 0) {</b>
+<b class="nc">&nbsp;                    dataBinding.nestedScrollView.getViewTreeObserver().removeOnGlobalLayoutListener(this);</b>
+&nbsp;
+&nbsp;                    /*final View lastView = dataBinding.nestedScrollView.getChildAt(dataBinding.nestedScrollView.getChildCount() - 1);
+&nbsp;                    final int lastViewBottom = lastView.getBottom() + dataBinding.nestedScrollView.getPaddingBottom();
+&nbsp;                    final int deltaScrollY = lastViewBottom - scrollViewHeight - dataBinding.nestedScrollView.getScrollY();
+&nbsp;                    *//* If you want to see the scroll animation, call this. *//*
+&nbsp;                    dataBinding.nestedScrollView.smoothScrollBy(0, deltaScrollY);
+&nbsp;                    *//* If you don&#39;t want, call this. *//*
+&nbsp;                    dataBinding.nestedScrollView.scrollBy(0, deltaScrollY);*/
+<b class="nc">&nbsp;                    final View firstView = dataBinding.nestedScrollView.getChildAt(dataBinding.nestedScrollView.getChildCount() - 1);</b>
+<b class="nc">&nbsp;                    final int lastViewTop = firstView.getTop() + dataBinding.nestedScrollView.getPaddingTop();</b>
+<b class="nc">&nbsp;                    final int deltaScrollY = lastViewTop - scrollViewHeight - dataBinding.nestedScrollView.getScrollY();</b>
+<b class="nc">&nbsp;                    dataBinding.nestedScrollView.smoothScrollBy(0, deltaScrollY);</b>
+<b class="nc">&nbsp;                    dataBinding.nestedScrollView.scrollBy(0, deltaScrollY);</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        });
+<b class="nc">&nbsp;        if (requestCode == 100) {</b>
+&nbsp;
+<b class="nc">&nbsp;            if (data != null &amp;&amp; data.getExtras() != null) {</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;                AddressListModel addressListModel = data.getParcelableExtra(&quot;AddressSelectModel&quot;);</b>
+<b class="nc">&nbsp;                dataBinding.textViewName.setText(addressListModel.getName());</b>
+<b class="nc">&nbsp;                dataBinding.textViewAddress.setText(addressListModel.getHouseName() + &quot;,&quot; + addressListModel.getLandmark()</b>
+<b class="nc">&nbsp;                        + &quot;&quot; + addressListModel.getStreet() + &quot;,&quot; + addressListModel.getCity() + &quot;,&quot; + addressListModel.getPincode());</b>
+<b class="nc">&nbsp;                dataBinding.textViewPhoneNumber.setText(addressListModel.getPhone());</b>
+&nbsp;
+&nbsp;            }
+&nbsp;
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

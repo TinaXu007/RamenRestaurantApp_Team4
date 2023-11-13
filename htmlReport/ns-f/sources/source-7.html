@@ -1,0 +1,304 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ActivityEditProfileBindingImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.databinding</a>
+</div>
+
+<h1>Coverage Summary for Class: ActivityEditProfileBindingImpl (com.alpharamen.customer.databinding)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ActivityEditProfileBindingImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/65)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ActivityEditProfileBindingImpl$OnClickListenerImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/69)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.databinding;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import androidx.annotation.NonNull;
+&nbsp;import androidx.annotation.Nullable;
+&nbsp;import android.view.View;
+&nbsp;@SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;public class ActivityEditProfileBindingImpl extends ActivityEditProfileBinding  {
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    private static final androidx.databinding.ViewDataBinding.IncludedLayouts sIncludes;
+&nbsp;    @Nullable
+&nbsp;    private static final android.util.SparseIntArray sViewsWithIds;
+&nbsp;    static {
+<b class="nc">&nbsp;        sIncludes = null;</b>
+<b class="nc">&nbsp;        sViewsWithIds = new android.util.SparseIntArray();</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.text_view_edit_profile, 4);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.card_view_username, 5);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.edit_text_user_name, 6);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.card_view_email, 7);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.edit_text_email, 8);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.card_view_phone, 9);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.edit_text_phone, 10);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.card_view_house_name, 11);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.edit_text_house_name, 12);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.card_view_city, 13);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.edit_text_city, 14);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.card_view_pin, 15);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.edit_text_pin, 16);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.circleImageView, 17);</b>
+&nbsp;    }
+&nbsp;    // views
+&nbsp;    @NonNull
+&nbsp;    private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
+&nbsp;    // variables
+&nbsp;    // values
+&nbsp;    // listeners
+&nbsp;    private OnClickListenerImpl mListenerOnClickAndroidViewViewOnClickListener;
+&nbsp;    // Inverse Binding Event Handlers
+&nbsp;
+&nbsp;    public ActivityEditProfileBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
+<b class="nc">&nbsp;        this(bindingComponent, root, mapBindings(bindingComponent, root, 18, sIncludes, sViewsWithIds));</b>
+&nbsp;    }
+&nbsp;    private ActivityEditProfileBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
+<b class="nc">&nbsp;        super(bindingComponent, root, 0</b>
+&nbsp;            , (androidx.cardview.widget.CardView) bindings[13]
+&nbsp;            , (androidx.cardview.widget.CardView) bindings[7]
+&nbsp;            , (androidx.cardview.widget.CardView) bindings[11]
+&nbsp;            , (androidx.cardview.widget.CardView) bindings[9]
+&nbsp;            , (androidx.cardview.widget.CardView) bindings[15]
+&nbsp;            , (androidx.cardview.widget.CardView) bindings[5]
+&nbsp;            , (de.hdodenhof.circleimageview.CircleImageView) bindings[17]
+&nbsp;            , (android.widget.EditText) bindings[14]
+&nbsp;            , (android.widget.EditText) bindings[8]
+&nbsp;            , (android.widget.EditText) bindings[12]
+&nbsp;            , (com.google.android.material.textfield.TextInputEditText) bindings[10]
+&nbsp;            , (android.widget.EditText) bindings[16]
+&nbsp;            , (android.widget.EditText) bindings[6]
+&nbsp;            , (android.widget.ImageView) bindings[2]
+&nbsp;            , (android.widget.ImageView) bindings[3]
+&nbsp;            , (android.widget.ImageView) bindings[1]
+&nbsp;            , (android.widget.TextView) bindings[4]
+&nbsp;            );
+<b class="nc">&nbsp;        this.imageViewCamera.setTag(null);</b>
+<b class="nc">&nbsp;        this.imageViewNextArrow.setTag(null);</b>
+<b class="nc">&nbsp;        this.imageViewPrevArrow.setTag(null);</b>
+<b class="nc">&nbsp;        this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];</b>
+<b class="nc">&nbsp;        this.mboundView0.setTag(null);</b>
+<b class="nc">&nbsp;        setRootTag(root);</b>
+&nbsp;        // listeners
+<b class="nc">&nbsp;        invalidateAll();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void invalidateAll() {
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;                mDirtyFlags = 0x4L;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        requestRebind();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean hasPendingBindings() {
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            if (mDirtyFlags != 0) {</b>
+<b class="nc">&nbsp;                return true;</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean setVariable(int variableId, @Nullable Object variable)  {
+<b class="nc">&nbsp;        boolean variableSet = true;</b>
+<b class="nc">&nbsp;        if (BR.editProfile == variableId) {</b>
+<b class="nc">&nbsp;            setEditProfile((com.alpharamen.customer.viewmodel.EditProfileViewModel) variable);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        else if (BR.listener == variableId) {</b>
+<b class="nc">&nbsp;            setListener((android.view.View.OnClickListener) variable);</b>
+&nbsp;        }
+&nbsp;        else {
+<b class="nc">&nbsp;            variableSet = false;</b>
+&nbsp;        }
+<b class="nc">&nbsp;            return variableSet;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setEditProfile(@Nullable com.alpharamen.customer.viewmodel.EditProfileViewModel EditProfile) {
+<b class="nc">&nbsp;        this.mEditProfile = EditProfile;</b>
+&nbsp;    }
+&nbsp;    public void setListener(@Nullable android.view.View.OnClickListener Listener) {
+<b class="nc">&nbsp;        this.mListener = Listener;</b>
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            mDirtyFlags |= 0x2L;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        notifyPropertyChanged(BR.listener);</b>
+<b class="nc">&nbsp;        super.requestRebind();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected boolean onFieldChange(int localFieldId, Object object, int fieldId) {
+<b class="nc">&nbsp;        switch (localFieldId) {</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void executeBindings() {
+<b class="nc">&nbsp;        long dirtyFlags = 0;</b>
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            dirtyFlags = mDirtyFlags;</b>
+<b class="nc">&nbsp;            mDirtyFlags = 0;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        android.view.View.OnClickListener listenerOnClickAndroidViewViewOnClickListener = null;</b>
+<b class="nc">&nbsp;        android.view.View.OnClickListener listener = mListener;</b>
+&nbsp;
+<b class="nc">&nbsp;        if ((dirtyFlags &amp; 0x6L) != 0) {</b>
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;                if (listener != null) {</b>
+&nbsp;                    // read listener::onClick
+<b class="nc">&nbsp;                    listenerOnClickAndroidViewViewOnClickListener = (((mListenerOnClickAndroidViewViewOnClickListener == null) ? (mListenerOnClickAndroidViewViewOnClickListener = new OnClickListenerImpl()) : mListenerOnClickAndroidViewViewOnClickListener).setValue(listener));</b>
+&nbsp;                }
+&nbsp;        }
+&nbsp;        // batch finished
+<b class="nc">&nbsp;        if ((dirtyFlags &amp; 0x6L) != 0) {</b>
+&nbsp;            // api target 1
+&nbsp;
+<b class="nc">&nbsp;            this.imageViewCamera.setOnClickListener(listenerOnClickAndroidViewViewOnClickListener);</b>
+<b class="nc">&nbsp;            this.imageViewNextArrow.setOnClickListener(listenerOnClickAndroidViewViewOnClickListener);</b>
+<b class="nc">&nbsp;            this.imageViewPrevArrow.setOnClickListener(listenerOnClickAndroidViewViewOnClickListener);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;    // Listener Stub Implementations
+<b class="nc">&nbsp;    public static class OnClickListenerImpl implements android.view.View.OnClickListener{</b>
+&nbsp;        private android.view.View.OnClickListener value;
+&nbsp;        public OnClickListenerImpl setValue(android.view.View.OnClickListener value) {
+<b class="nc">&nbsp;            this.value = value;</b>
+<b class="nc">&nbsp;            return value == null ? null : this;</b>
+&nbsp;        }
+&nbsp;        @Override
+&nbsp;        public void onClick(android.view.View arg0) {
+<b class="nc">&nbsp;            this.value.onClick(arg0); </b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;    // callback impls
+&nbsp;    // dirty flag
+<b class="nc">&nbsp;    private  long mDirtyFlags = 0xffffffffffffffffL;</b>
+&nbsp;    /* flag mapping
+&nbsp;        flag 0 (0x1L): editProfile
+&nbsp;        flag 1 (0x2L): listener
+&nbsp;        flag 2 (0x3L): null
+&nbsp;    flag mapping end*/
+&nbsp;    //end
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

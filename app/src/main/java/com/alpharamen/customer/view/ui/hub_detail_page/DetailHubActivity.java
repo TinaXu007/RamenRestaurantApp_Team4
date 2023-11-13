@@ -254,38 +254,38 @@ public class DetailHubActivity extends BaseActivity implements AppBarLayout.OnOf
         dishTypeModels.add(new DishTypeModel("Cocktails", 4));
 
 
-        indianItemsList.add(new DishItemModel("Chicken Burger", "Drunken Panda", "60", R.drawable.login_image));
-        indianItemsList.add(new DishItemModel("Chicken Burger", "Drunken Panda", "70", R.drawable.login_image));
-        indianItemsList.add(new DishItemModel("Chicken Burger", "Drunken Panda", "80", R.drawable.login_image));
-        indianItemsList.add(new DishItemModel("Chicken Burger", "Drunken Panda", "70", R.drawable.login_image));
-        indianItemsList.add(new DishItemModel("Chicken Burger", "Drunken Panda", "70", R.drawable.login_image));
+        indianItemsList.add(new DishItemModel("Chicken Burger", "Alpha Ramen", "60", R.drawable.login_image));
+        indianItemsList.add(new DishItemModel("Chicken Burger", "Alpha Ramen", "70", R.drawable.login_image));
+        indianItemsList.add(new DishItemModel("Chicken Burger", "Alpha Ramen", "80", R.drawable.login_image));
+        indianItemsList.add(new DishItemModel("Chicken Burger", "Alpha Ramen", "70", R.drawable.login_image));
+        indianItemsList.add(new DishItemModel("Chicken Burger", "Alpha Ramen", "70", R.drawable.login_image));
 
-        chineseItemsList.add(new DishItemModel("Kung Pao Chicken", "Drunken Panda", "100", R.drawable.dp));
-        chineseItemsList.add(new DishItemModel("Wontons", "Drunken Panda", "120", R.drawable.login_image));
-        chineseItemsList.add(new DishItemModel("Dumplings", "Drunken Panda", "70", R.drawable.dp));
-        chineseItemsList.add(new DishItemModel("Chow Mein", "Drunken Panda", "70", R.drawable.mintzza));
-        chineseItemsList.add(new DishItemModel("Spring Rolls", "Drunken Panda", "70", R.drawable.login_image));
-
-
-        sweetItemsList.add(new DishItemModel("PATISA", "Drunken Panda", "40", R.drawable.dp));
-        sweetItemsList.add(new DishItemModel("MATHURA PEDA", "Drunken Panda", "90", R.drawable.login_image));
-        sweetItemsList.add(new DishItemModel("CHAINA ANGOOR", "Drunken Panda", "70", R.drawable.dp));
-        sweetItemsList.add(new DishItemModel("MEWA BITE", "Drunken Panda", "70", R.drawable.mintzza));
-        sweetItemsList.add(new DishItemModel("RAJBHOG", "Drunken Panda", "70", R.drawable.login_image));
+        chineseItemsList.add(new DishItemModel("Kung Pao Chicken", "Alpha Ramen", "100", R.drawable.dp));
+        chineseItemsList.add(new DishItemModel("Wontons", "Alpha Ramen", "120", R.drawable.login_image));
+        chineseItemsList.add(new DishItemModel("Dumplings", "Alpha Ramen", "70", R.drawable.dp));
+        chineseItemsList.add(new DishItemModel("Chow Mein", "Alpha Ramen", "70", R.drawable.mintzza));
+        chineseItemsList.add(new DishItemModel("Spring Rolls", "Alpha Ramen", "70", R.drawable.login_image));
 
 
-        snacksList.add(new DishItemModel("Bitterballen", "Drunken Panda", "80", R.drawable.dp));
-        snacksList.add(new DishItemModel("Bonda", "Drunken Panda", "100", R.drawable.login_image));
-        snacksList.add(new DishItemModel("Croquette", "Drunken Panda", "70", R.drawable.dp));
-        snacksList.add(new DishItemModel("Doughnutn", "Drunken Panda", "70", R.drawable.mintzza));
-        snacksList.add(new DishItemModel("Pancakes", "Drunken Panda", "70", R.drawable.login_image));
+        sweetItemsList.add(new DishItemModel("PATISA", "Alpha Ramen", "40", R.drawable.dp));
+        sweetItemsList.add(new DishItemModel("MATHURA PEDA", "Alpha Ramen", "90", R.drawable.login_image));
+        sweetItemsList.add(new DishItemModel("CHAINA ANGOOR", "Alpha Ramen", "70", R.drawable.dp));
+        sweetItemsList.add(new DishItemModel("MEWA BITE", "Alpha Ramen", "70", R.drawable.mintzza));
+        sweetItemsList.add(new DishItemModel("RAJBHOG", "Alpha Ramen", "70", R.drawable.login_image));
 
 
-        cooldrinksList.add(new DishItemModel("Apple Margarita", "Drunken Panda", "50", R.drawable.dp));
-        cooldrinksList.add(new DishItemModel("Aperol Spritz", "Drunken Panda", "70", R.drawable.login_image));
-        cooldrinksList.add(new DishItemModel("Alabama Slammer ", "Drunken Panda", "80", R.drawable.dp));
-        cooldrinksList.add(new DishItemModel("Adult Hot Chocolate", "Drunken Panda", "90", R.drawable.mintzza));
-        cooldrinksList.add(new DishItemModel("Anejo Highball", "Drunken Panda", "70", R.drawable.login_image));
+        snacksList.add(new DishItemModel("Bitterballen", "Alpha Ramen", "80", R.drawable.dp));
+        snacksList.add(new DishItemModel("Bonda", "Alpha Ramen", "100", R.drawable.login_image));
+        snacksList.add(new DishItemModel("Croquette", "Alpha Ramen", "70", R.drawable.dp));
+        snacksList.add(new DishItemModel("Doughnutn", "Alpha Ramen", "70", R.drawable.mintzza));
+        snacksList.add(new DishItemModel("Pancakes", "Alpha Ramen", "70", R.drawable.login_image));
+
+
+        cooldrinksList.add(new DishItemModel("Apple Margarita", "Alpha Ramen", "50", R.drawable.dp));
+        cooldrinksList.add(new DishItemModel("Aperol Spritz", "Alpha Ramen", "70", R.drawable.login_image));
+        cooldrinksList.add(new DishItemModel("Alabama Slammer ", "Alpha Ramen", "80", R.drawable.dp));
+        cooldrinksList.add(new DishItemModel("Adult Hot Chocolate", "Alpha Ramen", "90", R.drawable.mintzza));
+        cooldrinksList.add(new DishItemModel("Anejo Highball", "Alpha Ramen", "70", R.drawable.login_image));
 
     }
 

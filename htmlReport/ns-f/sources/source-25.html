@@ -1,0 +1,350 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > RecyclerViewCartSingleItemBindingImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.databinding</a>
+</div>
+
+<h1>Coverage Summary for Class: RecyclerViewCartSingleItemBindingImpl (com.alpharamen.customer.databinding)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RecyclerViewCartSingleItemBindingImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/101)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.databinding;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import androidx.annotation.NonNull;
+&nbsp;import androidx.annotation.Nullable;
+&nbsp;import android.view.View;
+&nbsp;@SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;public class RecyclerViewCartSingleItemBindingImpl extends RecyclerViewCartSingleItemBinding implements com.alpharamen.customer.generated.callback.OnClickListener.Listener {
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    private static final androidx.databinding.ViewDataBinding.IncludedLayouts sIncludes;
+&nbsp;    @Nullable
+&nbsp;    private static final android.util.SparseIntArray sViewsWithIds;
+&nbsp;    static {
+<b class="nc">&nbsp;        sIncludes = null;</b>
+<b class="nc">&nbsp;        sViewsWithIds = new android.util.SparseIntArray();</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.constraintLayout_item, 7);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.view_cart_single_item, 8);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.image_view_cart_item, 9);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.wacTextView_rupees, 10);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.view_quantity, 11);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.text_add, 12);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.text_subtract, 13);</b>
+&nbsp;    }
+&nbsp;    // views
+&nbsp;    @NonNull
+&nbsp;    private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
+&nbsp;    // variables
+&nbsp;    @Nullable
+&nbsp;    private final android.view.View.OnClickListener mCallback14;
+&nbsp;    @Nullable
+&nbsp;    private final android.view.View.OnClickListener mCallback15;
+&nbsp;    // values
+&nbsp;    // listeners
+&nbsp;    // Inverse Binding Event Handlers
+&nbsp;
+&nbsp;    public RecyclerViewCartSingleItemBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
+<b class="nc">&nbsp;        this(bindingComponent, root, mapBindings(bindingComponent, root, 14, sIncludes, sViewsWithIds));</b>
+&nbsp;    }
+&nbsp;    private RecyclerViewCartSingleItemBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
+<b class="nc">&nbsp;        super(bindingComponent, root, 0</b>
+&nbsp;            , (androidx.cardview.widget.CardView) bindings[1]
+&nbsp;            , (androidx.constraintlayout.widget.ConstraintLayout) bindings[7]
+&nbsp;            , (com.makeramen.roundedimageview.RoundedImageView) bindings[9]
+&nbsp;            , (android.widget.ImageView) bindings[6]
+&nbsp;            , (android.widget.TextView) bindings[12]
+&nbsp;            , (android.widget.TextView) bindings[5]
+&nbsp;            , (android.widget.TextView) bindings[13]
+&nbsp;            , (android.view.View) bindings[8]
+&nbsp;            , (android.widget.LinearLayout) bindings[11]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[3]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[2]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[4]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[10]
+&nbsp;            );
+<b class="nc">&nbsp;        this.cardViewCartSingleItem.setTag(null);</b>
+<b class="nc">&nbsp;        this.imageViewDelete.setTag(null);</b>
+<b class="nc">&nbsp;        this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];</b>
+<b class="nc">&nbsp;        this.mboundView0.setTag(null);</b>
+<b class="nc">&nbsp;        this.textQuantity.setTag(null);</b>
+<b class="nc">&nbsp;        this.wacTextView.setTag(null);</b>
+<b class="nc">&nbsp;        this.wacTextViewHotel.setTag(null);</b>
+<b class="nc">&nbsp;        this.wacTextViewRate.setTag(null);</b>
+<b class="nc">&nbsp;        setRootTag(root);</b>
+&nbsp;        // listeners
+<b class="nc">&nbsp;        mCallback14 = new com.alpharamen.customer.generated.callback.OnClickListener(this, 1);</b>
+<b class="nc">&nbsp;        mCallback15 = new com.alpharamen.customer.generated.callback.OnClickListener(this, 2);</b>
+<b class="nc">&nbsp;        invalidateAll();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void invalidateAll() {
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;                mDirtyFlags = 0x4L;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        requestRebind();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean hasPendingBindings() {
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            if (mDirtyFlags != 0) {</b>
+<b class="nc">&nbsp;                return true;</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean setVariable(int variableId, @Nullable Object variable)  {
+<b class="nc">&nbsp;        boolean variableSet = true;</b>
+<b class="nc">&nbsp;        if (BR.item == variableId) {</b>
+<b class="nc">&nbsp;            setItem((com.alpharamen.customer.data.models.CartItemModel) variable);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        else if (BR.listener == variableId) {</b>
+<b class="nc">&nbsp;            setListener((com.alpharamen.customer.view.listener.OnAdapterSelectedListener) variable);</b>
+&nbsp;        }
+&nbsp;        else {
+<b class="nc">&nbsp;            variableSet = false;</b>
+&nbsp;        }
+<b class="nc">&nbsp;            return variableSet;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setItem(@Nullable com.alpharamen.customer.data.models.CartItemModel Item) {
+<b class="nc">&nbsp;        this.mItem = Item;</b>
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            mDirtyFlags |= 0x1L;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        notifyPropertyChanged(BR.item);</b>
+<b class="nc">&nbsp;        super.requestRebind();</b>
+&nbsp;    }
+&nbsp;    public void setListener(@Nullable com.alpharamen.customer.view.listener.OnAdapterSelectedListener Listener) {
+<b class="nc">&nbsp;        this.mListener = Listener;</b>
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            mDirtyFlags |= 0x2L;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        notifyPropertyChanged(BR.listener);</b>
+<b class="nc">&nbsp;        super.requestRebind();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected boolean onFieldChange(int localFieldId, Object object, int fieldId) {
+<b class="nc">&nbsp;        switch (localFieldId) {</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void executeBindings() {
+<b class="nc">&nbsp;        long dirtyFlags = 0;</b>
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            dirtyFlags = mDirtyFlags;</b>
+<b class="nc">&nbsp;            mDirtyFlags = 0;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        com.alpharamen.customer.data.models.CartItemModel item = mItem;</b>
+<b class="nc">&nbsp;        java.lang.String itemRestName = null;</b>
+<b class="nc">&nbsp;        int itemNo = 0;</b>
+<b class="nc">&nbsp;        java.lang.String itemRate = null;</b>
+<b class="nc">&nbsp;        java.lang.String itemItenName = null;</b>
+<b class="nc">&nbsp;        com.alpharamen.customer.view.listener.OnAdapterSelectedListener&lt;?&gt; listener = mListener;</b>
+<b class="nc">&nbsp;        java.lang.String stringValueOfItemNo = null;</b>
+&nbsp;
+<b class="nc">&nbsp;        if ((dirtyFlags &amp; 0x5L) != 0) {</b>
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;                if (item != null) {</b>
+&nbsp;                    // read item.restName
+<b class="nc">&nbsp;                    itemRestName = item.getRestName();</b>
+&nbsp;                    // read item.no
+<b class="nc">&nbsp;                    itemNo = item.getNo();</b>
+&nbsp;                    // read item.rate
+<b class="nc">&nbsp;                    itemRate = item.getRate();</b>
+&nbsp;                    // read item.itenName
+<b class="nc">&nbsp;                    itemItenName = item.getItenName();</b>
+&nbsp;                }
+&nbsp;
+&nbsp;
+&nbsp;                // read String.valueOf(item.no)
+<b class="nc">&nbsp;                stringValueOfItemNo = java.lang.String.valueOf(itemNo);</b>
+&nbsp;        }
+&nbsp;        // batch finished
+<b class="nc">&nbsp;        if ((dirtyFlags &amp; 0x4L) != 0) {</b>
+&nbsp;            // api target 1
+&nbsp;
+<b class="nc">&nbsp;            this.cardViewCartSingleItem.setOnClickListener(mCallback14);</b>
+<b class="nc">&nbsp;            this.imageViewDelete.setOnClickListener(mCallback15);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if ((dirtyFlags &amp; 0x5L) != 0) {</b>
+&nbsp;            // api target 1
+&nbsp;
+<b class="nc">&nbsp;            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.textQuantity, stringValueOfItemNo);</b>
+<b class="nc">&nbsp;            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.wacTextView, itemRestName);</b>
+<b class="nc">&nbsp;            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.wacTextViewHotel, itemItenName);</b>
+<b class="nc">&nbsp;            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.wacTextViewRate, itemRate);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;    // Listener Stub Implementations
+&nbsp;    // callback impls
+&nbsp;    public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
+<b class="nc">&nbsp;        switch(sourceId) {</b>
+&nbsp;            case 1: {
+&nbsp;                // localize variables for thread safety
+&nbsp;                // item
+<b class="nc">&nbsp;                com.alpharamen.customer.data.models.CartItemModel item = mItem;</b>
+&nbsp;                // listener != null
+<b class="nc">&nbsp;                boolean listenerJavaLangObjectNull = false;</b>
+&nbsp;                // listener
+<b class="nc">&nbsp;                com.alpharamen.customer.view.listener.OnAdapterSelectedListener listener = mListener;</b>
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;                listenerJavaLangObjectNull = (listener) != (null);</b>
+<b class="nc">&nbsp;                if (listenerJavaLangObjectNull) {</b>
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;                    listener.onAdapterSelected(item);</b>
+&nbsp;                }
+&nbsp;                break;
+&nbsp;            }
+&nbsp;            case 2: {
+&nbsp;                // localize variables for thread safety
+&nbsp;                // String.valueOf(item.id)
+<b class="nc">&nbsp;                java.lang.String stringValueOfItemId = null;</b>
+&nbsp;                // item.id
+<b class="nc">&nbsp;                int itemId = 0;</b>
+&nbsp;                // item
+<b class="nc">&nbsp;                com.alpharamen.customer.data.models.CartItemModel item = mItem;</b>
+&nbsp;                // listener != null
+<b class="nc">&nbsp;                boolean listenerJavaLangObjectNull = false;</b>
+&nbsp;                // listener
+<b class="nc">&nbsp;                com.alpharamen.customer.view.listener.OnAdapterSelectedListener listener = mListener;</b>
+&nbsp;                // item != null
+<b class="nc">&nbsp;                boolean itemJavaLangObjectNull = false;</b>
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;                listenerJavaLangObjectNull = (listener) != (null);</b>
+<b class="nc">&nbsp;                if (listenerJavaLangObjectNull) {</b>
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;                    itemJavaLangObjectNull = (item) != (null);</b>
+<b class="nc">&nbsp;                    if (itemJavaLangObjectNull) {</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;                        itemId = item.getId();</b>
+&nbsp;
+<b class="nc">&nbsp;                        stringValueOfItemId = java.lang.String.valueOf(itemId);</b>
+&nbsp;
+<b class="nc">&nbsp;                        listener.onAdapterString(stringValueOfItemId);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;                break;
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;    // dirty flag
+<b class="nc">&nbsp;    private  long mDirtyFlags = 0xffffffffffffffffL;</b>
+&nbsp;    /* flag mapping
+&nbsp;        flag 0 (0x1L): item
+&nbsp;        flag 1 (0x2L): listener
+&nbsp;        flag 2 (0x3L): null
+&nbsp;    flag mapping end*/
+&nbsp;    //end
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

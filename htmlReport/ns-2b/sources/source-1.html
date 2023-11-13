@@ -1,0 +1,188 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SplashActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.ui.splash</a>
+</div>
+
+<h1>Coverage Summary for Class: SplashActivity (com.alpharamen.customer.view.ui.splash)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SplashActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">SplashActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.ui.splash;
+&nbsp;
+&nbsp;import androidx.lifecycle.ViewModelProviders;
+&nbsp;import android.os.Bundle;
+&nbsp;import android.os.Handler;
+&nbsp;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.base.BaseActivity;
+&nbsp;import com.alpharamen.customer.databinding.ActivitySplashBinding;
+&nbsp;import com.alpharamen.customer.factory.ViewModelProviderFactory;
+&nbsp;import com.alpharamen.customer.view.ui.onboarding.OnboardActivity;
+&nbsp;import com.alpharamen.customer.viewmodel.SplashViewModel;
+&nbsp;
+&nbsp;import javax.inject.Inject;
+&nbsp;
+<b class="nc">&nbsp;public class SplashActivity extends BaseActivity&lt;ActivitySplashBinding, SplashViewModel&gt; {</b>
+&nbsp;
+&nbsp;    ActivitySplashBinding splashBinding;
+&nbsp;    SplashViewModel splashViewModel;
+&nbsp;
+&nbsp;    @Inject
+&nbsp;    ViewModelProviderFactory mViewModelFactory;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;        splashViewModel = ViewModelProviders.of(this, mViewModelFactory).get(SplashViewModel.class);</b>
+<b class="nc">&nbsp;        splashBinding = (ActivitySplashBinding) getViewDataBinding();</b>
+<b class="nc">&nbsp;        splashViewModel.getConfig().observe( this,</b>
+&nbsp;                splashBean -&gt; {
+&nbsp;
+<b class="nc">&nbsp;                    new Handler().postDelayed(new Runnable() {</b>
+&nbsp;                        @Override
+&nbsp;                        public void run() {
+<b class="nc">&nbsp;                            startActivity(OnboardActivity.newIntent(getApplicationContext()));</b>
+<b class="nc">&nbsp;                            finish();</b>
+<b class="nc">&nbsp;                            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);</b>
+&nbsp;                        }
+&nbsp;                    },2000);
+&nbsp;
+&nbsp;                });
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getBindingVariable() {
+<b class="nc">&nbsp;        return BR.splash;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getLayoutId() {
+<b class="nc">&nbsp;        return R.layout.activity_splash;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public SplashViewModel getBindingObject() {
+<b class="nc">&nbsp;        return splashViewModel;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

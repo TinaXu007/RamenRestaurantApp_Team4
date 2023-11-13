@@ -1,0 +1,495 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > FoodItemListFragment</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.ui.nearme</a>
+</div>
+
+<h1>Coverage Summary for Class: FoodItemListFragment (com.alpharamen.customer.view.ui.nearme)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FoodItemListFragment</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/63)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">FoodItemListFragment$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">FoodItemListFragment$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">FoodItemListFragment$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">FoodItemListFragment$4</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/21)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/25)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/98)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.ui.nearme;
+&nbsp;
+&nbsp;import androidx.lifecycle.Observer;
+&nbsp;import androidx.lifecycle.ViewModelProviders;
+&nbsp;import android.content.Context;
+&nbsp;import android.os.Bundle;
+&nbsp;import androidx.annotation.NonNull;
+&nbsp;import androidx.annotation.Nullable;
+&nbsp;import androidx.recyclerview.widget.LinearLayoutManager;
+&nbsp;import android.view.View;
+&nbsp;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.base.BaseFragment;
+&nbsp;import com.alpharamen.customer.data.models.FreeDeliveryResponseModel;
+&nbsp;import com.alpharamen.customer.data.models.OfferListModelNew;
+&nbsp;import com.alpharamen.customer.data.models.PopularListModelNew;
+&nbsp;import com.alpharamen.customer.data.models.SampleModel;
+&nbsp;import com.alpharamen.customer.databinding.FragmentHomeBinding;
+&nbsp;import com.alpharamen.customer.factory.ViewModelProviderFactory;
+&nbsp;import com.alpharamen.customer.view.adapter.MostPopularItemAdapter;
+&nbsp;import com.alpharamen.customer.view.adapter.OfferListAdapter;
+&nbsp;import com.alpharamen.customer.view.listener.OnAdapterSelectedListener;
+&nbsp;import com.alpharamen.customer.view.ui.home_page.HomeActivity;
+&nbsp;import com.alpharamen.customer.viewmodel.HomeViewModel;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import javax.inject.Inject;
+&nbsp;
+&nbsp;public class FoodItemListFragment extends BaseFragment&lt;FragmentHomeBinding, SampleModel&gt; {
+&nbsp;    // TODO: Rename parameter arguments, choose names that match
+&nbsp;    private static final String ARG_PARAM1 = &quot;param1&quot;;
+&nbsp;    private static final String ARG_PARAM2 = &quot;param2&quot;;
+&nbsp;    private String mParam1;
+&nbsp;    private String mParam2;
+&nbsp;
+&nbsp;    FragmentHomeBinding dataBinding;
+&nbsp;    SampleModel sampleModel;
+<b class="nc">&nbsp;    List&lt;OfferListModelNew&gt; offerListModelList = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    List&lt;PopularListModelNew&gt; mostPopularItemModelList = new ArrayList&lt;&gt;();</b>
+&nbsp;
+&nbsp;    OfferListAdapter offerListAdapter;
+&nbsp;    MostPopularItemAdapter mostPopularItemAdapter;
+&nbsp;
+&nbsp;    @Inject
+&nbsp;    ViewModelProviderFactory mVviewModelFactory;
+&nbsp;    HomeViewModel homeViewModel;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    public FoodItemListFragment() {</b>
+&nbsp;        // Required empty public constructor
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Use this factory method to create a new instance of
+&nbsp;     * this fragment using the provided parameters.
+&nbsp;     *
+&nbsp;     * @return A new instance of fragment FoodItemListFragment.
+&nbsp;     */
+&nbsp;    public static FoodItemListFragment newInstance(String param1, String param2) {
+<b class="nc">&nbsp;        FoodItemListFragment fragment = new FoodItemListFragment();</b>
+<b class="nc">&nbsp;        Bundle args = new Bundle();</b>
+<b class="nc">&nbsp;        args.putString(ARG_PARAM1, param1);</b>
+<b class="nc">&nbsp;        args.putString(ARG_PARAM2, param2);</b>
+<b class="nc">&nbsp;        fragment.setArguments(args);</b>
+<b class="nc">&nbsp;        return fragment;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;        if (getArguments() != null) {</b>
+<b class="nc">&nbsp;            mParam1 = getArguments().getString(ARG_PARAM1);</b>
+<b class="nc">&nbsp;            mParam2 = getArguments().getString(ARG_PARAM2);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+<b class="nc">&nbsp;        homeViewModel = ViewModelProviders.of(this, mVviewModelFactory).get(HomeViewModel.class);</b>
+<b class="nc">&nbsp;        super.onViewCreated(view, savedInstanceState);</b>
+<b class="nc">&nbsp;        dataBinding = (FragmentHomeBinding) getViewDataBinding();</b>
+<b class="nc">&nbsp;        dataBinding.freeDeliveryLayout.setListener(onClickListener);</b>
+<b class="nc">&nbsp;        dataBinding.setSample(sampleModel);</b>
+&nbsp;
+&nbsp;
+&nbsp;//        handleProgressBar();
+<b class="nc">&nbsp;        hideLoading(); // TODO: Tina added this</b>
+&nbsp;
+<b class="nc">&nbsp;        if (getActivity() != null &amp;&amp; getActivity() instanceof HomeActivity) {</b>
+&nbsp;
+<b class="nc">&nbsp;            ((HomeActivity) getActivity()).showBottomBar();</b>
+<b class="nc">&nbsp;            ((HomeActivity) getActivity()).loadFoodListFragment();</b>
+&nbsp;
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        offerListAdapter = new OfferListAdapter(offerListModelList, offerItemListener);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewOfferList.setLayoutManager(new LinearLayoutManager(getContext(),</b>
+&nbsp;                LinearLayoutManager.HORIZONTAL, false));
+<b class="nc">&nbsp;        dataBinding.recyclerViewOfferList.setHasFixedSize(true);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewOfferList.setAdapter(offerListAdapter);</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        mostPopularItemAdapter = new MostPopularItemAdapter(mostPopularItemModelList, mostPopularItemListener);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewPopular.setLayoutManager(new LinearLayoutManager(getContext(),</b>
+&nbsp;                LinearLayoutManager.HORIZONTAL, false));
+<b class="nc">&nbsp;        dataBinding.recyclerViewPopular.setHasFixedSize(true);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewPopular.setAdapter(mostPopularItemAdapter);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewPopular.scrollToPosition(2);</b>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;//        homeViewModel.getMutableLiveData().observe(this, itemResponseModel -&gt; {
+&nbsp;//
+&nbsp;//
+&nbsp;//            if (itemResponseModel != null &amp;&amp; itemResponseModel.getData().getOfferList().size() &gt; 0 &amp;&amp;
+&nbsp;//                    itemResponseModel.getData().getPopularList().size() &gt; 0) {
+&nbsp;//
+&nbsp;//                offerListModelList.addAll(itemResponseModel.getData().getOfferList());
+&nbsp;//                mostPopularItemModelList.addAll(itemResponseModel.getData().getPopularList());
+&nbsp;//
+&nbsp;//
+&nbsp;//            } else {
+&nbsp;//                showToast(&quot;no response&quot;);
+&nbsp;//            }
+&nbsp;//
+&nbsp;//            offerListAdapter.notifyDataSetChanged();
+&nbsp;//            mostPopularItemAdapter.notifyDataSetChanged();
+&nbsp;//
+&nbsp;//        });
+&nbsp;
+<b class="nc">&nbsp;        homeViewModel.getFreeDeliveryMutableLiveData().observe(this, new Observer&lt;FreeDeliveryResponseModel&gt;() {</b>
+&nbsp;            @Override
+&nbsp;            public void onChanged(@Nullable FreeDeliveryResponseModel freeDeliveryResponseModel) {
+<b class="nc">&nbsp;                if (freeDeliveryResponseModel != null &amp;&amp; freeDeliveryResponseModel.getData().getFreeDeliveryList().size() &gt; 0) {</b>
+<b class="nc">&nbsp;                    dataBinding.freeDeliveryLayout.setItemFirst(freeDeliveryResponseModel.getData().getFreeDeliveryList().get(0));</b>
+<b class="nc">&nbsp;                    dataBinding.freeDeliveryLayout.setItemSecond(freeDeliveryResponseModel.getData().getFreeDeliveryList().get(1));</b>
+<b class="nc">&nbsp;                    dataBinding.freeDeliveryLayout.setItemThird(freeDeliveryResponseModel.getData().getFreeDeliveryList().get(2));</b>
+<b class="nc">&nbsp;                    dataBinding.freeDeliveryLayout.setItemFourth(freeDeliveryResponseModel.getData().getFreeDeliveryList().get(3));</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    OnAdapterSelectedListener&lt;PopularListModelNew&gt; mostPopularItemListener = new OnAdapterSelectedListener&lt;PopularListModelNew&gt;() {</b>
+&nbsp;        @Override
+&nbsp;        public void onAdapterSelected(PopularListModelNew model) {
+<b class="nc">&nbsp;            if (getActivity() != null) {</b>
+<b class="nc">&nbsp;                ((HomeActivity) getActivity()).openFoodDetails(model);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public void onAdapterString(String text) {
+&nbsp;
+<b class="nc">&nbsp;        }</b>
+&nbsp;    };
+<b class="nc">&nbsp;    OnAdapterSelectedListener&lt;OfferListModelNew&gt; offerItemListener = new OnAdapterSelectedListener&lt;OfferListModelNew&gt;() {</b>
+&nbsp;        @Override
+&nbsp;        public void onAdapterSelected(OfferListModelNew model) {
+<b class="nc">&nbsp;            if (getActivity() != null) {</b>
+<b class="nc">&nbsp;                ((HomeActivity) getActivity()).openOfferFood(model);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public void onAdapterString(String text) {
+&nbsp;
+<b class="nc">&nbsp;        }</b>
+&nbsp;    };
+&nbsp;
+&nbsp;
+&nbsp;    private void handleProgressBar() {
+&nbsp;
+<b class="nc">&nbsp;        homeViewModel.getIsLoading().observe(getViewLifecycleOwner() != null ? getViewLifecycleOwner() : this,</b>
+&nbsp;                progressModel -&gt; {
+<b class="nc">&nbsp;                    if (progressModel != null) {</b>
+<b class="nc">&nbsp;                        if (progressModel.isLoading()) {</b>
+<b class="nc">&nbsp;                            showLoading();</b>
+&nbsp;                        } else {
+<b class="nc">&nbsp;                            hideLoading();</b>
+&nbsp;                        }
+&nbsp;                    }
+<b class="nc">&nbsp;                    if (progressModel != null &amp;&amp; !progressModel.isHasInternet()) {</b>
+<b class="nc">&nbsp;                        showToast(&quot;No internet connection&quot;);</b>
+<b class="nc">&nbsp;                        dataBinding.constraintLayoutFoodItemList.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                        if (getActivity() != null) {</b>
+<b class="nc">&nbsp;                            ((HomeActivity) getActivity()).noInternet();</b>
+&nbsp;                        }
+<b class="nc">&nbsp;                    } else if ((progressModel != null) &amp;&amp; progressModel.isHasInternet()) {</b>
+&nbsp;
+<b class="nc">&nbsp;                        if (getActivity() != null) {</b>
+<b class="nc">&nbsp;                            ((HomeActivity) getActivity()).hasInternet();</b>
+&nbsp;                        }
+&nbsp;                        //showLoading();
+&nbsp;                    }
+&nbsp;
+&nbsp;                });
+&nbsp;    }
+&nbsp;
+&nbsp;    private void hideLoading() {
+&nbsp;
+<b class="nc">&nbsp;        dataBinding.shimmerLayout.stopShimmerAnimation();</b>
+<b class="nc">&nbsp;        dataBinding.shimmerLayout.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;        dataBinding.constraintLayoutFoodItemList.setVisibility(View.VISIBLE);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void showLoading() {
+&nbsp;
+<b class="nc">&nbsp;        dataBinding.shimmerLayout.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;        dataBinding.shimmerLayout.startShimmerAnimation();</b>
+<b class="nc">&nbsp;        dataBinding.constraintLayoutFoodItemList.setVisibility(View.GONE);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onAttach(Context context) {
+<b class="nc">&nbsp;        super.onAttach(context);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onDetach() {
+<b class="nc">&nbsp;        super.onDetach();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getBindingVariable() {
+<b class="nc">&nbsp;        return BR.sample;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getLayoutId() {
+<b class="nc">&nbsp;        return R.layout.fragment_home;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public SampleModel getBindingObject() {
+<b class="nc">&nbsp;        return sampleModel;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    View.OnClickListener onClickListener = new View.OnClickListener() {</b>
+&nbsp;        @Override
+&nbsp;        public void onClick(View v) {
+&nbsp;
+<b class="nc">&nbsp;            if (v == dataBinding.freeDeliveryLayout.cardViewFirst) {</b>
+&nbsp;                String itemName, itemRate;
+<b class="nc">&nbsp;                itemName = dataBinding.freeDeliveryLayout.textViewFirst.getText().toString();</b>
+<b class="nc">&nbsp;                itemRate = dataBinding.freeDeliveryLayout.textViewRateFirst.getText().toString();</b>
+&nbsp;
+<b class="nc">&nbsp;                if (getActivity() != null) {</b>
+<b class="nc">&nbsp;                    ((HomeActivity) getActivity()).openCardViewFirst(itemName, itemRate);</b>
+&nbsp;                }
+&nbsp;
+<b class="nc">&nbsp;            } else if (v == dataBinding.freeDeliveryLayout.cardViewSecond) {</b>
+&nbsp;                String itemName, itemRate;
+<b class="nc">&nbsp;                itemName = dataBinding.freeDeliveryLayout.textViewItemNameSecond.getText().toString();</b>
+<b class="nc">&nbsp;                itemRate = dataBinding.freeDeliveryLayout.textViewRateSecond.getText().toString();</b>
+&nbsp;
+<b class="nc">&nbsp;                if (getActivity() != null) {</b>
+<b class="nc">&nbsp;                    ((HomeActivity) getActivity()).openCardViewSecond(itemName, itemRate);</b>
+&nbsp;                }
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;            } else if (v == dataBinding.freeDeliveryLayout.cardViewThird) {</b>
+&nbsp;
+&nbsp;                String itemName, itemRate;
+<b class="nc">&nbsp;                itemName = dataBinding.freeDeliveryLayout.textViewItemNameThird.getText().toString();</b>
+<b class="nc">&nbsp;                itemRate = dataBinding.freeDeliveryLayout.textViewRateThird.getText().toString();</b>
+<b class="nc">&nbsp;                if (getActivity() != null) {</b>
+<b class="nc">&nbsp;                    ((HomeActivity) getActivity()).openCardViewThird(itemName, itemRate);</b>
+&nbsp;                }
+&nbsp;
+<b class="nc">&nbsp;            } else if (v == dataBinding.freeDeliveryLayout.cardViewFourth) {</b>
+&nbsp;
+&nbsp;                String itemName, itemRate;
+<b class="nc">&nbsp;                itemName = dataBinding.freeDeliveryLayout.textViewItemNameFourth.getText().toString();</b>
+<b class="nc">&nbsp;                itemRate = dataBinding.freeDeliveryLayout.textViewRateFourth.getText().toString();</b>
+<b class="nc">&nbsp;                if (getActivity() != null) {</b>
+&nbsp;
+<b class="nc">&nbsp;                    ((HomeActivity) getActivity()).openCardViewFourth(itemName, itemRate);</b>
+&nbsp;                }
+&nbsp;
+&nbsp;            }
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;    };
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onResume() {
+<b class="nc">&nbsp;        super.onResume();</b>
+<b class="nc">&nbsp;        dataBinding.shimmerLayout.startShimmerAnimation();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onPause() {
+<b class="nc">&nbsp;        super.onPause();</b>
+<b class="nc">&nbsp;        dataBinding.shimmerLayout.startShimmerAnimation();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+&nbsp;
+&nbsp;
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

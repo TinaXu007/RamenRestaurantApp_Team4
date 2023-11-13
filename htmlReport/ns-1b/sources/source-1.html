@@ -1,0 +1,308 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > FilterActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.ui.filter</a>
+</div>
+
+<h1>Coverage Summary for Class: FilterActivity (com.alpharamen.customer.view.ui.filter)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FilterActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/49)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">FilterActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">FilterActivity$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/57)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.ui.filter;
+&nbsp;
+&nbsp;import androidx.lifecycle.ViewModelProviders;
+&nbsp;import android.content.Context;
+&nbsp;import android.content.Intent;
+&nbsp;import android.os.Bundle;
+&nbsp;import androidx.recyclerview.widget.GridLayoutManager;
+&nbsp;import android.view.View;
+&nbsp;
+&nbsp;import com.appyvet.materialrangebar.RangeBar;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.base.BaseActivity;
+&nbsp;import com.alpharamen.customer.data.models.DishesFilterModel;
+&nbsp;import com.alpharamen.customer.databinding.ActivityFilterBinding;
+&nbsp;import com.alpharamen.customer.factory.ViewModelProviderFactory;
+&nbsp;import com.alpharamen.customer.utils.AppLogger;
+&nbsp;import com.alpharamen.customer.view.adapter.DishFilterAdapter;
+&nbsp;import com.alpharamen.customer.view.listener.OnAdapterSelectedListener;
+&nbsp;import com.alpharamen.customer.viewmodel.FilterViewModel;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import javax.inject.Inject;
+&nbsp;
+<b class="nc">&nbsp;public class FilterActivity extends BaseActivity&lt;ActivityFilterBinding, FilterViewModel&gt; implements View.OnClickListener {</b>
+&nbsp;
+&nbsp;    ActivityFilterBinding dataBinding;
+&nbsp;    FilterViewModel filterViewModel;
+<b class="nc">&nbsp;    List&lt;DishesFilterModel&gt; dishItemsList = new ArrayList&lt;&gt;();</b>
+&nbsp;    DishFilterAdapter dishFilterAdapter;
+&nbsp;    @Inject
+&nbsp;    ViewModelProviderFactory viewModelProviderFactory;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getBindingVariable() {
+<b class="nc">&nbsp;        return BR.filter;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getLayoutId() {
+<b class="nc">&nbsp;        return R.layout.activity_filter;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public FilterViewModel getBindingObject() {
+<b class="nc">&nbsp;        return filterViewModel;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;        filterViewModel = ViewModelProviders.of(this, viewModelProviderFactory).get(FilterViewModel.class);</b>
+<b class="nc">&nbsp;        dataBinding = getViewDataBinding();</b>
+<b class="nc">&nbsp;        dataBinding.setListener(this);</b>
+&nbsp;
+<b class="nc">&nbsp;        populateData();</b>
+<b class="nc">&nbsp;        dataBinding.setRatingSelection(1);</b>
+<b class="nc">&nbsp;        dishFilterAdapter = new DishFilterAdapter(dishItemsList, selectedListener);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewDishFilterItems.setLayoutManager(new GridLayoutManager(this, 3));</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewDishFilterItems.setHasFixedSize(true);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewDishFilterItems.setAdapter(dishFilterAdapter);</b>
+&nbsp;
+<b class="nc">&nbsp;        dataBinding.rangeBarPrice.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onRangeChangeListener(RangeBar rangeBar, int leftPinIndex, int rightPinIndex, String leftPinValue, String rightPinValue) {
+<b class="nc">&nbsp;                dataBinding.textViewMin.setText(String.valueOf(leftPinValue));</b>
+<b class="nc">&nbsp;                dataBinding.textViewMax.setText(String.valueOf(rightPinValue));</b>
+&nbsp;
+&nbsp;            }
+&nbsp;
+&nbsp;            @Override
+&nbsp;            public void onTouchStarted(RangeBar rangeBar) {
+&nbsp;
+<b class="nc">&nbsp;            }</b>
+&nbsp;
+&nbsp;            @Override
+&nbsp;            public void onTouchEnded(RangeBar rangeBar) {
+&nbsp;
+<b class="nc">&nbsp;            }</b>
+&nbsp;        });
+&nbsp;
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    OnAdapterSelectedListener&lt;DishesFilterModel&gt; selectedListener = new OnAdapterSelectedListener&lt;DishesFilterModel&gt;() {</b>
+&nbsp;        @Override
+&nbsp;        public void onAdapterSelected(DishesFilterModel model) {
+&nbsp;
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public void onAdapterString(String text) {
+&nbsp;
+<b class="nc">&nbsp;        }</b>
+&nbsp;    };
+&nbsp;
+&nbsp;    private void populateData() {
+&nbsp;
+<b class="nc">&nbsp;        dishItemsList.add(new DishesFilterModel(&quot;Indian&quot;, 0));</b>
+<b class="nc">&nbsp;        dishItemsList.add(new DishesFilterModel(&quot;Chinese&quot;, 1));</b>
+<b class="nc">&nbsp;        dishItemsList.add(new DishesFilterModel(&quot;Italian&quot;, 2));</b>
+<b class="nc">&nbsp;        dishItemsList.add(new DishesFilterModel(&quot;Sweets&quot;, 3));</b>
+<b class="nc">&nbsp;        dishItemsList.add(new DishesFilterModel(&quot;Deserts&quot;, 4));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onClick(View v) {
+<b class="nc">&nbsp;        AppLogger.d(&quot;onclick&quot;);</b>
+<b class="nc">&nbsp;        if (v == dataBinding.imageViewPrevArrow) {</b>
+<b class="nc">&nbsp;            onBackPressed();</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.textViewRateOne) {</b>
+<b class="nc">&nbsp;            dataBinding.setRatingSelection(1);</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.textViewRateTwo) {</b>
+<b class="nc">&nbsp;            dataBinding.setRatingSelection(2);</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.textViewRateThree) {</b>
+<b class="nc">&nbsp;            dataBinding.setRatingSelection(3);</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.textViewRateFour) {</b>
+<b class="nc">&nbsp;            dataBinding.setRatingSelection(4);</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.textViewRateFive) {</b>
+<b class="nc">&nbsp;            dataBinding.setRatingSelection(5);</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.textViewApply) {</b>
+&nbsp;
+<b class="nc">&nbsp;            Intent i = new Intent();</b>
+<b class="nc">&nbsp;            setResult(RESULT_OK, i);</b>
+<b class="nc">&nbsp;            onBackPressed();</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.textViewResetAll) {</b>
+&nbsp;
+<b class="nc">&nbsp;            dataBinding.checkBoxBreakFast.setChecked(false);</b>
+<b class="nc">&nbsp;            dataBinding.checkBoxLunch.setChecked(false);</b>
+<b class="nc">&nbsp;            dataBinding.checkBoxDinner.setChecked(false);</b>
+<b class="nc">&nbsp;            dataBinding.setRatingSelection(1);</b>
+<b class="nc">&nbsp;            dataBinding.recyclerViewDishFilterItems.setAdapter(dishFilterAdapter);</b>
+<b class="nc">&nbsp;            dataBinding.rangeBarPrice.setRangePinsByValue(0, 500);</b>
+&nbsp;
+&nbsp;
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Intent newIntent(Context context) {
+<b class="nc">&nbsp;        return new Intent(context, FilterActivity.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onBackPressed() {
+<b class="nc">&nbsp;        FilterActivity.this.finish();</b>
+<b class="nc">&nbsp;        overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right);</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

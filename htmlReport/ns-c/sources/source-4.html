@@ -1,0 +1,123 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ApiService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.data.remote</a>
+</div>
+
+<h1>Coverage Summary for Class: ApiService (com.alpharamen.customer.data.remote)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ApiService</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.data.remote;
+&nbsp;
+&nbsp;import com.alpharamen.customer.data.models.FreeDeliveryResponseModel;
+&nbsp;import com.alpharamen.customer.data.models.ItemResponseModel;
+&nbsp;import com.alpharamen.customer.data.models.SearchResponseModel;
+&nbsp;import com.alpharamen.customer.data.remote.bean.ForgotPasswordBean;
+&nbsp;import com.alpharamen.customer.data.remote.bean.ForgotPasswordRequest;
+&nbsp;import com.alpharamen.customer.data.remote.bean.HomePageBean;
+&nbsp;import com.alpharamen.customer.data.remote.bean.LoginBean;
+&nbsp;import com.alpharamen.customer.data.remote.bean.LoginRequest;
+&nbsp;import com.alpharamen.customer.data.remote.bean.NotificationBean;
+&nbsp;import com.alpharamen.customer.data.remote.bean.SignupBean;
+&nbsp;import com.alpharamen.customer.data.remote.bean.SignupRequest;
+&nbsp;import com.alpharamen.customer.data.remote.bean.SplashBean;
+&nbsp;import com.alpharamen.customer.data.remote.bean.UserProfileBean;
+&nbsp;
+&nbsp;import io.reactivex.Observable;
+&nbsp;import retrofit2.http.Body;
+&nbsp;import retrofit2.http.GET;
+&nbsp;import retrofit2.http.POST;
+&nbsp;import retrofit2.http.Path;
+&nbsp;import retrofit2.http.Query;
+&nbsp;
+&nbsp;public interface ApiService {
+&nbsp;
+&nbsp;    @GET(ServiceNames.GET_HOME)
+&nbsp;    Observable&lt;HomePageBean&gt; loadHomePage(@Query(&quot;language&quot;) String language);
+&nbsp;
+&nbsp;    @GET(ServiceNames.GET_CONFIG)
+&nbsp;    Observable&lt;SplashBean&gt; loadConfig(@Query(&quot;language&quot;) String language);
+&nbsp;
+&nbsp;    @GET(ServiceNames.GET_CONFIG)
+&nbsp;    Observable&lt;UserProfileBean&gt; loadUserProfile(@Query(&quot;language&quot;) String language);
+&nbsp;
+&nbsp;    @GET(ServiceNames.GET_CONFIG)
+&nbsp;    Observable&lt;NotificationBean&gt; loadNotifications(@Query(&quot;language&quot;) String language);
+&nbsp;
+&nbsp;    @POST(ServiceNames.GET_CONFIG)
+&nbsp;    Observable&lt;LoginBean&gt; login(@Body LoginRequest loginRequest);
+&nbsp;
+&nbsp;    @POST(ServiceNames.GET_CONFIG)
+&nbsp;    Observable&lt;SignupBean&gt; signup(@Body SignupRequest signupRequest);
+&nbsp;
+&nbsp;    @POST(ServiceNames.GET_CONFIG)
+&nbsp;    Observable&lt;ForgotPasswordBean&gt; forgotPassword(@Body ForgotPasswordRequest forgotPasswordRequest);
+&nbsp;
+&nbsp;    @GET(ServiceNames.SEARCH_END_POINT + &quot;/{key}&quot;)
+&nbsp;    Observable&lt;SearchResponseModel&gt; getItemList(@Path(&quot;key&quot;) String key);
+&nbsp;
+&nbsp;    @GET(ServiceNames.FOOD_LIST_END_POINT)
+&nbsp;    Observable&lt;ItemResponseModel&gt; getFoodItemsList();
+&nbsp;
+&nbsp;    @GET(ServiceNames.FREE_DELIVERY_LIST_END_POINT)
+&nbsp;    Observable&lt;FreeDeliveryResponseModel&gt; getFreeDeliveryList();
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

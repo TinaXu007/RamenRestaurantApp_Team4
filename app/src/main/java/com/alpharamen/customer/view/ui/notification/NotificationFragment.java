@@ -103,7 +103,7 @@ public class NotificationFragment extends BaseFragment<FragmentNotificationBindi
             //((HomeActivity) getActivity()).hideBottomBar();
             ((HomeActivity) getActivity()).loadNotificationFragment();
         }
-        // TODO: We need to populate the data here without blocking ui
+        populateData();
 
         notificationItemAdapter = new NotificationItemAdapter(notificationItemModelList, adapterSelectedListener);
         dataBinding.recyclerViewNotificationList.setHasFixedSize(true);
@@ -141,4 +141,20 @@ public class NotificationFragment extends BaseFragment<FragmentNotificationBindi
 
         }
     };
+
+    private void populateData() {
+        //pending(id=0)
+        //delivered(id=1)
+        //newItem(id=2)
+        notificationItemModelList.add(new NotificationItemModel(0,
+                "Miso Ramen is on it's way to being made. Track the route"));
+        notificationItemModelList.add(new NotificationItemModel(0,
+                "Pork Dumpling is delivered successfully."));
+        notificationItemModelList.add(new NotificationItemModel(0,
+                "Takoyaki is delivered successfully"));
+        notificationItemModelList.add(new NotificationItemModel(2,
+                "New item added in the menu. Order it now."));
+
+
+    }
 }

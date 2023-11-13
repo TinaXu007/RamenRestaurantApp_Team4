@@ -1,0 +1,199 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > HublistAdapterNew</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.adapter</a>
+</div>
+
+<h1>Coverage Summary for Class: HublistAdapterNew (com.alpharamen.customer.view.adapter)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">HublistAdapterNew</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">HublistAdapterNew$ViewHolder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.adapter;
+&nbsp;
+&nbsp;
+&nbsp;import androidx.databinding.DataBindingUtil;
+&nbsp;import androidx.annotation.NonNull;
+&nbsp;import androidx.recyclerview.widget.RecyclerView;
+&nbsp;import android.view.LayoutInflater;
+&nbsp;import android.view.ViewGroup;
+&nbsp;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.data.models.HubsListModel;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewHubNewBinding;
+&nbsp;import com.alpharamen.customer.view.listener.OnAdapterSelectedListener;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;public class HublistAdapterNew extends RecyclerView.Adapter&lt;HublistAdapterNew.ViewHolder&gt; {
+&nbsp;
+&nbsp;    List&lt;HubsListModel&gt; hubsListModels;
+&nbsp;    OnAdapterSelectedListener listener;
+&nbsp;
+<b class="nc">&nbsp;    public HublistAdapterNew(List&lt;HubsListModel&gt; hubsListModels, OnAdapterSelectedListener listener) {</b>
+<b class="nc">&nbsp;        this.hubsListModels = hubsListModels;</b>
+<b class="nc">&nbsp;        this.listener = listener;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @NonNull
+&nbsp;    @Override
+&nbsp;    public HublistAdapterNew.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+<b class="nc">&nbsp;        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());</b>
+<b class="nc">&nbsp;        RecyclerViewHubNewBinding dataBinding = DataBindingUtil</b>
+<b class="nc">&nbsp;                .inflate(layoutInflater, R.layout.recycler_view_hub_new, parent, false);</b>
+&nbsp;
+<b class="nc">&nbsp;        return new ViewHolder(dataBinding);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onBindViewHolder(@NonNull HublistAdapterNew.ViewHolder holder, int position) {
+&nbsp;
+<b class="nc">&nbsp;        double length = hubsListModels.size() - 1;</b>
+&nbsp;
+<b class="nc">&nbsp;        if (position == 0|| position == length) {</b>
+&nbsp;
+<b class="nc">&nbsp;            hubsListModels.get(position).setHide(true);</b>
+&nbsp;        }
+&nbsp;        else {
+<b class="nc">&nbsp;            hubsListModels.get(position).setHide(false);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        holder.binding.setItem(hubsListModels.get(position));</b>
+<b class="nc">&nbsp;        holder.binding.setListener(listener);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getItemCount() {
+&nbsp;
+<b class="nc">&nbsp;        return hubsListModels.size();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public class ViewHolder extends RecyclerView.ViewHolder {
+&nbsp;
+&nbsp;        RecyclerViewHubNewBinding binding;
+&nbsp;
+<b class="nc">&nbsp;        public ViewHolder(RecyclerViewHubNewBinding dataBinding) {</b>
+&nbsp;
+<b class="nc">&nbsp;            super(dataBinding.getRoot());</b>
+<b class="nc">&nbsp;            binding = dataBinding;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

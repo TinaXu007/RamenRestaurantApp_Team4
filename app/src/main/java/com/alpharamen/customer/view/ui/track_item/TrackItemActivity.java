@@ -122,7 +122,7 @@ public class TrackItemActivity extends BaseActivity<ActivityTrackItemBinding, Tr
 
             markers.add(mGoogleMap.addMarker(new MarkerOptions()
                     .position(latLngHotel)
-                    .title("DRUNKEN PANDA")
+                    .title("Alpha Ramen")
                     .snippet("Restaurent")
                     .icon(bitmapDescriptorFromVector(TrackItemActivity.this, R.drawable.ic_restaurant))));
 
