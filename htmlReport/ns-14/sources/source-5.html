@@ -1,0 +1,179 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > WacTextView</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.customview</a>
+</div>
+
+<h1>Coverage Summary for Class: WacTextView (com.alpharamen.customer.view.customview)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">WacTextView</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/31)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.customview;
+&nbsp;
+&nbsp;import android.content.Context;
+&nbsp;import android.content.res.TypedArray;
+&nbsp;import android.graphics.Canvas;
+&nbsp;import android.graphics.Typeface;
+&nbsp;import android.util.AttributeSet;
+&nbsp;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;
+&nbsp;public class WacTextView extends androidx.appcompat.widget.AppCompatTextView {
+&nbsp;    public WacTextView(Context context) {
+<b class="nc">&nbsp;        super(context);</b>
+<b class="nc">&nbsp;        applyCustomFont(context);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public WacTextView(Context context, AttributeSet attrs) {
+<b class="nc">&nbsp;        super(context, attrs);</b>
+<b class="nc">&nbsp;        TypedArray values = context.obtainStyledAttributes(attrs, R.styleable.WacTextView);</b>
+<b class="nc">&nbsp;        String fontThickness = values.getString(R.styleable.WacTextView_customFontThickness);</b>
+<b class="nc">&nbsp;        if (fontThickness == null) fontThickness = &quot;normal&quot;;</b>
+<b class="nc">&nbsp;        values.recycle();</b>
+<b class="nc">&nbsp;        switch(fontThickness){</b>
+&nbsp;            case &quot;bold&quot;:
+<b class="nc">&nbsp;                setBold(context);</b>
+<b class="nc">&nbsp;                break;</b>
+&nbsp;
+&nbsp;            case &quot;thin&quot;:
+<b class="nc">&nbsp;                setThin(context);</b>
+<b class="nc">&nbsp;                break;</b>
+&nbsp;
+&nbsp;                default:
+<b class="nc">&nbsp;                    applyCustomFont(context);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public WacTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+<b class="nc">&nbsp;        super(context, attrs, defStyleAttr);</b>
+<b class="nc">&nbsp;        TypedArray values = context.obtainStyledAttributes(attrs, R.styleable.WacTextView);</b>
+<b class="nc">&nbsp;        String fontThickness = values.getString(R.styleable.WacTextView_customFontThickness);</b>
+<b class="nc">&nbsp;        if (fontThickness == null) fontThickness = &quot;normal&quot;;</b>
+<b class="nc">&nbsp;        values.recycle();</b>
+<b class="nc">&nbsp;        switch(fontThickness){</b>
+&nbsp;            case &quot;bold&quot;:
+<b class="nc">&nbsp;                setBold(context);</b>
+<b class="nc">&nbsp;                break;</b>
+&nbsp;
+&nbsp;            case &quot;thin&quot;:
+<b class="nc">&nbsp;                setThin(context);</b>
+<b class="nc">&nbsp;                break;</b>
+&nbsp;
+&nbsp;            default:
+<b class="nc">&nbsp;                applyCustomFont(context);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void applyCustomFont(Context context) {
+<b class="nc">&nbsp;        Typeface face= Typeface.createFromAsset(context.getAssets(), &quot;fonts/roboto-regular.ttf&quot;);</b>
+<b class="nc">&nbsp;        this.setTypeface(face);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setBold(Context context) {
+<b class="nc">&nbsp;        Typeface face= Typeface.createFromAsset(context.getAssets(), &quot;fonts/roboto-medium.ttf&quot;);</b>
+<b class="nc">&nbsp;        this.setTypeface(face);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setThin(Context context) {
+<b class="nc">&nbsp;        Typeface face= Typeface.createFromAsset(context.getAssets(), &quot;fonts/roboto-thin.ttf&quot;);</b>
+<b class="nc">&nbsp;        this.setTypeface(face);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void onDraw(Canvas canvas) {
+<b class="nc">&nbsp;        super.onDraw(canvas);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

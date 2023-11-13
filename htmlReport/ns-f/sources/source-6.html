@@ -1,0 +1,331 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ActivityDetailHubBindingImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.databinding</a>
+</div>
+
+<h1>Coverage Summary for Class: ActivityDetailHubBindingImpl (com.alpharamen.customer.databinding)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ActivityDetailHubBindingImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/100)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.databinding;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import androidx.annotation.NonNull;
+&nbsp;import androidx.annotation.Nullable;
+&nbsp;import android.view.View;
+&nbsp;@SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;public class ActivityDetailHubBindingImpl extends ActivityDetailHubBinding  {
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    private static final androidx.databinding.ViewDataBinding.IncludedLayouts sIncludes;
+&nbsp;    @Nullable
+&nbsp;    private static final android.util.SparseIntArray sViewsWithIds;
+&nbsp;    static {
+<b class="nc">&nbsp;        sIncludes = new androidx.databinding.ViewDataBinding.IncludedLayouts(23);</b>
+<b class="nc">&nbsp;        sIncludes.setIncludes(1, </b>
+&nbsp;            new String[] {&quot;widget_header_view&quot;},
+&nbsp;            new int[] {5},
+&nbsp;            new int[] {com.alpharamen.customer.R.layout.widget_header_view});
+<b class="nc">&nbsp;        sIncludes.setIncludes(2, </b>
+&nbsp;            new String[] {&quot;widget_header_view_top&quot;},
+&nbsp;            new int[] {4},
+&nbsp;            new int[] {com.alpharamen.customer.R.layout.widget_header_view_top});
+<b class="nc">&nbsp;        sIncludes.setIncludes(3, </b>
+&nbsp;            new String[] {&quot;content_main&quot;},
+&nbsp;            new int[] {6},
+&nbsp;            new int[] {com.alpharamen.customer.R.layout.content_main});
+<b class="nc">&nbsp;        sViewsWithIds = new android.util.SparseIntArray();</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.appbar, 7);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.collapsing_toolbar, 8);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.image_detail, 9);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.roundedImageView, 10);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.imageView_location, 11);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.text_view_location, 12);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.image_view_star_white, 13);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.wacTextView_no_of_stars, 14);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.wacTextView_stars, 15);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.image_view_clock, 16);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.wac_text_view_time, 17);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.wac_text_view__delivery_time, 18);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.image_view_loc_to_loc, 19);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.wac_text_view_distance, 20);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.wac_text_view__km, 21);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.recycler_view_dish_types, 22);</b>
+&nbsp;    }
+&nbsp;    // views
+&nbsp;    @NonNull
+&nbsp;    private final android.widget.RelativeLayout mboundView0;
+&nbsp;    @Nullable
+&nbsp;    private final com.alpharamen.customer.databinding.WidgetHeaderViewBinding mboundView1;
+&nbsp;    // variables
+&nbsp;    // values
+&nbsp;    // listeners
+&nbsp;    // Inverse Binding Event Handlers
+&nbsp;
+&nbsp;    public ActivityDetailHubBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
+<b class="nc">&nbsp;        this(bindingComponent, root, mapBindings(bindingComponent, root, 23, sIncludes, sViewsWithIds));</b>
+&nbsp;    }
+&nbsp;    private ActivityDetailHubBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
+<b class="nc">&nbsp;        super(bindingComponent, root, 3</b>
+&nbsp;            , (com.google.android.material.appbar.AppBarLayout) bindings[7]
+&nbsp;            , (com.google.android.material.appbar.CollapsingToolbarLayout) bindings[8]
+&nbsp;            , (com.makeramen.roundedimageview.RoundedImageView) bindings[9]
+&nbsp;            , (android.widget.ImageView) bindings[16]
+&nbsp;            , (android.widget.ImageView) bindings[19]
+&nbsp;            , (android.widget.ImageView) bindings[11]
+&nbsp;            , (android.widget.ImageView) bindings[13]
+&nbsp;            , (androidx.coordinatorlayout.widget.CoordinatorLayout) bindings[1]
+&nbsp;            , (com.alpharamen.customer.databinding.ContentMainBinding) bindings[6]
+&nbsp;            , (androidx.recyclerview.widget.RecyclerView) bindings[22]
+&nbsp;            , (com.makeramen.roundedimageview.RoundedImageView) bindings[10]
+&nbsp;            , (androidx.core.widget.NestedScrollView) bindings[3]
+&nbsp;            , (android.widget.TextView) bindings[12]
+&nbsp;            , (androidx.appcompat.widget.Toolbar) bindings[2]
+&nbsp;            , (com.alpharamen.customer.databinding.WidgetHeaderViewTopBinding) bindings[4]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[18]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[20]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[21]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[14]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[15]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[17]
+&nbsp;            );
+<b class="nc">&nbsp;        this.mainContent.setTag(null);</b>
+<b class="nc">&nbsp;        setContainedBinding(this.mainContentLayout);</b>
+<b class="nc">&nbsp;        this.mboundView0 = (android.widget.RelativeLayout) bindings[0];</b>
+<b class="nc">&nbsp;        this.mboundView0.setTag(null);</b>
+<b class="nc">&nbsp;        this.mboundView1 = (com.alpharamen.customer.databinding.WidgetHeaderViewBinding) bindings[5];</b>
+<b class="nc">&nbsp;        setContainedBinding(this.mboundView1);</b>
+<b class="nc">&nbsp;        this.scrollView.setTag(null);</b>
+<b class="nc">&nbsp;        this.toolbar.setTag(null);</b>
+<b class="nc">&nbsp;        setContainedBinding(this.toolbarHeaderView);</b>
+<b class="nc">&nbsp;        setRootTag(root);</b>
+&nbsp;        // listeners
+<b class="nc">&nbsp;        invalidateAll();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void invalidateAll() {
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;                mDirtyFlags = 0x20L;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        toolbarHeaderView.invalidateAll();</b>
+<b class="nc">&nbsp;        mboundView1.invalidateAll();</b>
+<b class="nc">&nbsp;        mainContentLayout.invalidateAll();</b>
+<b class="nc">&nbsp;        requestRebind();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean hasPendingBindings() {
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            if (mDirtyFlags != 0) {</b>
+<b class="nc">&nbsp;                return true;</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        if (toolbarHeaderView.hasPendingBindings()) {</b>
+<b class="nc">&nbsp;            return true;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (mboundView1.hasPendingBindings()) {</b>
+<b class="nc">&nbsp;            return true;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (mainContentLayout.hasPendingBindings()) {</b>
+<b class="nc">&nbsp;            return true;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean setVariable(int variableId, @Nullable Object variable)  {
+<b class="nc">&nbsp;        boolean variableSet = true;</b>
+<b class="nc">&nbsp;        if (BR.item == variableId) {</b>
+<b class="nc">&nbsp;            setItem((com.alpharamen.customer.data.models.HubsListModel) variable);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        else if (BR.listener == variableId) {</b>
+<b class="nc">&nbsp;            setListener((android.view.View.OnClickListener) variable);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        else if (BR.hubDetail == variableId) {</b>
+<b class="nc">&nbsp;            setHubDetail((com.alpharamen.customer.viewmodel.DetailViewModel) variable);</b>
+&nbsp;        }
+&nbsp;        else {
+<b class="nc">&nbsp;            variableSet = false;</b>
+&nbsp;        }
+<b class="nc">&nbsp;            return variableSet;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setItem(@Nullable com.alpharamen.customer.data.models.HubsListModel Item) {
+<b class="nc">&nbsp;        this.mItem = Item;</b>
+&nbsp;    }
+&nbsp;    public void setListener(@Nullable android.view.View.OnClickListener Listener) {
+<b class="nc">&nbsp;        this.mListener = Listener;</b>
+&nbsp;    }
+&nbsp;    public void setHubDetail(@Nullable com.alpharamen.customer.viewmodel.DetailViewModel HubDetail) {
+<b class="nc">&nbsp;        this.mHubDetail = HubDetail;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void setLifecycleOwner(@Nullable androidx.lifecycle.LifecycleOwner lifecycleOwner) {
+<b class="nc">&nbsp;        super.setLifecycleOwner(lifecycleOwner);</b>
+<b class="nc">&nbsp;        toolbarHeaderView.setLifecycleOwner(lifecycleOwner);</b>
+<b class="nc">&nbsp;        mboundView1.setLifecycleOwner(lifecycleOwner);</b>
+<b class="nc">&nbsp;        mainContentLayout.setLifecycleOwner(lifecycleOwner);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected boolean onFieldChange(int localFieldId, Object object, int fieldId) {
+<b class="nc">&nbsp;        switch (localFieldId) {</b>
+&nbsp;            case 0 :
+<b class="nc">&nbsp;                return onChangeItem((com.alpharamen.customer.data.models.HubsListModel) object, fieldId);</b>
+&nbsp;            case 1 :
+<b class="nc">&nbsp;                return onChangeToolbarHeaderView((com.alpharamen.customer.databinding.WidgetHeaderViewTopBinding) object, fieldId);</b>
+&nbsp;            case 2 :
+<b class="nc">&nbsp;                return onChangeMainContentLayout((com.alpharamen.customer.databinding.ContentMainBinding) object, fieldId);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;    private boolean onChangeItem(com.alpharamen.customer.data.models.HubsListModel Item, int fieldId) {
+<b class="nc">&nbsp;        if (fieldId == BR._all) {</b>
+<b class="nc">&nbsp;            synchronized(this) {</b>
+<b class="nc">&nbsp;                    mDirtyFlags |= 0x1L;</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;            return true;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;    private boolean onChangeToolbarHeaderView(com.alpharamen.customer.databinding.WidgetHeaderViewTopBinding ToolbarHeaderView, int fieldId) {
+<b class="nc">&nbsp;        if (fieldId == BR._all) {</b>
+<b class="nc">&nbsp;            synchronized(this) {</b>
+<b class="nc">&nbsp;                    mDirtyFlags |= 0x2L;</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;            return true;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;    private boolean onChangeMainContentLayout(com.alpharamen.customer.databinding.ContentMainBinding MainContentLayout, int fieldId) {
+<b class="nc">&nbsp;        if (fieldId == BR._all) {</b>
+<b class="nc">&nbsp;            synchronized(this) {</b>
+<b class="nc">&nbsp;                    mDirtyFlags |= 0x4L;</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;            return true;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void executeBindings() {
+<b class="nc">&nbsp;        long dirtyFlags = 0;</b>
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            dirtyFlags = mDirtyFlags;</b>
+<b class="nc">&nbsp;            mDirtyFlags = 0;</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;        // batch finished
+<b class="nc">&nbsp;        executeBindingsOn(toolbarHeaderView);</b>
+<b class="nc">&nbsp;        executeBindingsOn(mboundView1);</b>
+<b class="nc">&nbsp;        executeBindingsOn(mainContentLayout);</b>
+&nbsp;    }
+&nbsp;    // Listener Stub Implementations
+&nbsp;    // callback impls
+&nbsp;    // dirty flag
+<b class="nc">&nbsp;    private  long mDirtyFlags = 0xffffffffffffffffL;</b>
+&nbsp;    /* flag mapping
+&nbsp;        flag 0 (0x1L): item
+&nbsp;        flag 1 (0x2L): toolbarHeaderView
+&nbsp;        flag 2 (0x3L): mainContentLayout
+&nbsp;        flag 3 (0x4L): listener
+&nbsp;        flag 4 (0x5L): hubDetail
+&nbsp;        flag 5 (0x6L): null
+&nbsp;    flag mapping end*/
+&nbsp;    //end
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

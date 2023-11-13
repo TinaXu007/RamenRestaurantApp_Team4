@@ -1,0 +1,393 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > FoodDetailActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.ui.food_item_detail_page</a>
+</div>
+
+<h1>Coverage Summary for Class: FoodDetailActivity (com.alpharamen.customer.view.ui.food_item_detail_page)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FoodDetailActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/90)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">FoodDetailActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">FoodDetailActivity$1$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/103)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.ui.food_item_detail_page;
+&nbsp;
+&nbsp;import androidx.lifecycle.ViewModelProviders;
+&nbsp;import android.content.Context;
+&nbsp;import android.content.Intent;
+&nbsp;import android.graphics.Paint;
+&nbsp;import android.os.Bundle;
+&nbsp;import android.os.Handler;
+&nbsp;import androidx.recyclerview.widget.LinearLayoutManager;
+&nbsp;import android.view.View;
+&nbsp;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.base.BaseActivity;
+&nbsp;import com.alpharamen.customer.data.models.DishItemModel;
+&nbsp;import com.alpharamen.customer.data.models.OfferListModelNew;
+&nbsp;import com.alpharamen.customer.data.models.PopularListModelNew;
+&nbsp;import com.alpharamen.customer.data.models.RelatedFoodModel;
+&nbsp;import com.alpharamen.customer.data.models.SearchItemListModel;
+&nbsp;import com.alpharamen.customer.databinding.ActivityFoodDetailBinding;
+&nbsp;import com.alpharamen.customer.factory.ViewModelProviderFactory;
+&nbsp;import com.alpharamen.customer.view.adapter.RelatedFoodAdapter;
+&nbsp;import com.alpharamen.customer.view.listener.OnAdapterSelectedListener;
+&nbsp;import com.alpharamen.customer.viewmodel.FoodDetailViewModel;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import javax.inject.Inject;
+&nbsp;
+<b class="nc">&nbsp;public class FoodDetailActivity extends BaseActivity implements View.OnClickListener {</b>
+<b class="nc">&nbsp;    boolean selected = false;</b>
+<b class="nc">&nbsp;    int no = 1;</b>
+&nbsp;    String name, rate;
+&nbsp;    RelatedFoodAdapter relatedFoodAdapter;
+<b class="nc">&nbsp;    List&lt;RelatedFoodModel&gt; relatedFoodModels = new ArrayList&lt;&gt;();</b>
+&nbsp;    @Inject
+&nbsp;    FoodDetailViewModel foodDetailViewModel;
+&nbsp;    ActivityFoodDetailBinding dataBinding;
+&nbsp;    ViewModelProviderFactory mViewModelFactory;
+&nbsp;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getBindingVariable() {
+<b class="nc">&nbsp;        return BR.foodDetail;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getLayoutId() {
+<b class="nc">&nbsp;        return R.layout.activity_food_detail;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Object getBindingObject() {
+<b class="nc">&nbsp;        return foodDetailViewModel;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;        foodDetailViewModel = ViewModelProviders.of(this, mViewModelFactory).get(FoodDetailViewModel.class);</b>
+<b class="nc">&nbsp;        dataBinding = (ActivityFoodDetailBinding) getViewDataBinding();</b>
+<b class="nc">&nbsp;        dataBinding.setListener(this);</b>
+<b class="nc">&nbsp;        dataBinding.textViewActualPrice.setPaintFlags(dataBinding.textViewActualPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);</b>
+<b class="nc">&nbsp;        populateData();</b>
+&nbsp;
+<b class="nc">&nbsp;        dataBinding.constraintLayoutFoodDetail.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;        dataBinding.shimmerLayout.setVisibility(View.GONE);</b>
+&nbsp;
+<b class="nc">&nbsp;        Intent intent = getIntent();</b>
+<b class="nc">&nbsp;        if (intent != null) {</b>
+<b class="nc">&nbsp;            if (intent.getExtras() != null) {</b>
+<b class="nc">&nbsp;                if (intent.getExtras().containsKey(&quot;ITEM_NAME&quot;) &amp;&amp; intent.getExtras().containsKey(&quot;ITEM_RATE&quot;)) {</b>
+<b class="nc">&nbsp;                    name = intent.getExtras().getString(&quot;ITEM_NAME&quot;);</b>
+<b class="nc">&nbsp;                    rate = intent.getExtras().getString(&quot;ITEM_RATE&quot;);</b>
+<b class="nc">&nbsp;                    dataBinding.textViewFoodName.setText(name);</b>
+<b class="nc">&nbsp;                    dataBinding.textViewActualPrice.setText(rate);</b>
+<b class="nc">&nbsp;                    findOfferPrice(Float.valueOf(rate));</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;
+&nbsp;
+&nbsp;        }
+<b class="nc">&nbsp;        PopularListModelNew mostPopularItemModel = getIntent().getParcelableExtra(&quot;FOODMODEL&quot;);</b>
+<b class="nc">&nbsp;        OfferListModelNew offerListModel = getIntent().getParcelableExtra(&quot;OFFERMODEL&quot;);</b>
+<b class="nc">&nbsp;        SearchItemListModel searchItemListModel = getIntent().getParcelableExtra(&quot;SEARCHITEMMODEL&quot;);</b>
+<b class="nc">&nbsp;        DishItemModel dishItemModel = getIntent().getParcelableExtra(&quot;DishItemModel&quot;);</b>
+<b class="nc">&nbsp;        RelatedFoodModel relatedFoodModel = getIntent().getParcelableExtra(&quot;RelatedFoodModel&quot;);</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        if (mostPopularItemModel != null) {</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;            findOfferPrice(Float.valueOf(mostPopularItemModel.getItemRate()));</b>
+<b class="nc">&nbsp;            dataBinding.textViewFoodName.setText(mostPopularItemModel.getProductTitle());</b>
+<b class="nc">&nbsp;            dataBinding.textViewHotelName.setText(mostPopularItemModel.getHotelName());</b>
+<b class="nc">&nbsp;            dataBinding.textViewActualPrice.setText(mostPopularItemModel.getItemRate());</b>
+&nbsp;
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (offerListModel != null) {</b>
+&nbsp;
+<b class="nc">&nbsp;            dataBinding.textViewFoodName.setText(offerListModel.getProductTitle());</b>
+<b class="nc">&nbsp;            dataBinding.textViewActualPrice.setText(&quot;60&quot;);</b>
+<b class="nc">&nbsp;            findOfferPrice(60);</b>
+&nbsp;
+&nbsp;        }
+<b class="nc">&nbsp;        if (searchItemListModel != null) {</b>
+<b class="nc">&nbsp;            dataBinding.textViewFoodName.setText(searchItemListModel.getProductTitle());</b>
+<b class="nc">&nbsp;            dataBinding.textViewHotelName.setText(searchItemListModel.getHotelName());</b>
+<b class="nc">&nbsp;            findOfferPrice(Float.valueOf(searchItemListModel.getProductRate()));</b>
+<b class="nc">&nbsp;            dataBinding.textViewActualPrice.setText(searchItemListModel.getProductRate());</b>
+&nbsp;
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (dishItemModel != null) {</b>
+&nbsp;
+<b class="nc">&nbsp;            dataBinding.textViewFoodName.setText(dishItemModel.getDishNme());</b>
+<b class="nc">&nbsp;            dataBinding.textViewHotelName.setText(dishItemModel.getHubName());</b>
+<b class="nc">&nbsp;            findOfferPrice(Float.valueOf(dishItemModel.getRate()));</b>
+<b class="nc">&nbsp;            dataBinding.textViewActualPrice.setText(dishItemModel.getRate());</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (relatedFoodModel != null) {</b>
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        relatedFoodAdapter = new RelatedFoodAdapter(relatedFoodModels, relatedFoodSelectedListener);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewRelatedFoods.setLayoutManager(new LinearLayoutManager(getApplicationContext(),</b>
+&nbsp;                LinearLayoutManager.HORIZONTAL, false));
+<b class="nc">&nbsp;        dataBinding.recyclerViewRelatedFoods.setHasFixedSize(true);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewRelatedFoods.setAdapter(relatedFoodAdapter);</b>
+&nbsp;
+<b class="nc">&nbsp;        dataBinding.textQuantity.setText(&quot;1&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void findOfferPrice(float price) {
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        float offer = ((price * 10) / 100);</b>
+<b class="nc">&nbsp;        float discountRate = price - offer;</b>
+<b class="nc">&nbsp;        dataBinding.textViewDiscountPrice.setText(String.valueOf(discountRate));</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    OnAdapterSelectedListener&lt;RelatedFoodModel&gt; relatedFoodSelectedListener = new OnAdapterSelectedListener&lt;RelatedFoodModel&gt;() {</b>
+&nbsp;        @Override
+&nbsp;        public void onAdapterSelected(RelatedFoodModel model) {
+&nbsp;
+<b class="nc">&nbsp;            dataBinding.constraintLayoutFoodDetail.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;            dataBinding.shimmerLayout.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;            dataBinding.shimmerLayout.startShimmerAnimation();</b>
+<b class="nc">&nbsp;            dataBinding.textViewFoodName.setText(model.getName());</b>
+<b class="nc">&nbsp;            dataBinding.textViewActualPrice.setText(model.getRate());</b>
+<b class="nc">&nbsp;            findOfferPrice(Float.valueOf(model.getRate()));</b>
+&nbsp;
+<b class="nc">&nbsp;            new Handler().postDelayed(new Runnable() {</b>
+&nbsp;                @Override
+&nbsp;                public void run() {
+<b class="nc">&nbsp;                    dataBinding.shimmerLayout.stopShimmerAnimation();</b>
+<b class="nc">&nbsp;                    dataBinding.shimmerLayout.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                    dataBinding.constraintLayoutFoodDetail.setVisibility(View.VISIBLE);</b>
+&nbsp;                }
+&nbsp;            }, 1000);
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public void onAdapterString(String text) {
+&nbsp;
+<b class="nc">&nbsp;        }</b>
+&nbsp;    };
+&nbsp;
+&nbsp;    private void populateData() {
+&nbsp;
+<b class="nc">&nbsp;        relatedFoodModels.add(new RelatedFoodModel(&quot;200&quot;, &quot;Chicken Rament&quot;, R.drawable.login_image));</b>
+<b class="nc">&nbsp;        relatedFoodModels.add(new RelatedFoodModel(&quot;130&quot;, &quot;Beef Bowl&quot;, R.drawable.login_image));</b>
+<b class="nc">&nbsp;        relatedFoodModels.add(new RelatedFoodModel(&quot;150&quot;, &quot;Chicken Bowl&quot;, R.drawable.login_image));</b>
+<b class="nc">&nbsp;        relatedFoodModels.add(new RelatedFoodModel(&quot;210&quot;, &quot;Tokoyaki&quot;, R.drawable.login_image));</b>
+<b class="nc">&nbsp;        relatedFoodModels.add(new RelatedFoodModel(&quot;220&quot;, &quot;Veggie Bowl&quot;, R.drawable.login_image));</b>
+<b class="nc">&nbsp;        relatedFoodModels.add(new RelatedFoodModel(&quot;180&quot;, &quot;Spicy Miso Ramen&quot;, R.drawable.login_image));</b>
+<b class="nc">&nbsp;        relatedFoodModels.add(new RelatedFoodModel(&quot;50&quot;, &quot;Spicu Udon&quot;, R.drawable.login_image));</b>
+<b class="nc">&nbsp;        relatedFoodModels.add(new RelatedFoodModel(&quot;70&quot;, &quot;Veggie Udon&quot;, R.drawable.login_image));</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Intent newIntent(Context context) {
+<b class="nc">&nbsp;        return new Intent(context, FoodDetailActivity.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onClick(View v) {
+&nbsp;
+<b class="nc">&nbsp;        if (v == dataBinding.textViewAddToCart) {</b>
+<b class="nc">&nbsp;            if (dataBinding.textQuantity.getText().toString().equals(&quot;0&quot;)) {</b>
+<b class="nc">&nbsp;                showToast(&quot;Add at least one Item&quot;);</b>
+&nbsp;            } else {
+<b class="nc">&nbsp;                showToast(dataBinding.textViewFoodName.getText().toString() + &quot; added to cart&quot;);</b>
+&nbsp;            }
+<b class="nc">&nbsp;        } else if (v == dataBinding.textViewOrderNow) {</b>
+&nbsp;
+<b class="nc">&nbsp;            openCart();</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.textAdd) {</b>
+<b class="nc">&nbsp;            no++;</b>
+<b class="nc">&nbsp;            dataBinding.textQuantity.setText(&quot;&quot; + no);</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.textSubtract) {</b>
+<b class="nc">&nbsp;            if (no &gt; 1) {</b>
+<b class="nc">&nbsp;                no--;</b>
+<b class="nc">&nbsp;                dataBinding.textQuantity.setText(&quot;&quot; + no);</b>
+&nbsp;            }
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.imageViewPrevArrow) {</b>
+<b class="nc">&nbsp;            onBackPressed();</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.imageViewCartDetail) {</b>
+<b class="nc">&nbsp;            openCart();</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onBackPressed() {
+&nbsp;//        super.onBackPressed();
+<b class="nc">&nbsp;        FoodDetailActivity.this.finish();</b>
+<b class="nc">&nbsp;        overridePendingTransition(0, 0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    private void openCart() {
+&nbsp;
+<b class="nc">&nbsp;        Intent i = new Intent();</b>
+<b class="nc">&nbsp;        i.putExtra(&quot;GOTOCART&quot;, 1);</b>
+<b class="nc">&nbsp;        setResult(RESULT_OK, i);</b>
+<b class="nc">&nbsp;        onBackPressed();</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

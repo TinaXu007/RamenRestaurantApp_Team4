@@ -1,0 +1,208 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > DishItemModel</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.data.models</a>
+</div>
+
+<h1>Coverage Summary for Class: DishItemModel (com.alpharamen.customer.data.models)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DishItemModel</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/24)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">DishItemModel$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/27)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.data.models;
+&nbsp;
+&nbsp;import android.os.Parcel;
+&nbsp;import android.os.Parcelable;
+&nbsp;
+&nbsp;public class DishItemModel implements Parcelable {
+<b class="nc">&nbsp;    public static final Creator&lt;DishItemModel&gt; CREATOR = new Creator&lt;DishItemModel&gt;() {</b>
+&nbsp;        @Override
+&nbsp;        public DishItemModel createFromParcel(Parcel in) {
+<b class="nc">&nbsp;            return new DishItemModel(in);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public DishItemModel[] newArray(int size) {
+<b class="nc">&nbsp;            return new DishItemModel[size];</b>
+&nbsp;        }
+&nbsp;    };
+&nbsp;    String dishNme, hubName, rate;
+&nbsp;    int image;
+&nbsp;
+<b class="nc">&nbsp;    public DishItemModel(String dishNme, String hubName, String rate, int image) {</b>
+<b class="nc">&nbsp;        this.dishNme = dishNme;</b>
+<b class="nc">&nbsp;        this.hubName = hubName;</b>
+<b class="nc">&nbsp;        this.rate = rate;</b>
+<b class="nc">&nbsp;        this.image = image;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    protected DishItemModel(Parcel in) {</b>
+<b class="nc">&nbsp;        dishNme = in.readString();</b>
+<b class="nc">&nbsp;        hubName = in.readString();</b>
+<b class="nc">&nbsp;        rate = in.readString();</b>
+<b class="nc">&nbsp;        image = in.readInt();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getDishNme() {
+<b class="nc">&nbsp;        return dishNme;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setDishNme(String dishNme) {
+<b class="nc">&nbsp;        this.dishNme = dishNme;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getHubName() {
+<b class="nc">&nbsp;        return hubName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setHubName(String hubName) {
+<b class="nc">&nbsp;        this.hubName = hubName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getRate() {
+<b class="nc">&nbsp;        return rate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setRate(String rate) {
+<b class="nc">&nbsp;        this.rate = rate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getImage() {
+<b class="nc">&nbsp;        return image;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setImage(int image) {
+<b class="nc">&nbsp;        this.image = image;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int describeContents() {
+<b class="nc">&nbsp;        return 0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void writeToParcel(Parcel dest, int flags) {
+<b class="nc">&nbsp;        dest.writeString(dishNme);</b>
+<b class="nc">&nbsp;        dest.writeString(hubName);</b>
+<b class="nc">&nbsp;        dest.writeString(rate);</b>
+<b class="nc">&nbsp;        dest.writeInt(image);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

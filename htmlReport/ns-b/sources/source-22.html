@@ -1,0 +1,212 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > StartSnapHelper</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.data.models</a>
+</div>
+
+<h1>Coverage Summary for Class: StartSnapHelper (com.alpharamen.customer.data.models)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">StartSnapHelper</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/38)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.data.models;
+&nbsp;
+&nbsp;import androidx.annotation.NonNull;
+&nbsp;import androidx.annotation.Nullable;
+&nbsp;import androidx.recyclerview.widget.LinearLayoutManager;
+&nbsp;import androidx.recyclerview.widget.LinearSnapHelper;
+&nbsp;import androidx.recyclerview.widget.OrientationHelper;
+&nbsp;import androidx.recyclerview.widget.RecyclerView;
+&nbsp;import android.view.View;
+&nbsp;
+&nbsp;
+&nbsp;public class StartSnapHelper extends LinearSnapHelper {
+&nbsp;
+&nbsp;    private OrientationHelper mVerticalHelper, mHorizontalHelper;
+&nbsp;
+<b class="nc">&nbsp;    public StartSnapHelper() {</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void attachToRecyclerView(@Nullable RecyclerView recyclerView)
+&nbsp;            throws IllegalStateException {
+<b class="nc">&nbsp;        super.attachToRecyclerView(recyclerView);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager,
+&nbsp;                                              @NonNull View targetView) {
+<b class="nc">&nbsp;        int[] out = new int[2];</b>
+&nbsp;
+<b class="nc">&nbsp;        if (layoutManager.canScrollHorizontally()) {</b>
+<b class="nc">&nbsp;            out[0] = distanceToStart(targetView, getHorizontalHelper(layoutManager));</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            out[0] = 0;</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (layoutManager.canScrollVertically()) {</b>
+<b class="nc">&nbsp;            out[1] = distanceToStart(targetView, getVerticalHelper(layoutManager));</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            out[1] = 0;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return out;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public View findSnapView(RecyclerView.LayoutManager layoutManager) {
+&nbsp;
+<b class="nc">&nbsp;        if (layoutManager instanceof LinearLayoutManager) {</b>
+&nbsp;
+<b class="nc">&nbsp;            if (layoutManager.canScrollHorizontally()) {</b>
+<b class="nc">&nbsp;                return getStartView(layoutManager, getHorizontalHelper(layoutManager));</b>
+&nbsp;            } else {
+<b class="nc">&nbsp;                return getStartView(layoutManager, getVerticalHelper(layoutManager));</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return super.findSnapView(layoutManager);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private int distanceToStart(View targetView, OrientationHelper helper) {
+<b class="nc">&nbsp;        return helper.getDecoratedStart(targetView) - helper.getStartAfterPadding();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private View getStartView(RecyclerView.LayoutManager layoutManager,
+&nbsp;                              OrientationHelper helper) {
+&nbsp;
+<b class="nc">&nbsp;        if (layoutManager instanceof LinearLayoutManager) {</b>
+<b class="nc">&nbsp;            int firstChild = ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();</b>
+&nbsp;
+<b class="nc">&nbsp;            boolean isLastItem = ((LinearLayoutManager) layoutManager)</b>
+<b class="nc">&nbsp;                    .findLastCompletelyVisibleItemPosition()</b>
+<b class="nc">&nbsp;                    == layoutManager.getItemCount() - 1;</b>
+&nbsp;
+<b class="nc">&nbsp;            if (firstChild == RecyclerView.NO_POSITION || isLastItem) {</b>
+<b class="nc">&nbsp;                return null;</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            View child = layoutManager.findViewByPosition(firstChild);</b>
+&nbsp;
+<b class="nc">&nbsp;            if (helper.getDecoratedEnd(child) &gt;= helper.getDecoratedMeasurement(child) / 2</b>
+<b class="nc">&nbsp;                    &amp;&amp; helper.getDecoratedEnd(child) &gt; 0) {</b>
+<b class="nc">&nbsp;                return child;</b>
+&nbsp;            } else {
+<b class="nc">&nbsp;                if (((LinearLayoutManager) layoutManager).findLastCompletelyVisibleItemPosition()</b>
+<b class="nc">&nbsp;                        == layoutManager.getItemCount() - 1) {</b>
+<b class="nc">&nbsp;                    return null;</b>
+&nbsp;                } else {
+<b class="nc">&nbsp;                    return layoutManager.findViewByPosition(firstChild + 1);</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return super.findSnapView(layoutManager);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private OrientationHelper getVerticalHelper(RecyclerView.LayoutManager layoutManager) {
+<b class="nc">&nbsp;        if (mVerticalHelper == null) {</b>
+<b class="nc">&nbsp;            mVerticalHelper = OrientationHelper.createVerticalHelper(layoutManager);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return mVerticalHelper;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private OrientationHelper getHorizontalHelper(RecyclerView.LayoutManager layoutManager) {
+<b class="nc">&nbsp;        if (mHorizontalHelper == null) {</b>
+<b class="nc">&nbsp;            mHorizontalHelper = OrientationHelper.createHorizontalHelper(layoutManager);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return mHorizontalHelper;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

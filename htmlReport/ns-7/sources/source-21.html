@@ -1,0 +1,290 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ViewModelModule</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.dagger.module</a>
+</div>
+
+<h1>Coverage Summary for Class: ViewModelModule (com.alpharamen.customer.dagger.module)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ViewModelModule</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.dagger.module;
+&nbsp;
+&nbsp;import androidx.lifecycle.ViewModel;
+&nbsp;import androidx.lifecycle.ViewModelProvider;
+&nbsp;
+&nbsp;import com.alpharamen.customer.dagger.ViewModelKey;
+&nbsp;import com.alpharamen.customer.factory.ViewModelProviderFactory;
+&nbsp;import com.alpharamen.customer.viewmodel.AboutUsViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.AddressListViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.CartViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.ChangeAddressViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.ChangeLocationViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.DetailViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.EditProfileViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.FilterResultViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.FilterViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.FoodDetailViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.FoodItemListViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.HomeViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.HubListViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.LoginViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.MyOrdersViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.NotificationFragmentViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.NotificationViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.OfferDetailViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.OffersViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.OnboardViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.PaymentViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.ProfileViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.SearchViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.SignupViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.SplashViewModel;
+&nbsp;import com.alpharamen.customer.viewmodel.TrackItemViewModel;
+&nbsp;
+&nbsp;import dagger.Binds;
+&nbsp;import dagger.Module;
+&nbsp;import dagger.multibindings.IntoMap;
+&nbsp;
+&nbsp;@Module
+<b class="nc">&nbsp;public abstract class ViewModelModule {</b>
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(HomeViewModel.class)
+&nbsp;    abstract ViewModel bindHomeViewModel(HomeViewModel homeViewModel);
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(SplashViewModel.class)
+&nbsp;    abstract ViewModel bindSplashViewModel(SplashViewModel splashViewModel);
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(ProfileViewModel.class)
+&nbsp;    abstract ViewModel bindProfileViewModel(ProfileViewModel splashViewModel);
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(NotificationViewModel.class)
+&nbsp;    abstract ViewModel bindNotificationViewModel(NotificationViewModel splashViewModel);
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(LoginViewModel.class)
+&nbsp;    abstract ViewModel bindLoginViewModel(LoginViewModel loginViewModel);
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(SignupViewModel.class)
+&nbsp;    abstract ViewModel bindSignupViewModel(SignupViewModel signupViewModel);
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(CartViewModel.class)
+&nbsp;    abstract ViewModel bindForgotPasswordViewModel(CartViewModel cartViewModel);
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(OnboardViewModel.class)
+&nbsp;    abstract ViewModel onBoardViewModel(OnboardViewModel onboardViewModel);
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(FoodItemListViewModel.class)
+&nbsp;    abstract ViewModel FoodItemListViewModel(FoodItemListViewModel foodItemListViewModel);
+&nbsp;
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(HubListViewModel.class)
+&nbsp;    abstract ViewModel HubListViewModel(HubListViewModel hubListViewModel);
+&nbsp;
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(OffersViewModel.class)
+&nbsp;    abstract ViewModel OffersViewModel(OffersViewModel offersViewModel);
+&nbsp;
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(NotificationFragmentViewModel.class)
+&nbsp;    abstract ViewModel NotificationFragmentViewModel(NotificationFragmentViewModel notificationFragmentViewModel);
+&nbsp;
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(FoodDetailViewModel.class)
+&nbsp;    abstract ViewModel FoodDetailViewModel(FoodDetailViewModel foodDetailViewModel);
+&nbsp;
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(DetailViewModel.class)
+&nbsp;    abstract ViewModel DetailViewModel(DetailViewModel detailViewModel);
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(OfferDetailViewModel.class)
+&nbsp;    abstract ViewModel OfferDetailViewModel(OfferDetailViewModel offerDetailViewModel);
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(PaymentViewModel.class)
+&nbsp;    abstract ViewModel PaymentViewModel(PaymentViewModel paymentViewModel);
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(EditProfileViewModel.class)
+&nbsp;    abstract ViewModel EditProfileViewModel(EditProfileViewModel editProfileViewModel);
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(ChangeLocationViewModel.class)
+&nbsp;    abstract ViewModel ChangeLocationViewModel(ChangeLocationViewModel changeLocationViewModel);
+&nbsp;
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(MyOrdersViewModel.class)
+&nbsp;    abstract ViewModel MyOrdersViewModel(MyOrdersViewModel myOrdersViewModel);
+&nbsp;
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(AboutUsViewModel.class)
+&nbsp;    abstract ViewModel AboutUsViewModel(AboutUsViewModel aboutUsViewModel);
+&nbsp;
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(ChangeAddressViewModel.class)
+&nbsp;    abstract ViewModel ChangeAddressViewModel(ChangeAddressViewModel changeAddressViewModel);
+&nbsp;
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(FilterViewModel.class)
+&nbsp;    abstract ViewModel FilterViewModel(FilterViewModel changeAddressViewModel);
+&nbsp;
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(FilterResultViewModel.class)
+&nbsp;    abstract ViewModel FilterResultViewModel(FilterResultViewModel filterResultViewModel);
+&nbsp;
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(SearchViewModel.class)
+&nbsp;    abstract ViewModel SearchViewModel(SearchViewModel searchViewModel);
+&nbsp;
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(TrackItemViewModel.class)
+&nbsp;    abstract ViewModel TrackItemViewModel(TrackItemViewModel trackItemViewModel);
+&nbsp;
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    @IntoMap
+&nbsp;    @ViewModelKey(AddressListViewModel.class)
+&nbsp;    abstract ViewModel AddressListViewModel(AddressListViewModel addressListViewModel);
+&nbsp;
+&nbsp;
+&nbsp;    @Binds
+&nbsp;    abstract ViewModelProvider.Factory bindViewModelFactory(ViewModelProviderFactory factory);
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

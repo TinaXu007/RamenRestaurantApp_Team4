@@ -1,0 +1,328 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > OnboardActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.ui.onboarding</a>
+</div>
+
+<h1>Coverage Summary for Class: OnboardActivity (com.alpharamen.customer.view.ui.onboarding)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">OnboardActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">OnboardActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">OnboardActivity$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">OnboardActivity$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">OnboardActivity$4</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/51)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.ui.onboarding;
+&nbsp;
+&nbsp;import androidx.lifecycle.ViewModelProviders;
+&nbsp;import android.content.Context;
+&nbsp;import android.content.Intent;
+&nbsp;import android.os.Bundle;
+&nbsp;import androidx.viewpager.widget.ViewPager;
+&nbsp;import android.view.View;
+&nbsp;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.base.BaseActivity;
+&nbsp;import com.alpharamen.customer.data.models.OnboardModel;
+&nbsp;import com.alpharamen.customer.databinding.ActivityOnboardBinding;
+&nbsp;import com.alpharamen.customer.factory.ViewModelProviderFactory;
+&nbsp;import com.alpharamen.customer.view.adapter.OnboardAdapter;
+&nbsp;import com.alpharamen.customer.view.ui.login.LoginActivity;
+&nbsp;import com.alpharamen.customer.viewmodel.OnboardViewModel;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import javax.inject.Inject;
+&nbsp;
+<b class="nc">&nbsp;public class OnboardActivity extends BaseActivity&lt;ActivityOnboardBinding, OnboardViewModel&gt; {</b>
+&nbsp;
+<b class="nc">&nbsp;    List&lt;OnboardModel&gt; screenList = new ArrayList&lt;&gt;();</b>
+&nbsp;    ActivityOnboardBinding onboardBinding;
+&nbsp;    OnboardViewModel onboardViewModel;
+&nbsp;    OnboardAdapter onboardAdapter;
+&nbsp;    int pos;
+&nbsp;    @Inject
+&nbsp;    ViewModelProviderFactory mViewModelFactory;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getBindingVariable() {
+<b class="nc">&nbsp;        return BR.onboard;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getLayoutId() {
+<b class="nc">&nbsp;        return R.layout.activity_onboard;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public OnboardViewModel getBindingObject() {
+<b class="nc">&nbsp;        return onboardViewModel;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;        onboardViewModel = ViewModelProviders.of(this, mViewModelFactory).get(OnboardViewModel.class);</b>
+<b class="nc">&nbsp;        onboardBinding = (ActivityOnboardBinding) getViewDataBinding();</b>
+&nbsp;
+<b class="nc">&nbsp;        screenList.add(new OnboardModel(R.layout.onboard_screen_first));</b>
+<b class="nc">&nbsp;        screenList.add(new OnboardModel(R.layout.onboard_screen_second));</b>
+<b class="nc">&nbsp;        screenList.add(new OnboardModel(R.layout.onboard_screen_third));</b>
+<b class="nc">&nbsp;        onboardAdapter = new OnboardAdapter(screenList, this);</b>
+<b class="nc">&nbsp;        onboardBinding.onBoardViewpager.setAdapter(onboardAdapter);</b>
+<b class="nc">&nbsp;        onboardBinding.onBoardViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+&nbsp;
+<b class="nc">&nbsp;            }</b>
+&nbsp;
+&nbsp;            @Override
+&nbsp;            public void onPageSelected(int position) {
+<b class="nc">&nbsp;                pos=position;</b>
+&nbsp;
+<b class="nc">&nbsp;                if(position==0){</b>
+<b class="nc">&nbsp;                    onboardBinding.imageViewPrevArrow.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                    onboardBinding.imageViewFinish.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                    onboardBinding.imageViewNextArrow.setVisibility(View.VISIBLE);</b>
+&nbsp;
+&nbsp;
+&nbsp;                }
+<b class="nc">&nbsp;                else if(position==1){</b>
+<b class="nc">&nbsp;                    onboardBinding.imageViewPrevArrow.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;                    onboardBinding.imageViewFinish.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                    onboardBinding.imageViewNextArrow.setVisibility(View.VISIBLE);</b>
+&nbsp;                }
+<b class="nc">&nbsp;                if(position==2){</b>
+<b class="nc">&nbsp;                    onboardBinding.imageViewNextArrow.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                    onboardBinding.imageViewFinish.setVisibility(View.VISIBLE);</b>
+&nbsp;
+&nbsp;                }
+&nbsp;
+&nbsp;
+&nbsp;            }
+&nbsp;
+&nbsp;            @Override
+&nbsp;            public void onPageScrollStateChanged(int state) {
+&nbsp;
+<b class="nc">&nbsp;            }</b>
+&nbsp;        });
+<b class="nc">&nbsp;        onboardBinding.imageViewNextArrow.setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View v) {
+<b class="nc">&nbsp;                if(pos==0){</b>
+<b class="nc">&nbsp;                    onboardBinding.onBoardViewpager.setCurrentItem(pos+1);</b>
+<b class="nc">&nbsp;                    overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);</b>
+&nbsp;                }
+<b class="nc">&nbsp;               else if(pos==1){</b>
+<b class="nc">&nbsp;                    onboardBinding.onBoardViewpager.setCurrentItem(pos+1);</b>
+<b class="nc">&nbsp;                    overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);</b>
+&nbsp;                }
+&nbsp;
+&nbsp;            }
+&nbsp;        });
+<b class="nc">&nbsp;        onboardBinding.imageViewPrevArrow.setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View v) {
+<b class="nc">&nbsp;                if(pos==1){</b>
+<b class="nc">&nbsp;                    onboardBinding.onBoardViewpager.setCurrentItem(pos-1);</b>
+<b class="nc">&nbsp;                    overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);</b>
+&nbsp;                }
+<b class="nc">&nbsp;               else if(pos==2){</b>
+<b class="nc">&nbsp;                    onboardBinding.onBoardViewpager.setCurrentItem(pos-1);</b>
+<b class="nc">&nbsp;                    overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        onboardBinding.imageViewFinish.setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View view) {
+&nbsp;
+<b class="nc">&nbsp;                startActivity(LoginActivity.newIntent(getApplicationContext()));</b>
+<b class="nc">&nbsp;                finish();</b>
+<b class="nc">&nbsp;                overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Intent newIntent(Context context) {
+<b class="nc">&nbsp;        return new Intent(context, OnboardActivity.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

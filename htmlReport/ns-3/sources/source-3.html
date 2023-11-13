@@ -1,0 +1,917 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > DataBinderMapperImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer</a>
+</div>
+
+<h1>Coverage Summary for Class: DataBinderMapperImpl (com.alpharamen.customer)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DataBinderMapperImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/254)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">DataBinderMapperImpl$InnerBrLookup</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/52)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">DataBinderMapperImpl$InnerLayoutIdLookup</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/56)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/362)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer;
+&nbsp;
+&nbsp;import android.util.SparseArray;
+&nbsp;import android.util.SparseIntArray;
+&nbsp;import android.view.View;
+&nbsp;import androidx.databinding.DataBinderMapper;
+&nbsp;import androidx.databinding.DataBindingComponent;
+&nbsp;import androidx.databinding.ViewDataBinding;
+&nbsp;import com.alpharamen.customer.databinding.AboutOfferSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityAboutUsBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityAddressListBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityChangeAddressBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityChangeLocationBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityDetailHubBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityEditProfileBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityFilterBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityFilterResultBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityFoodDetailBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityHomeBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityLoginBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityMyOrdersBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityNotificationBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityOfferDetailBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityOnboardBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityOrderPlacedBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivitySearchBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivitySignupBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivitySplashBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ActivityTrackItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.ContentMainBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.CustomRowItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.FragmentBottomsheetLoginBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.FragmentCartBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.FragmentHomeBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.FragmentHubsListBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.FragmentNotificationBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.FragmentOffersBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.FragmentOffersSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.FragmentProfileBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.FragmentSearchItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.FreeDeliveryLayoutBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.NotificationRowItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.PlaceholderFoodDetailBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewAddressListSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewCartSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewDishFilterSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewDishTypeSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewDishesSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewFilterResultSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewHubNewBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewHubsListSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewMostPopularSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewMyOrdersSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewNotificationSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewOfferSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewOrderedSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewRecentItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewRelatedFoodsSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewSearchSingleItemNewBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.SampleRowItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.TermsAndConditionsSingleItemBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.WidgetHeaderViewBindingImpl;
+&nbsp;import com.alpharamen.customer.databinding.WidgetHeaderViewTopBindingImpl;
+&nbsp;import java.lang.IllegalArgumentException;
+&nbsp;import java.lang.Integer;
+&nbsp;import java.lang.Object;
+&nbsp;import java.lang.Override;
+&nbsp;import java.lang.RuntimeException;
+&nbsp;import java.lang.String;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.HashMap;
+&nbsp;import java.util.List;
+&nbsp;
+<b class="nc">&nbsp;public class DataBinderMapperImpl extends DataBinderMapper {</b>
+&nbsp;  private static final int LAYOUT_ABOUTOFFERSINGLEITEM = 1;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYABOUTUS = 2;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYADDRESSLIST = 3;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYCHANGEADDRESS = 4;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYCHANGELOCATION = 5;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYDETAILHUB = 6;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYEDITPROFILE = 7;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYFILTER = 8;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYFILTERRESULT = 9;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYFOODDETAIL = 10;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYHOME = 11;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYLOGIN = 12;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYMYORDERS = 13;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYNOTIFICATION = 14;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYOFFERDETAIL = 15;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYONBOARD = 16;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYORDERPLACED = 17;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYSEARCH = 18;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYSIGNUP = 19;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYSPLASH = 20;
+&nbsp;
+&nbsp;  private static final int LAYOUT_ACTIVITYTRACKITEM = 21;
+&nbsp;
+&nbsp;  private static final int LAYOUT_CONTENTMAIN = 22;
+&nbsp;
+&nbsp;  private static final int LAYOUT_CUSTOMROWITEM = 23;
+&nbsp;
+&nbsp;  private static final int LAYOUT_FRAGMENTBOTTOMSHEETLOGIN = 24;
+&nbsp;
+&nbsp;  private static final int LAYOUT_FRAGMENTCART = 25;
+&nbsp;
+&nbsp;  private static final int LAYOUT_FRAGMENTHOME = 26;
+&nbsp;
+&nbsp;  private static final int LAYOUT_FRAGMENTHUBSLIST = 27;
+&nbsp;
+&nbsp;  private static final int LAYOUT_FRAGMENTNOTIFICATION = 28;
+&nbsp;
+&nbsp;  private static final int LAYOUT_FRAGMENTOFFERS = 29;
+&nbsp;
+&nbsp;  private static final int LAYOUT_FRAGMENTOFFERSSINGLEITEM = 30;
+&nbsp;
+&nbsp;  private static final int LAYOUT_FRAGMENTPROFILE = 31;
+&nbsp;
+&nbsp;  private static final int LAYOUT_FRAGMENTSEARCHITEM = 32;
+&nbsp;
+&nbsp;  private static final int LAYOUT_FREEDELIVERYLAYOUT = 33;
+&nbsp;
+&nbsp;  private static final int LAYOUT_NOTIFICATIONROWITEM = 34;
+&nbsp;
+&nbsp;  private static final int LAYOUT_PLACEHOLDERFOODDETAIL = 35;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWADDRESSLISTSINGLEITEM = 36;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWCARTSINGLEITEM = 37;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWDISHFILTERSINGLEITEM = 38;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWDISHTYPESINGLEITEM = 39;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWDISHESSINGLEITEM = 40;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWFILTERRESULTSINGLEITEM = 41;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWHUBNEW = 42;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWHUBSLISTSINGLEITEM = 43;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWMOSTPOPULARSINGLEITEM = 44;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWMYORDERSSINGLEITEM = 45;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWNOTIFICATIONSINGLEITEM = 46;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWOFFERSINGLEITEM = 47;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWORDEREDSINGLEITEM = 48;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWRECENTITEM = 49;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWRELATEDFOODSSINGLEITEM = 50;
+&nbsp;
+&nbsp;  private static final int LAYOUT_RECYCLERVIEWSEARCHSINGLEITEMNEW = 51;
+&nbsp;
+&nbsp;  private static final int LAYOUT_SAMPLEROWITEM = 52;
+&nbsp;
+&nbsp;  private static final int LAYOUT_TERMSANDCONDITIONSSINGLEITEM = 53;
+&nbsp;
+&nbsp;  private static final int LAYOUT_WIDGETHEADERVIEW = 54;
+&nbsp;
+&nbsp;  private static final int LAYOUT_WIDGETHEADERVIEWTOP = 55;
+&nbsp;
+<b class="nc">&nbsp;  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(55);</b>
+&nbsp;
+&nbsp;  static {
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.about_offer_single_item, LAYOUT_ABOUTOFFERSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_about_us, LAYOUT_ACTIVITYABOUTUS);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_address_list, LAYOUT_ACTIVITYADDRESSLIST);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_change_address, LAYOUT_ACTIVITYCHANGEADDRESS);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_change_location, LAYOUT_ACTIVITYCHANGELOCATION);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_detail_hub, LAYOUT_ACTIVITYDETAILHUB);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_edit_profile, LAYOUT_ACTIVITYEDITPROFILE);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_filter, LAYOUT_ACTIVITYFILTER);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_filter_result, LAYOUT_ACTIVITYFILTERRESULT);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_food_detail, LAYOUT_ACTIVITYFOODDETAIL);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_home, LAYOUT_ACTIVITYHOME);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_login, LAYOUT_ACTIVITYLOGIN);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_my_orders, LAYOUT_ACTIVITYMYORDERS);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_notification, LAYOUT_ACTIVITYNOTIFICATION);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_offer_detail, LAYOUT_ACTIVITYOFFERDETAIL);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_onboard, LAYOUT_ACTIVITYONBOARD);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_order_placed, LAYOUT_ACTIVITYORDERPLACED);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_search, LAYOUT_ACTIVITYSEARCH);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_signup, LAYOUT_ACTIVITYSIGNUP);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_splash, LAYOUT_ACTIVITYSPLASH);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.activity_track_item, LAYOUT_ACTIVITYTRACKITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.content_main, LAYOUT_CONTENTMAIN);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.custom_row_item, LAYOUT_CUSTOMROWITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.fragment_bottomsheet_login, LAYOUT_FRAGMENTBOTTOMSHEETLOGIN);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.fragment_cart, LAYOUT_FRAGMENTCART);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.fragment_home, LAYOUT_FRAGMENTHOME);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.fragment_hubs_list, LAYOUT_FRAGMENTHUBSLIST);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.fragment_notification, LAYOUT_FRAGMENTNOTIFICATION);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.fragment_offers, LAYOUT_FRAGMENTOFFERS);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.fragment_offers_single_item, LAYOUT_FRAGMENTOFFERSSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.fragment_profile, LAYOUT_FRAGMENTPROFILE);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.fragment_search_item, LAYOUT_FRAGMENTSEARCHITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.free_delivery_layout, LAYOUT_FREEDELIVERYLAYOUT);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.notification_row_item, LAYOUT_NOTIFICATIONROWITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.placeholder_food_detail, LAYOUT_PLACEHOLDERFOODDETAIL);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_address_list_single_item, LAYOUT_RECYCLERVIEWADDRESSLISTSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_cart_single_item, LAYOUT_RECYCLERVIEWCARTSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_dish_filter_single_item, LAYOUT_RECYCLERVIEWDISHFILTERSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_dish_type_single_item, LAYOUT_RECYCLERVIEWDISHTYPESINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_dishes_single_item, LAYOUT_RECYCLERVIEWDISHESSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_filter_result_single_item, LAYOUT_RECYCLERVIEWFILTERRESULTSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_hub_new, LAYOUT_RECYCLERVIEWHUBNEW);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_hubs_list_single_item, LAYOUT_RECYCLERVIEWHUBSLISTSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_most_popular_single_item, LAYOUT_RECYCLERVIEWMOSTPOPULARSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_my_orders_single_item, LAYOUT_RECYCLERVIEWMYORDERSSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_notification_single_item, LAYOUT_RECYCLERVIEWNOTIFICATIONSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_offer_single_item, LAYOUT_RECYCLERVIEWOFFERSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_ordered__single_item, LAYOUT_RECYCLERVIEWORDEREDSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_recent_item, LAYOUT_RECYCLERVIEWRECENTITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_related_foods_single_item, LAYOUT_RECYCLERVIEWRELATEDFOODSSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.recycler_view_search_single_item_new, LAYOUT_RECYCLERVIEWSEARCHSINGLEITEMNEW);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.sample_row_item, LAYOUT_SAMPLEROWITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.terms_and_conditions_single_item, LAYOUT_TERMSANDCONDITIONSSINGLEITEM);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.widget_header_view, LAYOUT_WIDGETHEADERVIEW);</b>
+<b class="nc">&nbsp;    INTERNAL_LAYOUT_ID_LOOKUP.put(com.alpharamen.customer.R.layout.widget_header_view_top, LAYOUT_WIDGETHEADERVIEWTOP);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private final ViewDataBinding internalGetViewDataBinding0(DataBindingComponent component,
+&nbsp;      View view, int internalId, Object tag) {
+<b class="nc">&nbsp;    switch(internalId) {</b>
+&nbsp;      case  LAYOUT_ABOUTOFFERSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/about_offer_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new AboutOfferSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for about_offer_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYABOUTUS: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_about_us_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityAboutUsBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_about_us is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYADDRESSLIST: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_address_list_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityAddressListBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_address_list is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYCHANGEADDRESS: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_change_address_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityChangeAddressBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_change_address is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYCHANGELOCATION: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_change_location_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityChangeLocationBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_change_location is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYDETAILHUB: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_detail_hub_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityDetailHubBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_detail_hub is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYEDITPROFILE: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_edit_profile_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityEditProfileBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_edit_profile is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYFILTER: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_filter_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityFilterBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_filter is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYFILTERRESULT: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_filter_result_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityFilterResultBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_filter_result is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYFOODDETAIL: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_food_detail_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityFoodDetailBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_food_detail is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYHOME: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_home_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityHomeBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_home is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYLOGIN: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_login_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityLoginBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_login is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYMYORDERS: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_my_orders_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityMyOrdersBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_my_orders is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYNOTIFICATION: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_notification_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityNotificationBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_notification is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYOFFERDETAIL: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_offer_detail_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityOfferDetailBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_offer_detail is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYONBOARD: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_onboard_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityOnboardBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_onboard is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYORDERPLACED: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_order_placed_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityOrderPlacedBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_order_placed is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYSEARCH: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_search_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivitySearchBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_search is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYSIGNUP: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_signup_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivitySignupBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_signup is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYSPLASH: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_splash_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivitySplashBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_splash is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_ACTIVITYTRACKITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/activity_track_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ActivityTrackItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for activity_track_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_CONTENTMAIN: {
+<b class="nc">&nbsp;        if (&quot;layout/content_main_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new ContentMainBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for content_main is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_CUSTOMROWITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/custom_row_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new CustomRowItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for custom_row_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_FRAGMENTBOTTOMSHEETLOGIN: {
+<b class="nc">&nbsp;        if (&quot;layout/fragment_bottomsheet_login_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new FragmentBottomsheetLoginBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for fragment_bottomsheet_login is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_FRAGMENTCART: {
+<b class="nc">&nbsp;        if (&quot;layout/fragment_cart_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new FragmentCartBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for fragment_cart is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_FRAGMENTHOME: {
+<b class="nc">&nbsp;        if (&quot;layout/fragment_home_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new FragmentHomeBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for fragment_home is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_FRAGMENTHUBSLIST: {
+<b class="nc">&nbsp;        if (&quot;layout/fragment_hubs_list_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new FragmentHubsListBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for fragment_hubs_list is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_FRAGMENTNOTIFICATION: {
+<b class="nc">&nbsp;        if (&quot;layout/fragment_notification_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new FragmentNotificationBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for fragment_notification is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_FRAGMENTOFFERS: {
+<b class="nc">&nbsp;        if (&quot;layout/fragment_offers_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new FragmentOffersBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for fragment_offers is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_FRAGMENTOFFERSSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/fragment_offers_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new FragmentOffersSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for fragment_offers_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_FRAGMENTPROFILE: {
+<b class="nc">&nbsp;        if (&quot;layout/fragment_profile_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new FragmentProfileBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for fragment_profile is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_FRAGMENTSEARCHITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/fragment_search_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new FragmentSearchItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for fragment_search_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_FREEDELIVERYLAYOUT: {
+<b class="nc">&nbsp;        if (&quot;layout/free_delivery_layout_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new FreeDeliveryLayoutBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for free_delivery_layout is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_NOTIFICATIONROWITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/notification_row_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new NotificationRowItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for notification_row_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_PLACEHOLDERFOODDETAIL: {
+<b class="nc">&nbsp;        if (&quot;layout/placeholder_food_detail_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new PlaceholderFoodDetailBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for placeholder_food_detail is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWADDRESSLISTSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_address_list_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewAddressListSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_address_list_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWCARTSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_cart_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewCartSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_cart_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWDISHFILTERSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_dish_filter_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewDishFilterSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_dish_filter_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWDISHTYPESINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_dish_type_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewDishTypeSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_dish_type_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWDISHESSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_dishes_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewDishesSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_dishes_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWFILTERRESULTSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_filter_result_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewFilterResultSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_filter_result_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWHUBNEW: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_hub_new_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewHubNewBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_hub_new is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWHUBSLISTSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_hubs_list_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewHubsListSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_hubs_list_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWMOSTPOPULARSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_most_popular_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewMostPopularSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_most_popular_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWMYORDERSSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_my_orders_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewMyOrdersSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_my_orders_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWNOTIFICATIONSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_notification_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewNotificationSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_notification_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWOFFERSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_offer_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewOfferSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_offer_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWORDEREDSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_ordered__single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewOrderedSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_ordered__single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWRECENTITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_recent_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewRecentItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_recent_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_RECYCLERVIEWRELATEDFOODSSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_related_foods_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewRelatedFoodsSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_related_foods_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    return null;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private final ViewDataBinding internalGetViewDataBinding1(DataBindingComponent component,
+&nbsp;      View view, int internalId, Object tag) {
+<b class="nc">&nbsp;    switch(internalId) {</b>
+&nbsp;      case  LAYOUT_RECYCLERVIEWSEARCHSINGLEITEMNEW: {
+<b class="nc">&nbsp;        if (&quot;layout/recycler_view_search_single_item_new_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new RecyclerViewSearchSingleItemNewBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for recycler_view_search_single_item_new is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_SAMPLEROWITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/sample_row_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new SampleRowItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for sample_row_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_TERMSANDCONDITIONSSINGLEITEM: {
+<b class="nc">&nbsp;        if (&quot;layout/terms_and_conditions_single_item_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new TermsAndConditionsSingleItemBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for terms_and_conditions_single_item is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_WIDGETHEADERVIEW: {
+<b class="nc">&nbsp;        if (&quot;layout/widget_header_view_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new WidgetHeaderViewBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for widget_header_view is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;      case  LAYOUT_WIDGETHEADERVIEWTOP: {
+<b class="nc">&nbsp;        if (&quot;layout/widget_header_view_top_0&quot;.equals(tag)) {</b>
+<b class="nc">&nbsp;          return new WidgetHeaderViewTopBindingImpl(component, view);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        throw new IllegalArgumentException(&quot;The tag for widget_header_view_top is invalid. Received: &quot; + tag);</b>
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    return null;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public ViewDataBinding getDataBinder(DataBindingComponent component, View view, int layoutId) {
+<b class="nc">&nbsp;    int localizedLayoutId = INTERNAL_LAYOUT_ID_LOOKUP.get(layoutId);</b>
+<b class="nc">&nbsp;    if(localizedLayoutId &gt; 0) {</b>
+<b class="nc">&nbsp;      final Object tag = view.getTag();</b>
+<b class="nc">&nbsp;      if(tag == null) {</b>
+<b class="nc">&nbsp;        throw new RuntimeException(&quot;view must have a tag&quot;);</b>
+&nbsp;      }
+&nbsp;      // find which method will have it. -1 is necessary becausefirst id starts with 1;
+<b class="nc">&nbsp;      int methodIndex = (localizedLayoutId - 1) / 50;</b>
+<b class="nc">&nbsp;      switch(methodIndex) {</b>
+&nbsp;        case 0: {
+<b class="nc">&nbsp;          return internalGetViewDataBinding0(component, view, localizedLayoutId, tag);</b>
+&nbsp;        }
+&nbsp;        case 1: {
+<b class="nc">&nbsp;          return internalGetViewDataBinding1(component, view, localizedLayoutId, tag);</b>
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    return null;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public ViewDataBinding getDataBinder(DataBindingComponent component, View[] views, int layoutId) {
+<b class="nc">&nbsp;    if(views == null || views.length == 0) {</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    int localizedLayoutId = INTERNAL_LAYOUT_ID_LOOKUP.get(layoutId);</b>
+<b class="nc">&nbsp;    if(localizedLayoutId &gt; 0) {</b>
+<b class="nc">&nbsp;      final Object tag = views[0].getTag();</b>
+<b class="nc">&nbsp;      if(tag == null) {</b>
+<b class="nc">&nbsp;        throw new RuntimeException(&quot;view must have a tag&quot;);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      switch(localizedLayoutId) {</b>
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    return null;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public int getLayoutId(String tag) {
+<b class="nc">&nbsp;    if (tag == null) {</b>
+<b class="nc">&nbsp;      return 0;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    Integer tmpVal = InnerLayoutIdLookup.sKeys.get(tag);</b>
+<b class="nc">&nbsp;    return tmpVal == null ? 0 : tmpVal;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String convertBrIdToString(int localId) {
+<b class="nc">&nbsp;    String tmpVal = InnerBrLookup.sKeys.get(localId);</b>
+<b class="nc">&nbsp;    return tmpVal;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public List&lt;DataBinderMapper&gt; collectDependencies() {
+<b class="nc">&nbsp;    ArrayList&lt;DataBinderMapper&gt; result = new ArrayList&lt;DataBinderMapper&gt;(1);</b>
+<b class="nc">&nbsp;    result.add(new androidx.databinding.library.baseAdapters.DataBinderMapperImpl());</b>
+<b class="nc">&nbsp;    return result;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static class InnerBrLookup {
+<b class="nc">&nbsp;    static final SparseArray&lt;String&gt; sKeys = new SparseArray&lt;String&gt;(51);</b>
+&nbsp;
+&nbsp;    static {
+<b class="nc">&nbsp;      sKeys.put(0, &quot;_all&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(1, &quot;aboutUs&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(2, &quot;addressList&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(3, &quot;arrrow&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(4, &quot;bottomSelection&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(5, &quot;callback&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(6, &quot;cart&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(7, &quot;categoryId&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(8, &quot;categoryName&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(9, &quot;changeAddress&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(10, &quot;changeLocation&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(11, &quot;desc&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(12, &quot;editProfile&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(13, &quot;empty&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(14, &quot;filter&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(15, &quot;filterResult&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(16, &quot;foodDetail&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(17, &quot;hide&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(18, &quot;home&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(19, &quot;hubDetail&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(20, &quot;hubs&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(21, &quot;imageUrl&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(22, &quot;isLast&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(23, &quot;item&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(24, &quot;itemFirst&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(25, &quot;itemFourth&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(26, &quot;itemSecond&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(27, &quot;itemThird&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(28, &quot;listener&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(29, &quot;login&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(30, &quot;myorders&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(31, &quot;name&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(32, &quot;notification&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(33, &quot;notify&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(34, &quot;offerDetail&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(35, &quot;offers&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(36, &quot;onboard&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(37, &quot;payment&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(38, &quot;profile&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(39, &quot;ratingSelection&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(40, &quot;relatedFood&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(41, &quot;sample&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(42, &quot;search&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(43, &quot;selected&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(44, &quot;selection&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(45, &quot;signUp&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(46, &quot;splash&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(47, &quot;title&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(48, &quot;trackItem&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(49, &quot;url&quot;);</b>
+<b class="nc">&nbsp;      sKeys.put(50, &quot;userType&quot;);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static class InnerLayoutIdLookup {
+<b class="nc">&nbsp;    static final HashMap&lt;String, Integer&gt; sKeys = new HashMap&lt;String, Integer&gt;(55);</b>
+&nbsp;
+&nbsp;    static {
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/about_offer_single_item_0&quot;, com.alpharamen.customer.R.layout.about_offer_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_about_us_0&quot;, com.alpharamen.customer.R.layout.activity_about_us);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_address_list_0&quot;, com.alpharamen.customer.R.layout.activity_address_list);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_change_address_0&quot;, com.alpharamen.customer.R.layout.activity_change_address);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_change_location_0&quot;, com.alpharamen.customer.R.layout.activity_change_location);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_detail_hub_0&quot;, com.alpharamen.customer.R.layout.activity_detail_hub);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_edit_profile_0&quot;, com.alpharamen.customer.R.layout.activity_edit_profile);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_filter_0&quot;, com.alpharamen.customer.R.layout.activity_filter);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_filter_result_0&quot;, com.alpharamen.customer.R.layout.activity_filter_result);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_food_detail_0&quot;, com.alpharamen.customer.R.layout.activity_food_detail);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_home_0&quot;, com.alpharamen.customer.R.layout.activity_home);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_login_0&quot;, com.alpharamen.customer.R.layout.activity_login);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_my_orders_0&quot;, com.alpharamen.customer.R.layout.activity_my_orders);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_notification_0&quot;, com.alpharamen.customer.R.layout.activity_notification);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_offer_detail_0&quot;, com.alpharamen.customer.R.layout.activity_offer_detail);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_onboard_0&quot;, com.alpharamen.customer.R.layout.activity_onboard);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_order_placed_0&quot;, com.alpharamen.customer.R.layout.activity_order_placed);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_search_0&quot;, com.alpharamen.customer.R.layout.activity_search);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_signup_0&quot;, com.alpharamen.customer.R.layout.activity_signup);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_splash_0&quot;, com.alpharamen.customer.R.layout.activity_splash);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/activity_track_item_0&quot;, com.alpharamen.customer.R.layout.activity_track_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/content_main_0&quot;, com.alpharamen.customer.R.layout.content_main);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/custom_row_item_0&quot;, com.alpharamen.customer.R.layout.custom_row_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/fragment_bottomsheet_login_0&quot;, com.alpharamen.customer.R.layout.fragment_bottomsheet_login);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/fragment_cart_0&quot;, com.alpharamen.customer.R.layout.fragment_cart);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/fragment_home_0&quot;, com.alpharamen.customer.R.layout.fragment_home);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/fragment_hubs_list_0&quot;, com.alpharamen.customer.R.layout.fragment_hubs_list);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/fragment_notification_0&quot;, com.alpharamen.customer.R.layout.fragment_notification);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/fragment_offers_0&quot;, com.alpharamen.customer.R.layout.fragment_offers);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/fragment_offers_single_item_0&quot;, com.alpharamen.customer.R.layout.fragment_offers_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/fragment_profile_0&quot;, com.alpharamen.customer.R.layout.fragment_profile);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/fragment_search_item_0&quot;, com.alpharamen.customer.R.layout.fragment_search_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/free_delivery_layout_0&quot;, com.alpharamen.customer.R.layout.free_delivery_layout);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/notification_row_item_0&quot;, com.alpharamen.customer.R.layout.notification_row_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/placeholder_food_detail_0&quot;, com.alpharamen.customer.R.layout.placeholder_food_detail);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_address_list_single_item_0&quot;, com.alpharamen.customer.R.layout.recycler_view_address_list_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_cart_single_item_0&quot;, com.alpharamen.customer.R.layout.recycler_view_cart_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_dish_filter_single_item_0&quot;, com.alpharamen.customer.R.layout.recycler_view_dish_filter_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_dish_type_single_item_0&quot;, com.alpharamen.customer.R.layout.recycler_view_dish_type_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_dishes_single_item_0&quot;, com.alpharamen.customer.R.layout.recycler_view_dishes_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_filter_result_single_item_0&quot;, com.alpharamen.customer.R.layout.recycler_view_filter_result_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_hub_new_0&quot;, com.alpharamen.customer.R.layout.recycler_view_hub_new);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_hubs_list_single_item_0&quot;, com.alpharamen.customer.R.layout.recycler_view_hubs_list_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_most_popular_single_item_0&quot;, com.alpharamen.customer.R.layout.recycler_view_most_popular_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_my_orders_single_item_0&quot;, com.alpharamen.customer.R.layout.recycler_view_my_orders_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_notification_single_item_0&quot;, com.alpharamen.customer.R.layout.recycler_view_notification_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_offer_single_item_0&quot;, com.alpharamen.customer.R.layout.recycler_view_offer_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_ordered__single_item_0&quot;, com.alpharamen.customer.R.layout.recycler_view_ordered__single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_recent_item_0&quot;, com.alpharamen.customer.R.layout.recycler_view_recent_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_related_foods_single_item_0&quot;, com.alpharamen.customer.R.layout.recycler_view_related_foods_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/recycler_view_search_single_item_new_0&quot;, com.alpharamen.customer.R.layout.recycler_view_search_single_item_new);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/sample_row_item_0&quot;, com.alpharamen.customer.R.layout.sample_row_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/terms_and_conditions_single_item_0&quot;, com.alpharamen.customer.R.layout.terms_and_conditions_single_item);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/widget_header_view_0&quot;, com.alpharamen.customer.R.layout.widget_header_view);</b>
+<b class="nc">&nbsp;      sKeys.put(&quot;layout/widget_header_view_top_0&quot;, com.alpharamen.customer.R.layout.widget_header_view_top);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

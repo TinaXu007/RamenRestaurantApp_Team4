@@ -1,0 +1,222 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ActivityProvider</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.dagger.module</a>
+</div>
+
+<h1>Coverage Summary for Class: ActivityProvider (com.alpharamen.customer.dagger.module)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ActivityProvider</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.dagger.module;
+&nbsp;
+&nbsp;import com.alpharamen.customer.dagger.PerActivity;
+&nbsp;import com.alpharamen.customer.view.ui.about_us.AboutUsActivity;
+&nbsp;import com.alpharamen.customer.view.ui.address_list.AddressListActivity;
+&nbsp;import com.alpharamen.customer.view.ui.change_address.ChangeAddressActivity;
+&nbsp;import com.alpharamen.customer.view.ui.change_location.ChangeLocationActivity;
+&nbsp;import com.alpharamen.customer.view.ui.edit_profile.EditProfileActivity;
+&nbsp;import com.alpharamen.customer.view.ui.filter.FilterActivity;
+&nbsp;import com.alpharamen.customer.view.ui.filter_result.FilterResultActivity;
+&nbsp;import com.alpharamen.customer.view.ui.food_item_detail_page.FoodDetailActivity;
+&nbsp;import com.alpharamen.customer.view.ui.home_page.HomeActivity;
+&nbsp;import com.alpharamen.customer.view.ui.hub_detail_page.DetailHubActivity;
+&nbsp;import com.alpharamen.customer.view.ui.login.LoginActivity;
+&nbsp;import com.alpharamen.customer.view.ui.myorders.MyOrdersActivity;
+&nbsp;import com.alpharamen.customer.view.ui.notification.NotificationActivity;
+&nbsp;import com.alpharamen.customer.view.ui.offer_detail.OfferDetailActivity;
+&nbsp;import com.alpharamen.customer.view.ui.onboarding.OnboardActivity;
+&nbsp;import com.alpharamen.customer.view.ui.order_placed.OrderPlacedActivity;
+&nbsp;import com.alpharamen.customer.view.ui.signup.SignupActivity;
+&nbsp;import com.alpharamen.customer.view.ui.splash.SplashActivity;
+&nbsp;import com.alpharamen.customer.view.ui.track_item.TrackItemActivity;
+&nbsp;
+&nbsp;import dagger.Module;
+&nbsp;import dagger.android.ContributesAndroidInjector;
+&nbsp;
+&nbsp;@Module
+<b class="nc">&nbsp;public abstract class ActivityProvider {</b>
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract HomeActivity bindHomeActivity();
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract SplashActivity bindSplashActivity();
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract NotificationActivity bindNotificationActivity();
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract LoginActivity bindLoginActivity();
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract SignupActivity bindSignupActivity();
+&nbsp;
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract OnboardActivity onboardActivity();
+&nbsp;
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract FoodDetailActivity foodDetailActivity();
+&nbsp;
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract DetailHubActivity detailHubActivity();
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract OfferDetailActivity offerDetailActivity();
+&nbsp;
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract OrderPlacedActivity paymentActivity();
+&nbsp;
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract EditProfileActivity editProfileActivity();
+&nbsp;
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract ChangeLocationActivity changeLocationActivity();
+&nbsp;
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract MyOrdersActivity myOrdersActivity();
+&nbsp;
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract AboutUsActivity aboutUsActivity();
+&nbsp;
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract ChangeAddressActivity changeAddressActivity();
+&nbsp;
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract FilterActivity filterActivity();
+&nbsp;
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract FilterResultActivity filterResultActivity();
+&nbsp;
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract TrackItemActivity trackItemActivity();
+&nbsp;
+&nbsp;    @PerActivity
+&nbsp;    @ContributesAndroidInjector
+&nbsp;    abstract AddressListActivity addressListActivity();
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

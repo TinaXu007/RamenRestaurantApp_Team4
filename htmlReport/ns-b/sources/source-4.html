@@ -1,0 +1,222 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CenterZoomLayoutManager</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.data.models</a>
+</div>
+
+<h1>Coverage Summary for Class: CenterZoomLayoutManager (com.alpharamen.customer.data.models)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CenterZoomLayoutManager</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/43)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CenterZoomLayoutManager$CenterSmoothScroller</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/45)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.data.models;
+&nbsp;
+&nbsp;import android.content.Context;
+&nbsp;import androidx.recyclerview.widget.LinearLayoutManager;
+&nbsp;import androidx.recyclerview.widget.LinearSmoothScroller;
+&nbsp;import androidx.recyclerview.widget.RecyclerView;
+&nbsp;import android.view.View;
+&nbsp;
+&nbsp;public class CenterZoomLayoutManager extends LinearLayoutManager {
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    private final float mShrinkAmount = 0.2f;</b>
+<b class="nc">&nbsp;    private final float mShrinkDistance = 0.5f;</b>
+&nbsp;
+&nbsp;    public CenterZoomLayoutManager(Context context) {
+<b class="nc">&nbsp;        super(context);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public CenterZoomLayoutManager(Context context, int orientation, boolean reverseLayout) {
+<b class="nc">&nbsp;        super(context, orientation, reverseLayout);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int scrollVerticallyBy(int dy, RecyclerView.Recycler recycler, RecyclerView.State state) {
+<b class="nc">&nbsp;        int orientation = getOrientation();</b>
+<b class="nc">&nbsp;        if (orientation == VERTICAL) {</b>
+<b class="nc">&nbsp;            int scrolled = super.scrollVerticallyBy(dy, recycler, state);</b>
+<b class="nc">&nbsp;            float midpoint = getHeight() / 2.f;</b>
+<b class="nc">&nbsp;            float d0 = 0.f;</b>
+<b class="nc">&nbsp;            float d1 = mShrinkDistance * midpoint;</b>
+<b class="nc">&nbsp;            float s0 = 1.f;</b>
+<b class="nc">&nbsp;            float s1 = 1.f - mShrinkAmount;</b>
+<b class="nc">&nbsp;            for (int i = 0; i &lt; getChildCount(); i++) {</b>
+<b class="nc">&nbsp;                View child = getChildAt(i);</b>
+<b class="nc">&nbsp;                float childMidpoint =</b>
+<b class="nc">&nbsp;                        (getDecoratedBottom(child) + getDecoratedTop(child)) / 2.f;</b>
+<b class="nc">&nbsp;                float d = Math.min(d1, Math.abs(midpoint - childMidpoint));</b>
+<b class="nc">&nbsp;                float scale = s0 + (s1 - s0) * (d - d0) / (d1 - d0);</b>
+<b class="nc">&nbsp;                child.setScaleX(scale);</b>
+<b class="nc">&nbsp;                child.setScaleY(scale);</b>
+&nbsp;            }
+<b class="nc">&nbsp;            return scrolled;</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            return 0;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int scrollHorizontallyBy(int dx, RecyclerView.Recycler recycler, RecyclerView.State state) {
+<b class="nc">&nbsp;        int orientation = getOrientation();</b>
+<b class="nc">&nbsp;        if (orientation == HORIZONTAL) {</b>
+<b class="nc">&nbsp;            int scrolled = super.scrollHorizontallyBy(dx, recycler, state);</b>
+&nbsp;
+<b class="nc">&nbsp;            float midpoint = getWidth() / 2.f;</b>
+<b class="nc">&nbsp;            float d0 = 0.f;</b>
+<b class="nc">&nbsp;            float d1 = mShrinkDistance * midpoint;</b>
+<b class="nc">&nbsp;            float s0 = 1.f;</b>
+<b class="nc">&nbsp;            float s1 = 1.f - mShrinkAmount;</b>
+<b class="nc">&nbsp;            for (int i = 0; i &lt; getChildCount(); i++) {</b>
+<b class="nc">&nbsp;                View child = getChildAt(i);</b>
+<b class="nc">&nbsp;                float childMidpoint =</b>
+<b class="nc">&nbsp;                        (getDecoratedRight(child) + getDecoratedLeft(child)) / 2.f;</b>
+<b class="nc">&nbsp;                float d = Math.min(d1, Math.abs(midpoint - childMidpoint));</b>
+<b class="nc">&nbsp;                float scale = s0 + (s1 - s0) * (d - d0) / (d1 - d0);</b>
+<b class="nc">&nbsp;                child.setScaleX(scale);</b>
+<b class="nc">&nbsp;                child.setScaleY(scale);</b>
+&nbsp;            }
+<b class="nc">&nbsp;            return scrolled;</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            return 0;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int position) {
+<b class="nc">&nbsp;        RecyclerView.SmoothScroller smoothScroller = new CenterSmoothScroller(recyclerView.getContext());</b>
+<b class="nc">&nbsp;        smoothScroller.setTargetPosition(position);</b>
+<b class="nc">&nbsp;        startSmoothScroll(smoothScroller);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private static class CenterSmoothScroller extends LinearSmoothScroller {
+&nbsp;        CenterSmoothScroller(Context context) {
+<b class="nc">&nbsp;            super(context);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public int calculateDtToFit(int viewStart, int viewEnd, int boxStart, int boxEnd, int snapPreference) {
+<b class="nc">&nbsp;            return (boxStart + (boxEnd - boxStart) / 2) - (viewStart + (viewEnd - viewStart) / 2);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,286 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SearchAdapterNew</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.adapter</a>
+</div>
+
+<h1>Coverage Summary for Class: SearchAdapterNew (com.alpharamen.customer.view.adapter)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SearchAdapterNew</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/39)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">SearchAdapterNew$ViewHolderRecentItems</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">SearchAdapterNew$ViewHolderSearchItems</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/45)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.adapter;
+&nbsp;
+&nbsp;import androidx.databinding.DataBindingUtil;
+&nbsp;import android.graphics.Color;
+&nbsp;import androidx.annotation.NonNull;
+&nbsp;import androidx.recyclerview.widget.RecyclerView;
+&nbsp;import android.text.Spannable;
+&nbsp;import android.text.SpannableStringBuilder;
+&nbsp;import android.text.style.ForegroundColorSpan;
+&nbsp;import android.view.LayoutInflater;
+&nbsp;import android.view.View;
+&nbsp;import android.view.ViewGroup;
+&nbsp;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.data.models.SearchItemListModel;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewRecentItemBinding;
+&nbsp;import com.alpharamen.customer.databinding.RecyclerViewSearchSingleItemNewBinding;
+&nbsp;import com.alpharamen.customer.view.listener.OnAdapterSelectedListener;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;public class SearchAdapterNew extends RecyclerView.Adapter&lt;RecyclerView.ViewHolder&gt; {
+&nbsp;
+&nbsp;    ArrayList&lt;SearchItemListModel&gt; itemList;
+&nbsp;    OnAdapterSelectedListener listener;
+&nbsp;    private String newText;
+&nbsp;
+<b class="nc">&nbsp;    public SearchAdapterNew(ArrayList&lt;SearchItemListModel&gt; itemList, OnAdapterSelectedListener listener) {</b>
+&nbsp;
+<b class="nc">&nbsp;        this.itemList = itemList;</b>
+<b class="nc">&nbsp;        this.listener = listener;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getItemViewType(int position) {
+&nbsp;
+<b class="nc">&nbsp;        return itemList.get(position).getItemType();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @NonNull
+&nbsp;    @Override
+&nbsp;    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+&nbsp;
+<b class="nc">&nbsp;        if (viewType == 0) {</b>
+<b class="nc">&nbsp;            LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());</b>
+<b class="nc">&nbsp;            RecyclerViewRecentItemBinding recyclerViewRecentItemBinding = DataBindingUtil</b>
+<b class="nc">&nbsp;                    .inflate(layoutInflater, R.layout.recycler_view_recent_item, viewGroup, false);</b>
+<b class="nc">&nbsp;            return new ViewHolderRecentItems(recyclerViewRecentItemBinding);</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (viewType == 1) {</b>
+<b class="nc">&nbsp;            LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());</b>
+<b class="nc">&nbsp;            RecyclerViewSearchSingleItemNewBinding searchSingleItemBinding = DataBindingUtil</b>
+<b class="nc">&nbsp;                    .inflate(layoutInflater, R.layout.recycler_view_search_single_item_new, viewGroup, false);</b>
+<b class="nc">&nbsp;            return new ViewHolderSearchItems(searchSingleItemBinding);</b>
+&nbsp;
+&nbsp;        }
+<b class="nc">&nbsp;        return null;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int pos) {
+&nbsp;
+<b class="nc">&nbsp;        if (viewHolder instanceof ViewHolderRecentItems) {</b>
+&nbsp;
+<b class="nc">&nbsp;            if (pos == 0) {</b>
+<b class="nc">&nbsp;                ((ViewHolderRecentItems) viewHolder).binding.viewNew.setVisibility(View.VISIBLE);</b>
+&nbsp;            } else {
+<b class="nc">&nbsp;                ((ViewHolderRecentItems) viewHolder).binding.viewNew.setVisibility(View.GONE);</b>
+&nbsp;            }
+<b class="nc">&nbsp;            SearchItemListModel recentItemModel = itemList.get(pos);</b>
+<b class="nc">&nbsp;            ((ViewHolderRecentItems) viewHolder).binding.setItem(recentItemModel);</b>
+<b class="nc">&nbsp;            ((ViewHolderRecentItems) viewHolder).binding.setListener(listener);</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (viewHolder instanceof ViewHolderSearchItems) {</b>
+&nbsp;
+<b class="nc">&nbsp;            SearchItemListModel searchItemListModel = itemList.get(pos);</b>
+<b class="nc">&nbsp;            ((ViewHolderSearchItems) viewHolder).binding.setItem(searchItemListModel);</b>
+&nbsp;
+<b class="nc">&nbsp;            ((ViewHolderSearchItems) viewHolder).binding.setListener(listener);</b>
+&nbsp;
+<b class="nc">&nbsp;            if (newText.length() &gt; 0) {</b>
+&nbsp;                //color your text here
+&nbsp;
+<b class="nc">&nbsp;                String title = searchItemListModel.getProductTitle().toLowerCase();</b>
+&nbsp;
+<b class="nc">&nbsp;                int index = title.indexOf(newText.toLowerCase());</b>
+<b class="nc">&nbsp;                SpannableStringBuilder sb = new SpannableStringBuilder(searchItemListModel.getProductTitle());</b>
+&nbsp;//                while (index &gt; 0) {
+<b class="nc">&nbsp;                if (index &gt; -1) {</b>
+<b class="nc">&nbsp;                    ForegroundColorSpan fcs = new ForegroundColorSpan(Color.rgb(0, 156, 220)); //specify color here</b>
+<b class="nc">&nbsp;                    int startIndex = index;</b>
+<b class="nc">&nbsp;                    int endIndex = index + newText.length();</b>
+<b class="nc">&nbsp;                    sb.setSpan(fcs, startIndex, endIndex, Spannable.SPAN_INCLUSIVE_INCLUSIVE);</b>
+&nbsp;//                index = searchItemListModel.getProductTitle().indexOf(newText, index + 1);
+<b class="nc">&nbsp;                    System.out.println(index);</b>
+&nbsp;                }
+&nbsp;
+&nbsp;//                }
+&nbsp;                // ((ViewHolderSearchItems) viewHolder).binding.textViewSearchItemName.setText(sb);
+&nbsp;
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getItemCount() {
+<b class="nc">&nbsp;        return itemList.size();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setFilter(String newText) {
+&nbsp;
+<b class="nc">&nbsp;        this.newText = newText;</b>
+<b class="nc">&nbsp;        notifyDataSetChanged();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public class ViewHolderRecentItems extends RecyclerView.ViewHolder {
+&nbsp;
+&nbsp;        RecyclerViewRecentItemBinding binding;
+&nbsp;
+<b class="nc">&nbsp;        public ViewHolderRecentItems(@NonNull RecyclerViewRecentItemBinding recyclerViewRecentItemBinding) {</b>
+<b class="nc">&nbsp;            super(recyclerViewRecentItemBinding.getRoot());</b>
+<b class="nc">&nbsp;            binding = recyclerViewRecentItemBinding;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public class ViewHolderSearchItems extends RecyclerView.ViewHolder {
+&nbsp;        RecyclerViewSearchSingleItemNewBinding binding;
+&nbsp;
+<b class="nc">&nbsp;        public ViewHolderSearchItems(@NonNull RecyclerViewSearchSingleItemNewBinding searchSingleItemBinding) {</b>
+<b class="nc">&nbsp;            super(searchSingleItemBinding.getRoot());</b>
+<b class="nc">&nbsp;            binding = searchSingleItemBinding;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

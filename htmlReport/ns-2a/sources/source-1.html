@@ -1,0 +1,499 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SignupActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.ui.signup</a>
+</div>
+
+<h1>Coverage Summary for Class: SignupActivity (com.alpharamen.customer.view.ui.signup)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SignupActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/120)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">SignupActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">SignupActivity$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/140)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.ui.signup;
+&nbsp;
+&nbsp;import android.app.Activity;
+&nbsp;import androidx.lifecycle.ViewModelProviders;
+&nbsp;import android.content.Context;
+&nbsp;import android.content.Intent;
+&nbsp;import android.content.IntentSender;
+&nbsp;import android.content.pm.PackageManager;
+&nbsp;import android.location.Address;
+&nbsp;import android.location.Geocoder;
+&nbsp;import android.location.Location;
+&nbsp;import android.os.Bundle;
+&nbsp;import androidx.annotation.NonNull;
+&nbsp;import androidx.core.app.ActivityCompat;
+&nbsp;import androidx.core.content.ContextCompat;
+&nbsp;import android.text.SpannableString;
+&nbsp;import android.text.Spanned;
+&nbsp;import android.text.style.ForegroundColorSpan;
+&nbsp;import android.text.style.RelativeSizeSpan;
+&nbsp;import android.util.Log;
+&nbsp;import android.view.View;
+&nbsp;import android.view.animation.Animation;
+&nbsp;import android.view.animation.AnimationUtils;
+&nbsp;
+&nbsp;import com.google.android.gms.common.api.GoogleApiClient;
+&nbsp;import com.google.android.gms.common.api.PendingResult;
+&nbsp;import com.google.android.gms.common.api.ResultCallback;
+&nbsp;import com.google.android.gms.common.api.Status;
+&nbsp;import com.google.android.gms.location.LocationRequest;
+&nbsp;import com.google.android.gms.location.LocationServices;
+&nbsp;import com.google.android.gms.location.LocationSettingsRequest;
+&nbsp;import com.google.android.gms.location.LocationSettingsResult;
+&nbsp;import com.google.android.gms.location.LocationSettingsStatusCodes;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.base.BaseActivity;
+&nbsp;import com.alpharamen.customer.databinding.ActivitySignupBinding;
+&nbsp;import com.alpharamen.customer.factory.ViewModelProviderFactory;
+&nbsp;import com.alpharamen.customer.utils.AppConstants;
+&nbsp;import com.alpharamen.customer.view.ui.home_page.HomeActivity;
+&nbsp;import com.alpharamen.customer.viewmodel.SignupViewModel;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Locale;
+&nbsp;
+&nbsp;import javax.inject.Inject;
+&nbsp;
+&nbsp;import io.nlopez.smartlocation.OnLocationUpdatedListener;
+&nbsp;import io.nlopez.smartlocation.SmartLocation;
+&nbsp;
+&nbsp;import static io.nlopez.smartlocation.location.providers.LocationGooglePlayServicesProvider.REQUEST_CHECK_SETTINGS;
+&nbsp;
+<b class="nc">&nbsp;public class SignupActivity extends BaseActivity&lt;ActivitySignupBinding, SignupViewModel&gt; implements View.OnClickListener {</b>
+&nbsp;
+&nbsp;    ActivitySignupBinding dataBinding;
+&nbsp;    SignupViewModel signupViewModel;
+&nbsp;    String userName, email, cityName, pinCode, houseName, phoneNumber;
+&nbsp;    // private AwesomeValidation awesomeValidation;
+&nbsp;
+&nbsp;    @Inject
+&nbsp;    ViewModelProviderFactory mViewModelFactory;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+&nbsp;
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;        signupViewModel = ViewModelProviders.of(this, mViewModelFactory).get(SignupViewModel.class);</b>
+<b class="nc">&nbsp;        dataBinding = getViewDataBinding();</b>
+<b class="nc">&nbsp;        dataBinding.setSignUp(signupViewModel);</b>
+<b class="nc">&nbsp;        dataBinding.setListener(this);</b>
+<b class="nc">&nbsp;        initViews();</b>
+<b class="nc">&nbsp;        subscribeProgress();</b>
+<b class="nc">&nbsp;        subscribeSignup();</b>
+<b class="nc">&nbsp;        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);</b>
+&nbsp;
+<b class="nc">&nbsp;        dataBinding.imageViewSignUpBackground.startAnimation(animation);</b>
+<b class="nc">&nbsp;        if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.</b>
+&nbsp;                ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &amp;&amp; ActivityCompat.
+<b class="nc">&nbsp;                checkSelfPermission(getApplicationContext(), android.Manifest.permission.</b>
+&nbsp;                        ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+&nbsp;
+<b class="nc">&nbsp;            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.</b>
+&nbsp;                    ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    private void initViews() {
+&nbsp;
+<b class="nc">&nbsp;        String substringOne = getString(R.string.label_not_here);</b>
+<b class="nc">&nbsp;        String substringTwo = getString(R.string.label_login);</b>
+<b class="nc">&nbsp;        String combinedString = substringOne + &quot; &quot; + substringTwo;</b>
+<b class="nc">&nbsp;        SpannableString spannable = new SpannableString(combinedString);</b>
+<b class="nc">&nbsp;        spannable.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.textColorGrey)),</b>
+<b class="nc">&nbsp;                0, substringOne.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</b>
+<b class="nc">&nbsp;        spannable.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.textColorBlack)),</b>
+<b class="nc">&nbsp;                substringOne.length(), combinedString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</b>
+<b class="nc">&nbsp;        spannable.setSpan(new RelativeSizeSpan(1), 0, substringOne.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</b>
+<b class="nc">&nbsp;        spannable.setSpan(new RelativeSizeSpan(1.2f), substringOne.length(), combinedString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</b>
+&nbsp;        //dataBinding.txtHaveAccount.setText(spannable);
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void subscribeProgress() {
+&nbsp;
+<b class="nc">&nbsp;        signupViewModel.getIsLoading().observe(this,</b>
+&nbsp;                progressModel -&gt; {
+<b class="nc">&nbsp;                    if (progressModel != null) {</b>
+<b class="nc">&nbsp;                        if (progressModel.isLoading()) showLoading();</b>
+<b class="nc">&nbsp;                        else hideLoading();</b>
+&nbsp;                    }
+<b class="nc">&nbsp;                    if (progressModel != null &amp;&amp; !progressModel.isHasInternet()) {</b>
+<b class="nc">&nbsp;                        showToast(&quot;No internet connection&quot;);</b>
+&nbsp;                    }
+<b class="nc">&nbsp;                    if (progressModel != null &amp;&amp; progressModel.getErrorMessage() != null) {</b>
+<b class="nc">&nbsp;                        showToast(progressModel.getErrorMessage());</b>
+&nbsp;                    }
+&nbsp;                });
+&nbsp;    }
+&nbsp;
+&nbsp;    private void subscribeSignup() {
+&nbsp;
+<b class="nc">&nbsp;        signupViewModel.subscribeSignup().observe(this,</b>
+&nbsp;                signupBean -&gt; {
+<b class="nc">&nbsp;                    if (signupBean != null &amp;&amp; signupBean.getStatus() != null</b>
+<b class="nc">&nbsp;                            &amp;&amp; signupBean.getStatus().equalsIgnoreCase(AppConstants.SUCCESS)) {</b>
+<b class="nc">&nbsp;                        showToast(signupBean.getMessage());</b>
+<b class="nc">&nbsp;                        startActivity(HomeActivity.newIntent(getApplicationContext()));</b>
+<b class="nc">&nbsp;                        finishAffinity();</b>
+<b class="nc">&nbsp;                        overridePendingTransition(0, 0);</b>
+<b class="nc">&nbsp;                    } else if (signupBean != null &amp;&amp; signupBean.getStatus() != null</b>
+<b class="nc">&nbsp;                            &amp;&amp; signupBean.getStatus().equalsIgnoreCase(AppConstants.FAILURE)) {</b>
+<b class="nc">&nbsp;                        showToast(signupBean.getMessage());</b>
+<b class="nc">&nbsp;                    } else if (signupBean != null &amp;&amp; signupBean.getMessage() != null) {</b>
+<b class="nc">&nbsp;                        showToast(signupBean.getMessage());</b>
+&nbsp;                    } else {
+<b class="nc">&nbsp;                        showToast(&quot;Unexpected error occurred&quot;);</b>
+&nbsp;                    }
+&nbsp;                });
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getBindingVariable() {
+<b class="nc">&nbsp;        return BR.signUp;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getLayoutId() {
+<b class="nc">&nbsp;        return R.layout.activity_signup;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public SignupViewModel getBindingObject() {
+<b class="nc">&nbsp;        return signupViewModel;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onClick(View v) {
+&nbsp;
+<b class="nc">&nbsp;        if (v == dataBinding.imageViewNextArrow) {</b>
+&nbsp;
+<b class="nc">&nbsp;            hideKeyboard();</b>
+&nbsp;
+<b class="nc">&nbsp;            userName = dataBinding.editTextUserName.getText().toString();</b>
+<b class="nc">&nbsp;            email = dataBinding.editTextEmail.getText().toString();</b>
+<b class="nc">&nbsp;            cityName = dataBinding.editTextCity.getText().toString();</b>
+<b class="nc">&nbsp;            pinCode = dataBinding.editTextPinCode.getText().toString();</b>
+<b class="nc">&nbsp;            houseName = dataBinding.editTextPinCode.getText().toString();</b>
+<b class="nc">&nbsp;            phoneNumber = dataBinding.editTextPhone.getText().toString();</b>
+&nbsp;
+<b class="nc">&nbsp;            int l = phoneNumber.length();</b>
+<b class="nc">&nbsp;            if (!email.isEmpty() &amp;&amp; !cityName.isEmpty() &amp;&amp; !pinCode.isEmpty() &amp;&amp;</b>
+<b class="nc">&nbsp;                    !phoneNumber.isEmpty() &amp;&amp; !userName.isEmpty() &amp;&amp; !houseName.isEmpty()) {</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;                String email = dataBinding.editTextEmail.getText().toString().trim();</b>
+<b class="nc">&nbsp;                String emailPattern = &quot;[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+&quot;;</b>
+&nbsp;
+<b class="nc">&nbsp;                if (email.matches(emailPattern) &amp;&amp; !(l &lt;= 8 || l &gt;= 14)) {</b>
+&nbsp;
+<b class="nc">&nbsp;                    Intent i = new Intent(SignupActivity.this, HomeActivity.class);</b>
+<b class="nc">&nbsp;                    i.putExtra(&quot;NAME&quot;, userName);</b>
+<b class="nc">&nbsp;                    i.putExtra(&quot;HOUSE_NAME&quot;, houseName);</b>
+<b class="nc">&nbsp;                    i.putExtra(&quot;CITY_NAME&quot;, cityName);</b>
+<b class="nc">&nbsp;                    i.putExtra(&quot;PIN_CODE&quot;, pinCode);</b>
+<b class="nc">&nbsp;                    i.putExtra(&quot;PHONE_NUMBER&quot;, phoneNumber);</b>
+<b class="nc">&nbsp;                    i.putExtra(&quot;USER_NAME&quot;, userName);</b>
+<b class="nc">&nbsp;                    startActivity(i);</b>
+<b class="nc">&nbsp;                    showToast(&quot;Signup success&quot;);</b>
+<b class="nc">&nbsp;                    SignupActivity.this.finish();</b>
+<b class="nc">&nbsp;                    overridePendingTransition(0, 0);</b>
+&nbsp;
+<b class="nc">&nbsp;                } else {</b>
+<b class="nc">&nbsp;                    if (email.matches(emailPattern) &amp;&amp; (l &lt;= 8 || l &gt;= 14)) {</b>
+<b class="nc">&nbsp;                        dataBinding.editTextPhone.setError(&quot;Enter a valid  contact number&quot;);</b>
+<b class="nc">&nbsp;                    } else if (!email.matches(emailPattern) &amp;&amp; (l &lt;= 8 || l &gt;= 14)) {</b>
+<b class="nc">&nbsp;                        dataBinding.editTextEmail.setError(&quot;Enter a valid email id&quot;);</b>
+<b class="nc">&nbsp;                        dataBinding.editTextPhone.setError(&quot;Enter a valid  contact number&quot;);</b>
+&nbsp;
+&nbsp;                    } else {
+<b class="nc">&nbsp;                        dataBinding.editTextEmail.setError(&quot;Enter a valid email id&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;
+<b class="nc">&nbsp;            } else {</b>
+<b class="nc">&nbsp;                showToast(&quot;please fill all the fields&quot;);</b>
+&nbsp;
+&nbsp;
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.imageViewLocate) {</b>
+&nbsp;
+<b class="nc">&nbsp;            if (!dataBinding.editTextLocation.getText().toString().equals(&quot;&quot;)) {</b>
+<b class="nc">&nbsp;                dataBinding.lottieAnimationViewLoadPlace.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                dataBinding.editTextLocation.setVisibility(View.VISIBLE);</b>
+&nbsp;            } else {
+<b class="nc">&nbsp;                dataBinding.lottieAnimationViewLoadPlace.setVisibility(View.VISIBLE);</b>
+<b class="nc">&nbsp;                dataBinding.editTextLocation.setVisibility(View.GONE);</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            if (SmartLocation.with(SignupActivity.this).location().state().isGpsAvailable()) {</b>
+&nbsp;
+<b class="nc">&nbsp;                if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.</b>
+&nbsp;                        ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &amp;&amp; ActivityCompat.
+<b class="nc">&nbsp;                        checkSelfPermission(getApplicationContext(), android.Manifest.permission.</b>
+&nbsp;                                ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+&nbsp;
+<b class="nc">&nbsp;                    ActivityCompat.requestPermissions(SignupActivity.this, new String[]{android.Manifest.permission.</b>
+&nbsp;                            ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
+&nbsp;
+&nbsp;                }
+<b class="nc">&nbsp;                getLocation();</b>
+&nbsp;            } else {
+<b class="nc">&nbsp;                displayLocationSettingsRequest();</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void displayLocationSettingsRequest() {
+&nbsp;
+<b class="nc">&nbsp;        GoogleApiClient googleApiClient = new GoogleApiClient.Builder(SignupActivity.this)</b>
+<b class="nc">&nbsp;                .addApi(LocationServices.API).build();</b>
+<b class="nc">&nbsp;        googleApiClient.connect();</b>
+&nbsp;
+<b class="nc">&nbsp;        LocationRequest locationRequest = LocationRequest.create();</b>
+<b class="nc">&nbsp;        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);</b>
+<b class="nc">&nbsp;        locationRequest.setInterval(10000);</b>
+<b class="nc">&nbsp;        locationRequest.setFastestInterval(10000 / 2);</b>
+&nbsp;
+<b class="nc">&nbsp;        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder().addLocationRequest(locationRequest);</b>
+<b class="nc">&nbsp;        builder.setAlwaysShow(true);</b>
+&nbsp;
+<b class="nc">&nbsp;        PendingResult&lt;LocationSettingsResult&gt; result = LocationServices.SettingsApi.checkLocationSettings(googleApiClient, builder.build());</b>
+<b class="nc">&nbsp;        result.setResultCallback(new ResultCallback&lt;LocationSettingsResult&gt;() {</b>
+&nbsp;            @Override
+&nbsp;            public void onResult(@NonNull LocationSettingsResult result) {
+<b class="nc">&nbsp;                final Status status = result.getStatus();</b>
+<b class="nc">&nbsp;                switch (status.getStatusCode()) {</b>
+&nbsp;                    case LocationSettingsStatusCodes.SUCCESS:
+&nbsp;
+<b class="nc">&nbsp;                        Log.i(&quot;&quot;, &quot;All location settings are satisfied.&quot;);</b>
+<b class="nc">&nbsp;                        break;</b>
+&nbsp;                    case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
+<b class="nc">&nbsp;                        Log.i(&quot;&quot;, &quot;Location settings are not satisfied. Show the user a dialog to upgrade location settings &quot;);</b>
+&nbsp;
+&nbsp;                        try {
+&nbsp;                            // Show the dialog by calling startResolutionForResult(), and check the result
+&nbsp;                            // in onActivityResult().
+<b class="nc">&nbsp;                            status.startResolutionForResult(SignupActivity.this, REQUEST_CHECK_SETTINGS);</b>
+<b class="nc">&nbsp;                        } catch (IntentSender.SendIntentException e) {</b>
+<b class="nc">&nbsp;                            Log.i(&quot;&quot;, &quot;PendingIntent unable to execute request.&quot;);</b>
+<b class="nc">&nbsp;                        }</b>
+<b class="nc">&nbsp;                        break;</b>
+&nbsp;                    case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
+<b class="nc">&nbsp;                        Log.i(&quot;&quot;, &quot;Location settings are inadequate, and cannot be fixed here. Dialog not created.&quot;);</b>
+&nbsp;                        break;
+&nbsp;                }
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void getLocation() {
+<b class="nc">&nbsp;        SmartLocation.with(this).location()</b>
+<b class="nc">&nbsp;                .oneFix()</b>
+<b class="nc">&nbsp;                .start(new OnLocationUpdatedListener() {</b>
+&nbsp;                    @Override
+&nbsp;                    public void onLocationUpdated(Location location) {
+&nbsp;
+&nbsp;                        try {
+<b class="nc">&nbsp;                            Geocoder geocoder = new Geocoder(SignupActivity.this, Locale.getDefault());</b>
+<b class="nc">&nbsp;                            List&lt;Address&gt; addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);</b>
+<b class="nc">&nbsp;                            dataBinding.lottieAnimationViewLoadPlace.setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;                            dataBinding.editTextLocation.setVisibility(View.VISIBLE);</b>
+&nbsp;
+<b class="nc">&nbsp;                            dataBinding.editTextLocation.setText(addresses.get(0).getAddressLine(0) /*+ &quot;, &quot; +</b>
+&nbsp;                    addresses.get(0).getAddressLine(1)*/ /*+ &quot;, &quot; + addresses.get(0).getAddressLine(2)*/);
+<b class="nc">&nbsp;                        } catch (Exception e) {</b>
+&nbsp;
+<b class="nc">&nbsp;                        }</b>
+&nbsp;                    }
+&nbsp;                });
+&nbsp;
+<b class="nc">&nbsp;        SmartLocation.with(SignupActivity.this).location().state().locationServicesEnabled();</b>
+&nbsp;
+&nbsp;// Check if any provider (network or gps) is enabled
+<b class="nc">&nbsp;        SmartLocation.with(SignupActivity.this).location().state().isAnyProviderAvailable();</b>
+&nbsp;
+&nbsp;// Check if GPS is available
+<b class="nc">&nbsp;        SmartLocation.with(SignupActivity.this).location().state().isGpsAvailable();</b>
+&nbsp;
+&nbsp;// Check if Network is available
+<b class="nc">&nbsp;        SmartLocation.with(SignupActivity.this).location().state().isNetworkAvailable();</b>
+&nbsp;
+&nbsp;// Check if the passive provider is available
+<b class="nc">&nbsp;        SmartLocation.with(SignupActivity.this).location().state().isPassiveAvailable();</b>
+&nbsp;
+&nbsp;// Check if the location is mocked
+<b class="nc">&nbsp;        SmartLocation.with(SignupActivity.this).location().state().isMockSettingEnabled();</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Intent newIntent(Context context) {
+<b class="nc">&nbsp;        return new Intent(context, SignupActivity.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onBackPressed() {
+<b class="nc">&nbsp;        super.onBackPressed();</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+<b class="nc">&nbsp;        switch (requestCode) {</b>
+&nbsp;            // Check for the integer request code originally supplied to startResolutionForResult().
+&nbsp;            case REQUEST_CHECK_SETTINGS:
+<b class="nc">&nbsp;                switch (resultCode) {</b>
+&nbsp;                    case Activity.RESULT_OK:
+<b class="nc">&nbsp;                        getLocation();</b>
+<b class="nc">&nbsp;                        break;</b>
+&nbsp;                    case Activity.RESULT_CANCELED:
+&nbsp;
+&nbsp;                        break;
+&nbsp;                }
+&nbsp;                break;
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

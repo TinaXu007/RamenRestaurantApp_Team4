@@ -1,0 +1,324 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > AddressListActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.ui.address_list</a>
+</div>
+
+<h1>Coverage Summary for Class: AddressListActivity (com.alpharamen.customer.view.ui.address_list)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AddressListActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/41)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AddressListActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AddressListActivity$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/56)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.ui.address_list;
+&nbsp;
+&nbsp;import androidx.lifecycle.ViewModelProviders;
+&nbsp;import android.content.Context;
+&nbsp;import android.content.Intent;
+&nbsp;import android.os.Bundle;
+&nbsp;import android.os.Handler;
+&nbsp;import androidx.recyclerview.widget.LinearLayoutManager;
+&nbsp;import android.view.View;
+&nbsp;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.base.BaseActivity;
+&nbsp;import com.alpharamen.customer.data.models.AddressListModel;
+&nbsp;import com.alpharamen.customer.databinding.ActivityAddressListBinding;
+&nbsp;import com.alpharamen.customer.factory.ViewModelProviderFactory;
+&nbsp;import com.alpharamen.customer.view.adapter.AddressListAdapter;
+&nbsp;import com.alpharamen.customer.view.listener.AddressSelectListener;
+&nbsp;import com.alpharamen.customer.view.ui.change_address.ChangeAddressActivity;
+&nbsp;import com.alpharamen.customer.viewmodel.AddressListViewModel;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import javax.inject.Inject;
+&nbsp;
+<b class="nc">&nbsp;public class AddressListActivity extends BaseActivity&lt;ActivityAddressListBinding, AddressListViewModel&gt; implements View.OnClickListener {</b>
+&nbsp;
+&nbsp;    AddressListAdapter addresslistAdapter;
+<b class="nc">&nbsp;    List&lt;AddressListModel&gt; addressListModel = new ArrayList&lt;&gt;();</b>
+&nbsp;
+&nbsp;    ActivityAddressListBinding dataBinding;
+&nbsp;    AddressListViewModel addressListViewModel;
+&nbsp;
+&nbsp;    @Inject
+&nbsp;    ViewModelProviderFactory viewModelProviderFactory;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getBindingVariable() {
+<b class="nc">&nbsp;        return BR.addressList;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getLayoutId() {
+<b class="nc">&nbsp;        return R.layout.activity_address_list;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public AddressListViewModel getBindingObject() {
+<b class="nc">&nbsp;        return addressListViewModel;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;        addressListViewModel = ViewModelProviders.of(this, viewModelProviderFactory).get(AddressListViewModel.class);</b>
+<b class="nc">&nbsp;        dataBinding = getViewDataBinding();</b>
+<b class="nc">&nbsp;        dataBinding.setListener(this::onClick);</b>
+<b class="nc">&nbsp;        populateData();</b>
+&nbsp;
+<b class="nc">&nbsp;        addresslistAdapter = new AddressListAdapter(addressListModel, selectedListener);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewAddressList.setLayoutManager(new LinearLayoutManager(getApplicationContext(),</b>
+&nbsp;                LinearLayoutManager.VERTICAL, false));
+<b class="nc">&nbsp;        dataBinding.recyclerViewAddressList.setHasFixedSize(true);</b>
+<b class="nc">&nbsp;        dataBinding.recyclerViewAddressList.setAdapter(addresslistAdapter);</b>
+&nbsp;
+&nbsp;
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    AddressSelectListener selectedListener = new AddressSelectListener() {</b>
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public void AddressSelect(AddressListModel model, String text) {
+&nbsp;
+<b class="nc">&nbsp;            if (text.equals(&quot;select&quot;)) {</b>
+&nbsp;
+<b class="nc">&nbsp;                Intent i = new Intent();</b>
+<b class="nc">&nbsp;                i.putExtra(&quot;AddressSelectModel&quot;, model);</b>
+<b class="nc">&nbsp;                setResult(RESULT_OK, i);</b>
+<b class="nc">&nbsp;                onBackPressed();</b>
+<b class="nc">&nbsp;                overridePendingTransition(0, 0);</b>
+&nbsp;
+&nbsp;            }
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public void AddressEdit(AddressListModel model, String text) {
+&nbsp;
+<b class="nc">&nbsp;            if (text.equals(&quot;edit&quot;)) {</b>
+&nbsp;
+<b class="nc">&nbsp;                Intent i = new Intent(AddressListActivity.this, ChangeAddressActivity.class);</b>
+<b class="nc">&nbsp;                i.putExtra(&quot;AddressListModel&quot;, model);</b>
+<b class="nc">&nbsp;                startActivityForResult(i, 104);</b>
+<b class="nc">&nbsp;                overridePendingTransition(0, 0);</b>
+&nbsp;
+&nbsp;            }
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public void AddressSelectModel(AddressListModel model) {
+&nbsp;
+<b class="nc">&nbsp;        }</b>
+&nbsp;    };
+&nbsp;
+&nbsp;    private void populateData() {
+&nbsp;
+<b class="nc">&nbsp;        addressListModel.add(new AddressListModel(&quot;steve&quot;, &quot;webandcrafts indeevaram&quot;,</b>
+&nbsp;                &quot;korratty-nalukkett road&quot;, &quot;Koratty&quot;, &quot;infopark&quot;, &quot;680308&quot;, &quot;9656757030&quot;));
+<b class="nc">&nbsp;        addressListModel.add(new AddressListModel(&quot;edwin&quot;, &quot;webandcrafts indeevaram&quot;,</b>
+&nbsp;                &quot;korratty-nalukkett road&quot;, &quot;Koratty&quot;, &quot;infopark&quot;, &quot;680308&quot;, &quot;9656757030&quot;));
+&nbsp;      /*  addressListModel.add(new AddressListModel(&quot;Antony Leons&quot;, &quot;webandcrafts indeevaram&quot;,
+&nbsp;                &quot;korratty-nalukkett road&quot;, &quot;Koratty&quot;, &quot;infopark&quot;, &quot;680308&quot;, &quot;9656757030&quot;));*/
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onClick(View v) {
+&nbsp;
+<b class="nc">&nbsp;        if (v == dataBinding.imageViewAddNewAddress) {</b>
+&nbsp;
+<b class="nc">&nbsp;            dataBinding.imageViewAddNewAddress.setClickable(false);</b>
+<b class="nc">&nbsp;            Intent i = new Intent(AddressListActivity.this, ChangeAddressActivity.class);</b>
+<b class="nc">&nbsp;            i.putExtra(&quot;ADDNEW&quot;, 1);</b>
+<b class="nc">&nbsp;            startActivityForResult(i, 104);</b>
+<b class="nc">&nbsp;            overridePendingTransition(0, 0);</b>
+<b class="nc">&nbsp;            new Handler().postDelayed(new Runnable() {</b>
+&nbsp;                @Override
+&nbsp;                public void run() {
+<b class="nc">&nbsp;                    dataBinding.imageViewAddNewAddress.setClickable(true);</b>
+&nbsp;                }
+&nbsp;            }, 1000);
+&nbsp;
+<b class="nc">&nbsp;        } else if (v == dataBinding.imageViewPrevArrow) {</b>
+&nbsp;
+<b class="nc">&nbsp;          onBackPressed();</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Intent newIntent(Context context) {
+<b class="nc">&nbsp;        return new Intent(context, AddressListActivity.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+&nbsp;
+<b class="nc">&nbsp;        super.onActivityResult(requestCode, resultCode, data);</b>
+&nbsp;
+<b class="nc">&nbsp;        if (requestCode == 104) {</b>
+&nbsp;
+<b class="nc">&nbsp;            if (data != null &amp;&amp; data.getExtras() != null) {</b>
+<b class="nc">&nbsp;                Bundle bundle = data.getExtras();</b>
+<b class="nc">&nbsp;                String name = bundle.getString(&quot;NAME&quot;);</b>
+<b class="nc">&nbsp;                String houseName = bundle.getString(&quot;HOUSE_NAME&quot;);</b>
+<b class="nc">&nbsp;                String streetName = bundle.getString(&quot;STREET_NAME&quot;);</b>
+<b class="nc">&nbsp;                String cityName = bundle.getString(&quot;CITY_NAME&quot;);</b>
+<b class="nc">&nbsp;                String pinCode = bundle.getString(&quot;PIN_CODE&quot;);</b>
+<b class="nc">&nbsp;                String phoneNumber = bundle.getString(&quot;PHONE_NUMBER&quot;);</b>
+<b class="nc">&nbsp;                String landMark = bundle.getString(&quot;LAND_MARK&quot;);</b>
+<b class="nc">&nbsp;                if (houseName != null &amp;&amp; landMark != null &amp;&amp; streetName != null &amp;&amp; cityName != null &amp;&amp; pinCode != null &amp;&amp; phoneNumber != null &amp;&amp; name != null) {</b>
+&nbsp;
+&nbsp;                    /*addressListModel.add(new AddressListModel(name, houseName, streetName, cityName, landMark, pinCode, phoneNumber));
+&nbsp;                    addresslistAdapter.notifyDataSetChanged();*/
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onBackPressed() {
+&nbsp;
+<b class="nc">&nbsp;        AddressListActivity.this.finish();</b>
+<b class="nc">&nbsp;        overridePendingTransition(0, 0);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

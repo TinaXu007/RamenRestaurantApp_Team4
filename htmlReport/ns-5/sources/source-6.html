@@ -1,0 +1,194 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SimpleBaseActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.base</a>
+</div>
+
+<h1>Coverage Summary for Class: SimpleBaseActivity (com.alpharamen.customer.base)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SimpleBaseActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.base;
+&nbsp;
+&nbsp;import android.annotation.TargetApi;
+&nbsp;import android.app.ProgressDialog;
+&nbsp;import android.content.Context;
+&nbsp;import android.os.Build;
+&nbsp;import android.os.Bundle;
+&nbsp;import androidx.annotation.LayoutRes;
+&nbsp;import androidx.annotation.Nullable;
+&nbsp;import androidx.appcompat.app.AppCompatActivity;
+&nbsp;import android.view.View;
+&nbsp;import android.view.inputmethod.InputMethodManager;
+&nbsp;
+&nbsp;import com.alpharamen.customer.utils.DialogUtils;
+&nbsp;import com.alpharamen.customer.utils.InternetUtils;
+&nbsp;import com.alpharamen.customer.utils.ToastUtils;
+&nbsp;
+&nbsp;import javax.inject.Inject;
+&nbsp;
+&nbsp;import dagger.android.AndroidInjection;
+&nbsp;
+<b class="nc">&nbsp;public abstract class SimpleBaseActivity extends AppCompatActivity implements BaseFragment.Callback{</b>
+&nbsp;
+&nbsp;    @Inject
+&nbsp;    ToastUtils toastUtils;
+&nbsp;    private ProgressDialog mProgressDialog;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return layout resource id
+&nbsp;     */
+&nbsp;    public abstract
+&nbsp;    @LayoutRes
+&nbsp;    int getLayoutId();
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void onCreate(@Nullable Bundle savedInstanceState) {
+<b class="nc">&nbsp;        performDependencyInjection();</b>
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;        setContentView(getLayoutId());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onFragmentAttached() {
+&nbsp;
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onFragmentDetached(String tag) {
+&nbsp;
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    @TargetApi(Build.VERSION_CODES.M)
+&nbsp;    public void requestPermissionsSafely(String[] permissions, int requestCode) {
+<b class="nc">&nbsp;        if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.M) {</b>
+<b class="nc">&nbsp;            requestPermissions(permissions, requestCode);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean isNetworkConnected() {
+<b class="nc">&nbsp;        return InternetUtils.isNetworkAvailable(getApplicationContext());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void hideKeyboard() {
+<b class="nc">&nbsp;        View view = this.getCurrentFocus();</b>
+<b class="nc">&nbsp;        if (view != null) {</b>
+<b class="nc">&nbsp;            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);</b>
+<b class="nc">&nbsp;            if (imm != null) {</b>
+<b class="nc">&nbsp;                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public void showToast(String message){
+<b class="nc">&nbsp;        toastUtils.showToast(message);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void hideLoading() {
+<b class="nc">&nbsp;        if (mProgressDialog != null &amp;&amp; mProgressDialog.isShowing()) {</b>
+<b class="nc">&nbsp;            mProgressDialog.cancel();</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public void showLoading() {
+<b class="nc">&nbsp;        hideLoading();</b>
+<b class="nc">&nbsp;        mProgressDialog = DialogUtils.showLoadingDialog(this);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void performDependencyInjection() {
+<b class="nc">&nbsp;        AndroidInjection.inject(this);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

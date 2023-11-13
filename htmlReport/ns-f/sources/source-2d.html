@@ -1,0 +1,356 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > RecyclerViewMyOrdersSingleItemBindingImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.databinding</a>
+</div>
+
+<h1>Coverage Summary for Class: RecyclerViewMyOrdersSingleItemBindingImpl (com.alpharamen.customer.databinding)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RecyclerViewMyOrdersSingleItemBindingImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/111)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.databinding;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import androidx.annotation.NonNull;
+&nbsp;import androidx.annotation.Nullable;
+&nbsp;import android.view.View;
+&nbsp;@SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;public class RecyclerViewMyOrdersSingleItemBindingImpl extends RecyclerViewMyOrdersSingleItemBinding implements com.alpharamen.customer.generated.callback.OnClickListener.Listener {
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    private static final androidx.databinding.ViewDataBinding.IncludedLayouts sIncludes;
+&nbsp;    @Nullable
+&nbsp;    private static final android.util.SparseIntArray sViewsWithIds;
+&nbsp;    static {
+<b class="nc">&nbsp;        sIncludes = null;</b>
+<b class="nc">&nbsp;        sViewsWithIds = new android.util.SparseIntArray();</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.constraintLayout_visible, 5);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.view_visible, 6);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.circleImageView, 7);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.ratingBar, 8);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.text_view_status, 9);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.constraintLayout_detail, 10);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.imageView_source_loc, 11);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.text_view_rest_name, 12);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.textView_source_address, 13);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.view_dotted_line, 14);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.image_view_destination_loc, 15);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.textView_destination_address, 16);</b>
+<b class="nc">&nbsp;        sViewsWithIds.put(R.id.text_view_reorder, 17);</b>
+&nbsp;    }
+&nbsp;    // views
+&nbsp;    // variables
+&nbsp;    @Nullable
+&nbsp;    private final android.view.View.OnClickListener mCallback10;
+&nbsp;    // values
+&nbsp;    // listeners
+&nbsp;    // Inverse Binding Event Handlers
+&nbsp;
+&nbsp;    public RecyclerViewMyOrdersSingleItemBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
+<b class="nc">&nbsp;        this(bindingComponent, root, mapBindings(bindingComponent, root, 18, sIncludes, sViewsWithIds));</b>
+&nbsp;    }
+&nbsp;    private RecyclerViewMyOrdersSingleItemBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
+<b class="nc">&nbsp;        super(bindingComponent, root, 1</b>
+&nbsp;            , (androidx.cardview.widget.CardView) bindings[0]
+&nbsp;            , (de.hdodenhof.circleimageview.CircleImageView) bindings[7]
+&nbsp;            , (androidx.constraintlayout.widget.ConstraintLayout) bindings[10]
+&nbsp;            , (androidx.constraintlayout.widget.ConstraintLayout) bindings[5]
+&nbsp;            , (android.widget.ImageView) bindings[15]
+&nbsp;            , (android.widget.ImageView) bindings[11]
+&nbsp;            , (android.widget.RatingBar) bindings[8]
+&nbsp;            , (android.widget.TextView) bindings[16]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[2]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[1]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[3]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[17]
+&nbsp;            , (android.widget.TextView) bindings[12]
+&nbsp;            , (android.widget.TextView) bindings[13]
+&nbsp;            , (com.alpharamen.customer.view.customview.WacTextView) bindings[9]
+&nbsp;            , (android.view.View) bindings[4]
+&nbsp;            , (android.view.View) bindings[14]
+&nbsp;            , (android.view.View) bindings[6]
+&nbsp;            );
+<b class="nc">&nbsp;        this.cardViewMyOrders.setTag(null);</b>
+<b class="nc">&nbsp;        this.textViewHubName.setTag(null);</b>
+<b class="nc">&nbsp;        this.textViewItemName.setTag(null);</b>
+<b class="nc">&nbsp;        this.textViewRate.setTag(null);</b>
+<b class="nc">&nbsp;        this.viewBottom.setTag(null);</b>
+<b class="nc">&nbsp;        setRootTag(root);</b>
+&nbsp;        // listeners
+<b class="nc">&nbsp;        mCallback10 = new com.alpharamen.customer.generated.callback.OnClickListener(this, 1);</b>
+<b class="nc">&nbsp;        invalidateAll();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void invalidateAll() {
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;                mDirtyFlags = 0x8L;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        requestRebind();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean hasPendingBindings() {
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            if (mDirtyFlags != 0) {</b>
+<b class="nc">&nbsp;                return true;</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean setVariable(int variableId, @Nullable Object variable)  {
+<b class="nc">&nbsp;        boolean variableSet = true;</b>
+<b class="nc">&nbsp;        if (BR.item == variableId) {</b>
+<b class="nc">&nbsp;            setItem((com.alpharamen.customer.data.models.MyordersItemModel) variable);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        else if (BR.isLast == variableId) {</b>
+<b class="nc">&nbsp;            setIsLast((java.lang.Boolean) variable);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        else if (BR.listener == variableId) {</b>
+<b class="nc">&nbsp;            setListener((com.alpharamen.customer.view.listener.MyOrdersListItemClickListener) variable);</b>
+&nbsp;        }
+&nbsp;        else {
+<b class="nc">&nbsp;            variableSet = false;</b>
+&nbsp;        }
+<b class="nc">&nbsp;            return variableSet;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setItem(@Nullable com.alpharamen.customer.data.models.MyordersItemModel Item) {
+<b class="nc">&nbsp;        updateRegistration(0, Item);</b>
+<b class="nc">&nbsp;        this.mItem = Item;</b>
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            mDirtyFlags |= 0x1L;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        notifyPropertyChanged(BR.item);</b>
+<b class="nc">&nbsp;        super.requestRebind();</b>
+&nbsp;    }
+&nbsp;    public void setIsLast(@Nullable java.lang.Boolean IsLast) {
+<b class="nc">&nbsp;        this.mIsLast = IsLast;</b>
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            mDirtyFlags |= 0x2L;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        notifyPropertyChanged(BR.isLast);</b>
+<b class="nc">&nbsp;        super.requestRebind();</b>
+&nbsp;    }
+&nbsp;    public void setListener(@Nullable com.alpharamen.customer.view.listener.MyOrdersListItemClickListener Listener) {
+<b class="nc">&nbsp;        this.mListener = Listener;</b>
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            mDirtyFlags |= 0x4L;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        notifyPropertyChanged(BR.listener);</b>
+<b class="nc">&nbsp;        super.requestRebind();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected boolean onFieldChange(int localFieldId, Object object, int fieldId) {
+<b class="nc">&nbsp;        switch (localFieldId) {</b>
+&nbsp;            case 0 :
+<b class="nc">&nbsp;                return onChangeItem((com.alpharamen.customer.data.models.MyordersItemModel) object, fieldId);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;    private boolean onChangeItem(com.alpharamen.customer.data.models.MyordersItemModel Item, int fieldId) {
+<b class="nc">&nbsp;        if (fieldId == BR._all) {</b>
+<b class="nc">&nbsp;            synchronized(this) {</b>
+<b class="nc">&nbsp;                    mDirtyFlags |= 0x1L;</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;            return true;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void executeBindings() {
+<b class="nc">&nbsp;        long dirtyFlags = 0;</b>
+<b class="nc">&nbsp;        synchronized(this) {</b>
+<b class="nc">&nbsp;            dirtyFlags = mDirtyFlags;</b>
+<b class="nc">&nbsp;            mDirtyFlags = 0;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        com.alpharamen.customer.data.models.MyordersItemModel item = mItem;</b>
+<b class="nc">&nbsp;        int isLastViewVISIBLEViewGONE = 0;</b>
+<b class="nc">&nbsp;        java.lang.String itemRestName = null;</b>
+<b class="nc">&nbsp;        java.lang.String itemRate = null;</b>
+<b class="nc">&nbsp;        java.lang.Boolean isLast = mIsLast;</b>
+<b class="nc">&nbsp;        com.alpharamen.customer.view.listener.MyOrdersListItemClickListener listener = mListener;</b>
+<b class="nc">&nbsp;        java.lang.String itemItemname = null;</b>
+<b class="nc">&nbsp;        boolean androidxDatabindingViewDataBindingSafeUnboxIsLast = false;</b>
+&nbsp;
+<b class="nc">&nbsp;        if ((dirtyFlags &amp; 0x9L) != 0) {</b>
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;                if (item != null) {</b>
+&nbsp;                    // read item.restName
+<b class="nc">&nbsp;                    itemRestName = item.getRestName();</b>
+&nbsp;                    // read item.rate
+<b class="nc">&nbsp;                    itemRate = item.getRate();</b>
+&nbsp;                    // read item.itemname
+<b class="nc">&nbsp;                    itemItemname = item.getItemname();</b>
+&nbsp;                }
+&nbsp;        }
+<b class="nc">&nbsp;        if ((dirtyFlags &amp; 0xaL) != 0) {</b>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;                // read androidx.databinding.ViewDataBinding.safeUnbox(isLast)
+<b class="nc">&nbsp;                androidxDatabindingViewDataBindingSafeUnboxIsLast = androidx.databinding.ViewDataBinding.safeUnbox(isLast);</b>
+<b class="nc">&nbsp;            if((dirtyFlags &amp; 0xaL) != 0) {</b>
+<b class="nc">&nbsp;                if(androidxDatabindingViewDataBindingSafeUnboxIsLast) {</b>
+<b class="nc">&nbsp;                        dirtyFlags |= 0x20L;</b>
+&nbsp;                }
+&nbsp;                else {
+<b class="nc">&nbsp;                        dirtyFlags |= 0x10L;</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;
+&nbsp;
+&nbsp;                // read androidx.databinding.ViewDataBinding.safeUnbox(isLast) ? View.VISIBLE : View.GONE
+<b class="nc">&nbsp;                isLastViewVISIBLEViewGONE = ((androidxDatabindingViewDataBindingSafeUnboxIsLast) ? (android.view.View.VISIBLE) : (android.view.View.GONE));</b>
+&nbsp;        }
+&nbsp;        // batch finished
+<b class="nc">&nbsp;        if ((dirtyFlags &amp; 0x8L) != 0) {</b>
+&nbsp;            // api target 1
+&nbsp;
+<b class="nc">&nbsp;            this.cardViewMyOrders.setOnClickListener(mCallback10);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if ((dirtyFlags &amp; 0x9L) != 0) {</b>
+&nbsp;            // api target 1
+&nbsp;
+<b class="nc">&nbsp;            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.textViewHubName, itemRestName);</b>
+<b class="nc">&nbsp;            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.textViewItemName, itemItemname);</b>
+<b class="nc">&nbsp;            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.textViewRate, itemRate);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if ((dirtyFlags &amp; 0xaL) != 0) {</b>
+&nbsp;            // api target 1
+&nbsp;
+<b class="nc">&nbsp;            this.viewBottom.setVisibility(isLastViewVISIBLEViewGONE);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;    // Listener Stub Implementations
+&nbsp;    // callback impls
+&nbsp;    public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
+&nbsp;        // localize variables for thread safety
+&nbsp;        // item
+<b class="nc">&nbsp;        com.alpharamen.customer.data.models.MyordersItemModel item = mItem;</b>
+&nbsp;        // listener != null
+<b class="nc">&nbsp;        boolean listenerJavaLangObjectNull = false;</b>
+&nbsp;        // listener
+<b class="nc">&nbsp;        com.alpharamen.customer.view.listener.MyOrdersListItemClickListener listener = mListener;</b>
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        listenerJavaLangObjectNull = (listener) != (null);</b>
+<b class="nc">&nbsp;        if (listenerJavaLangObjectNull) {</b>
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;            listener.click(item);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;    // dirty flag
+<b class="nc">&nbsp;    private  long mDirtyFlags = 0xffffffffffffffffL;</b>
+&nbsp;    /* flag mapping
+&nbsp;        flag 0 (0x1L): item
+&nbsp;        flag 1 (0x2L): isLast
+&nbsp;        flag 2 (0x3L): listener
+&nbsp;        flag 3 (0x4L): null
+&nbsp;        flag 4 (0x5L): androidx.databinding.ViewDataBinding.safeUnbox(isLast) ? View.VISIBLE : View.GONE
+&nbsp;        flag 5 (0x6L): androidx.databinding.ViewDataBinding.safeUnbox(isLast) ? View.VISIBLE : View.GONE
+&nbsp;    flag mapping end*/
+&nbsp;    //end
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>
