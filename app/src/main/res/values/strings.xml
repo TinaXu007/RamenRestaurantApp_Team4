@@ -54,7 +54,7 @@
     <string name="chicken_miso">Chicken Miso</string>
 
 
-    <string name="hub_name">Drunken Panda</string>
+    <string name="hub_name">Alpha Ramen</string>
     <string name="rate_and_distance">0.3km, 5 stars</string>
 
 
@@ -76,7 +76,7 @@
     <string name="text_delivery_time">Delivery time</string>
     <string name="distance_in_km">0.3</string>
     <string name="text_km">KM</string>
-    <string name="hub_drunken_panda">Drunken Panda</string>
+    <string name="hub_drunken_panda">Alpha Ramen</string>
 
 
     <string name="offerName">FIRST50 offer</string>
@@ -151,8 +151,8 @@
     <string name="title_activity_filter">FilterActivity</string>
     <string name="notifications">Notifications</string>
     <string name="notification_subject">Chicken Miso is on it\'s way to being made. Track the route</string>
-    <string name="source_address">Vazhapilly towers, Koratty, Kerala 680309</string>
-    <string name="destination_loc_address">Webandcrafts, Infopark, Thrissur, Nalukettu Road, Koratty - 680308</string>
+    <string name="source_address">3701 Payne Ave, Cleveland, OH 44114</string>
+    <string name="destination_loc_address">10900 Euclid Ave, Cleveland, OH 44106</string>
     <string name="about_us_details">Welcome to Alpha Ramen APP!As passionate lovers of Japanese street food, we are excited to share authentic and vibrant flavors straight from the heart of Japan. Our menu stars traditional ramen, full-flavored Japanese BBQ, innovative animated food, and a wide array of other street food delights.Every dish at Alpha Ramen is carefully crafted, blending fresh ingredients and time-honored techniques. Follow our page to stay updated with our mouthwatering offerings, special events, and exclusive deals. And do not forget to tag us in your delicious experiences at Alpha Ramen! Lets embark on this flavorful adventure together.</string>
     <string name="address_list_heading">Choose one devilery address</string>
     <string name="add_new_address_heading">Add New Address</string>

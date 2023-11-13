@@ -171,7 +171,7 @@ public class HubsListFragment extends BaseFragment<FragmentHubsListBinding,
 
         hubsListModels.add(new HubsListModel("", "",
                 R.drawable.dp, 0, 0));
-        hubsListModels.add(new HubsListModel("Drunken Panda", "0.2km,4 stars",
+        hubsListModels.add(new HubsListModel("Alpha Ramen", "0.2km,4 stars",
                 R.drawable.dp, 10.272800, 76.357540));
         hubsListModels.add(new HubsListModel("Malabar Thattukkada", "0.2km,4 stars",
                 R.drawable.dp, 10.264230, 76.352564));

@@ -284,11 +284,11 @@ public class CartFragment extends BaseFragment<FragmentCartBinding, CartViewMode
 
     private void populateData() {
 
-        cartItemModels.add(new CartItemModel("Chicken Biriyani", "Mintzza Food Mall", "100", 0, 1));
-        cartItemModels.add(new CartItemModel("Kuzhi Manthi", "Mintzza Food Mall", "200", 1, 1));
-        cartItemModels.add(new CartItemModel("Fried Rice", "Mintzza Food Mall", "150", 2, 1));
-        cartItemModels.add(new CartItemModel("Porotta", "Mintzza Food Mall", "400", 3, 1));
-        cartItemModels.add(new CartItemModel("Alfaham", "Mintzza Food Mall", "250", 4, 1));
+        cartItemModels.add(new CartItemModel("Spicy Miso Ramen", "Ramen", "13.99", 0, 1));
+        cartItemModels.add(new CartItemModel("Cold Noodles", "Ramen", "12.99", 1, 1));
+        cartItemModels.add(new CartItemModel("Tiger Bubble Tea", "Drink", "4.75", 2, 1));
+        cartItemModels.add(new CartItemModel("Gyoza", "Appetizer", "5.99", 3, 1));
+        cartItemModels.add(new CartItemModel("Takoyaki", "Appetizer", "5.99", 4, 1));
 
 
 
