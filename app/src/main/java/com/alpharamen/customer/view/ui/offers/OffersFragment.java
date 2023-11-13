@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.View;
 
@@ -106,7 +107,11 @@ public class OffersFragment extends BaseFragment<FragmentOffersBinding, OffersVi
             ((HomeActivity) getActivity()).loadOffersFragment();
         }
         populatData();
-
+        offersAdapter = new OffersAdapter(offersModels, this);
+        datainding.recyclerViewOffers.setLayoutManager(new LinearLayoutManager(getContext(),
+                LinearLayoutManager.VERTICAL, false));
+        datainding.recyclerViewOffers.setHasFixedSize(true);
+        datainding.recyclerViewOffers.setAdapter(offersAdapter);
 
     }
 

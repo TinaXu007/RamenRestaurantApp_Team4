@@ -32,127 +32,128 @@
                 android:layout_height="match_parent">
 
 
-        <TextView
-            android:id="@+id/textView_profile_heading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/roboto_medium"
-            android:text="@string/profile"
-            android:textColor="@color/profile_text_color"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/textView_profile_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/profile"
+                    android:textColor="@color/profile_text_color"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/dummy_man"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_profile_heading" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/circleImageView"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/dummy_man"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_profile_heading" />
 
-        <TextView
-            android:id="@+id/textView42"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/person_name"
-            android:textColor="@color/profile_text_color"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+                <TextView
+                    android:id="@+id/textView42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/person_name"
+                    android:textColor="@color/profile_text_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
 
-        <ImageView
-            android:id="@+id/imageView_edit"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/circular_background_login"
-            android:padding="8dp"
-            android:src="@drawable/ic_mode_edit_white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView42" />
+                <ImageView
+                    android:id="@+id/imageView_edit"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/circular_background_login"
+                    android:onClick="@{listener::onClick}"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_mode_edit_white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
-        <ImageView
-            android:id="@+id/imageView_orders"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/circular_background_login"
-            android:onClick="@{listener::onClick}"
-            android:paddingStart="10dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="11dp"
-            android:paddingBottom="11dp"
-            android:src="@drawable/shopping_purse"
-            app:layout_constraintEnd_toStartOf="@+id/imageView_change_location"
-            app:layout_constraintStart_toEndOf="@+id/imageView_edit"
-            app:layout_constraintTop_toBottomOf="@+id/textView42" />
+                <ImageView
+                    android:id="@+id/imageView_orders"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/circular_background_login"
+                    android:onClick="@{listener::onClick}"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="11dp"
+                    android:paddingBottom="11dp"
+                    android:src="@drawable/shopping_purse"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView_change_location"
+                    app:layout_constraintStart_toEndOf="@+id/imageView_edit"
+                    app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
-        <ImageView
-            android:id="@+id/imageView_change_location"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="80dp"
-            android:background="@drawable/circular_background_login"
-            android:onClick="@{listener::onClick}"
-            android:padding="8dp"
-            android:src="@drawable/ic_location_white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView42" />
+                <ImageView
+                    android:id="@+id/imageView_change_location"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="80dp"
+                    android:background="@drawable/circular_background_login"
+                    android:onClick="@{listener::onClick}"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_location_white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
-        <TextView
-            android:id="@+id/text_view_change_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/roboto_medium"
-            android:gravity="center"
-            android:text="@string/change_location"
-            android:textColor="@color/profile_sub_text_color"
-            android:textSize="10sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/imageView_change_location"
-            app:layout_constraintStart_toStartOf="@+id/imageView_change_location"
-            app:layout_constraintTop_toBottomOf="@+id/imageView_change_location" />
+                <TextView
+                    android:id="@+id/text_view_change_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:text="@string/change_location"
+                    android:textColor="@color/profile_sub_text_color"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView_change_location"
+                    app:layout_constraintStart_toStartOf="@+id/imageView_change_location"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_change_location" />
 
-        <TextView
-            android:id="@+id/text_view_my_orders"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/roboto_medium"
-            android:gravity="center"
-            android:text="@string/my_orders"
-            android:textColor="@color/profile_sub_text_color"
-            android:textSize="10sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/imageView_orders"
-            app:layout_constraintStart_toStartOf="@+id/imageView_orders"
-            app:layout_constraintTop_toBottomOf="@+id/imageView_orders" />
+                <TextView
+                    android:id="@+id/text_view_my_orders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:text="@string/my_orders"
+                    android:textColor="@color/profile_sub_text_color"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView_orders"
+                    app:layout_constraintStart_toStartOf="@+id/imageView_orders"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_orders" />
 
-        <TextView
-            android:id="@+id/textView_edit_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/roboto_medium"
-            android:gravity="center"
-            android:text="@string/edit_profile"
-            android:textColor="@color/profile_sub_text_color"
-            android:textSize="10sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/imageView_edit"
-            app:layout_constraintStart_toStartOf="@+id/imageView_edit"
-            app:layout_constraintTop_toBottomOf="@+id/imageView_edit" />
+                <TextView
+                    android:id="@+id/textView_edit_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:text="@string/edit_profile"
+                    android:textColor="@color/profile_sub_text_color"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView_edit"
+                    app:layout_constraintStart_toStartOf="@+id/imageView_edit"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_edit" />
 
 
 

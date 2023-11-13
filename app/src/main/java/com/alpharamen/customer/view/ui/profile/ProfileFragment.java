@@ -152,19 +152,19 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding, Profil
     public void onClick(View v) {
         if (v == dataBinding.imageViewEdit) {
 
-//            if (getActivity() != null) {
-//                dataBinding.imageViewEdit.setClickable(false);
-//                Intent i = EditProfileActivity.newIntent(getActivity());
-//                startActivityForResult(i, 1997);
-//                getActivity().overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
-//
-//                new Handler().postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        dataBinding.imageViewEdit.setClickable(true);
-//                    }
-//                }, 1000);
-//            }
+            if (getActivity() != null) {
+                dataBinding.imageViewEdit.setClickable(false);
+                Intent i = EditProfileActivity.newIntent(getActivity());
+                startActivityForResult(i, 1997);
+                getActivity().overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dataBinding.imageViewEdit.setClickable(true);
+                    }
+                }, 1000);
+            }
 
         } else if (v == dataBinding.imageViewChangeLocation) {
 
@@ -181,8 +181,18 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding, Profil
             }
 
         } else if (v == dataBinding.imageViewOrders) {
-            // TODO: Implement ViewOrders user interface
-            // TODO: Discuss with Yuqiao and Jin
+            if (getActivity() != null) {
+                dataBinding.imageViewOrders.setClickable(false);
+                startActivity(MyOrdersActivity.newIntent(getActivity()));
+                getActivity().overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dataBinding.imageViewOrders.setClickable(true);
+                    }
+                }, 1000);
+            }
+
         } else if (v == dataBinding.textViewRateApp) {
 
             dataBinding.textViewRateApp.setClickable(false);
