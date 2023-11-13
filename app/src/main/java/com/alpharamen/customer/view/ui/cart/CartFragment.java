@@ -11,22 +11,28 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.alpharamen.customer.BR;
 import com.alpharamen.customer.R;
 import com.alpharamen.customer.base.BaseFragment;
+import com.alpharamen.customer.data.models.AddressListModel;
 import com.alpharamen.customer.data.models.CartItemModel;
 import com.alpharamen.customer.databinding.FragmentCartBinding;
 import com.alpharamen.customer.factory.ViewModelProviderFactory;
 import com.alpharamen.customer.view.adapter.CartItemAdapterNew;
 import com.alpharamen.customer.view.listener.CartItemQuantityChangeListener;
 import com.alpharamen.customer.view.listener.OnAdapterSelectedListener;
+import com.alpharamen.customer.view.ui.address_list.AddressListActivity;
 import com.alpharamen.customer.view.ui.home_page.HomeActivity;
+import com.alpharamen.customer.view.ui.order_placed.OrderPlacedActivity;
 import com.alpharamen.customer.viewmodel.CartViewModel;
 
 import java.util.ArrayList;
@@ -104,7 +110,44 @@ public class CartFragment extends BaseFragment<FragmentCartBinding, CartViewMode
 
         //dataBinding.nestedScrollView.smoothScrollTo(0,0);
 
-        // TODO: Jina and Yuqiao need to look into how to observe change in data
+        dataBinding.nestedScrollView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                final int scrollViewHeight = dataBinding.nestedScrollView.getHeight();
+                if (scrollViewHeight > 0) {
+                    dataBinding.nestedScrollView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+
+/* //nested scroll view scroll to bottom
+                    final View lastView = dataBinding.nestedScrollView.getChildAt(dataBinding.nestedScrollView.getChildCount() - 1);
+                    final int lastViewBottom = lastView.getBottom() + dataBinding.nestedScrollView.getPaddingBottom();
+                    final int deltaScrollY = lastViewBottom - scrollViewHeight - dataBinding.nestedScrollView.getScrollY();
+                    *//* If you want to see the scroll animation, call this. *//*
+                    dataBinding.nestedScrollView.smoothScrollBy(0, deltaScrollY);
+                    *//* If you don't want, call this. *//*
+                    dataBinding.nestedScrollView.scrollBy(0, deltaScrollY);*/
+
+                    //nested scroll view scroll to top
+                    final View firstView = dataBinding.nestedScrollView.getChildAt(dataBinding.nestedScrollView.getChildCount() - 1);
+                    final int lastViewTop = firstView.getTop() + dataBinding.nestedScrollView.getPaddingTop();
+                    final int deltaScrollY = lastViewTop - scrollViewHeight - dataBinding.nestedScrollView.getScrollY();
+                    dataBinding.nestedScrollView.smoothScrollBy(0, deltaScrollY);
+                    dataBinding.nestedScrollView.scrollBy(0, deltaScrollY);
+                }
+            }
+        });
+        dataBinding.textViewRate.setVisibility(View.VISIBLE);
+        dataBinding.textViewCheckout.setVisibility(View.VISIBLE);
+        dataBinding.lottieAnimationView.setVisibility(View.GONE);
+        dataBinding.cardViewOrderDetails.setVisibility(View.VISIBLE);
+        dataBinding.cardViewAddress.setVisibility(View.VISIBLE);
+        dataBinding.textViewContinueShopping.setVisibility(View.GONE);
+        dataBinding.textViewNoItems.setVisibility(View.GONE);
+        dataBinding.recyclerViewCartItems.setVisibility(View.VISIBLE);
+        cartItemAdapter = new CartItemAdapterNew(cartItemModels, selectedListener, cartItemQuantityChangeListener);
+        dataBinding.recyclerViewCartItems.setLayoutManager(new LinearLayoutManager(getContext(),
+                LinearLayoutManager.VERTICAL, false));
+        dataBinding.recyclerViewCartItems.setHasFixedSize(true);
+        dataBinding.recyclerViewCartItems.setAdapter(cartItemAdapter);
 
         if (getActivity() != null && getActivity() instanceof HomeActivity) {
 
@@ -131,7 +174,13 @@ public class CartFragment extends BaseFragment<FragmentCartBinding, CartViewMode
     }
 
     private void priceCalculation(int size, float Amount) {
-        // TODO: Tina implement price calculation
+
+
+        dataBinding.textViewPriceOfItems.setText(String.valueOf(Amount));
+        deliveryCharge = Float.valueOf(dataBinding.textViewDelivery.getText().toString());
+        dataBinding.textViewFinalAmount.setText(String.valueOf(deliveryCharge + totalAmount));
+        dataBinding.textViewItemPrice.setText("Price (" + size + " items)");
+        dataBinding.textViewRate.setText(String.valueOf(deliveryCharge + totalAmount));
     }
 
     CartItemQuantityChangeListener cartItemQuantityChangeListener = new CartItemQuantityChangeListener() {
@@ -202,8 +251,6 @@ public class CartFragment extends BaseFragment<FragmentCartBinding, CartViewMode
                     }
                     if (cartItemModels.size() == 0) {
                         // dataBinding.setEmpty(0);
-                        // TODO: Tina Start Remove
-                        /*
                         dataBinding.textViewRate.setVisibility(View.GONE);
                         dataBinding.textViewCheckout.setVisibility(View.GONE);
                         dataBinding.lottieAnimationView.setVisibility(View.VISIBLE);
@@ -212,8 +259,6 @@ public class CartFragment extends BaseFragment<FragmentCartBinding, CartViewMode
                         dataBinding.textViewContinueShopping.setVisibility(View.VISIBLE);
                         dataBinding.textViewNoItems.setVisibility(View.VISIBLE);
                         dataBinding.recyclerViewCartItems.setVisibility(View.GONE);
-                        */
-                        // TODO: Tina End Remove
                         if (getActivity() != null && getActivity() instanceof HomeActivity) {
 
                             ((HomeActivity) getActivity()).showBottomBar();
@@ -238,7 +283,15 @@ public class CartFragment extends BaseFragment<FragmentCartBinding, CartViewMode
     };
 
     private void populateData() {
-        // TODO: Discuss with Yuqiao about demo items to add to UI - what food items?
+
+        cartItemModels.add(new CartItemModel("Chicken Biriyani", "Mintzza Food Mall", "100", 0, 1));
+        cartItemModels.add(new CartItemModel("Kuzhi Manthi", "Mintzza Food Mall", "200", 1, 1));
+        cartItemModels.add(new CartItemModel("Fried Rice", "Mintzza Food Mall", "150", 2, 1));
+        cartItemModels.add(new CartItemModel("Porotta", "Mintzza Food Mall", "400", 3, 1));
+        cartItemModels.add(new CartItemModel("Alfaham", "Mintzza Food Mall", "250", 4, 1));
+
+
+
     }
 
 
@@ -275,23 +328,81 @@ public class CartFragment extends BaseFragment<FragmentCartBinding, CartViewMode
                 ((HomeActivity) getActivity()).onBackPressed();
 
             }
+        } else if (v == dataBinding.textViewContinueShopping) {
+            if (getActivity() != null && getActivity() instanceof HomeActivity) {
+
+                ((HomeActivity) getActivity()).onBackPressed();
+                getActivity().overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right);
+            }
+        } else if (v == dataBinding.textViewCheckout) {
+            if (getActivity() != null) {
+                startActivity(OrderPlacedActivity.newIntent(getContext()));
+
+                getActivity().overridePendingTransition(0, 0);
+            }
+
+
+        } else if (v == dataBinding.textViewChangeAddress) {
+
+            if (getActivity() != null) {
+
+                dataBinding.textViewChangeAddress.setClickable(false);
+                Intent i = AddressListActivity.newIntent(getActivity());
+                startActivityForResult(i, 100);
+                getActivity().overridePendingTransition(0, 0);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dataBinding.textViewChangeAddress.setClickable(true);
+                    }
+                }, 1000);
+            }
+
         }
-        // TODO: Fix making remain button clickable. We need more UI views
+
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        // TODO: Yuqiao needs too look into how to handle data response
 
+        dataBinding.nestedScrollView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                final int scrollViewHeight = dataBinding.nestedScrollView.getHeight();
+                if (scrollViewHeight > 0) {
+                    dataBinding.nestedScrollView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+
+                    /*final View lastView = dataBinding.nestedScrollView.getChildAt(dataBinding.nestedScrollView.getChildCount() - 1);
+                    final int lastViewBottom = lastView.getBottom() + dataBinding.nestedScrollView.getPaddingBottom();
+                    final int deltaScrollY = lastViewBottom - scrollViewHeight - dataBinding.nestedScrollView.getScrollY();
+                    *//* If you want to see the scroll animation, call this. *//*
+                    dataBinding.nestedScrollView.smoothScrollBy(0, deltaScrollY);
+                    *//* If you don't want, call this. *//*
+                    dataBinding.nestedScrollView.scrollBy(0, deltaScrollY);*/
+                    final View firstView = dataBinding.nestedScrollView.getChildAt(dataBinding.nestedScrollView.getChildCount() - 1);
+                    final int lastViewTop = firstView.getTop() + dataBinding.nestedScrollView.getPaddingTop();
+                    final int deltaScrollY = lastViewTop - scrollViewHeight - dataBinding.nestedScrollView.getScrollY();
+                    dataBinding.nestedScrollView.smoothScrollBy(0, deltaScrollY);
+                    dataBinding.nestedScrollView.scrollBy(0, deltaScrollY);
+                }
+            }
+        });
         if (requestCode == 100) {
 
             if (data != null && data.getExtras() != null) {
-                // TODO: Handle updates to address information
-            }
+
+
+                AddressListModel addressListModel = data.getParcelableExtra("AddressSelectModel");
+                dataBinding.textViewName.setText(addressListModel.getName());
+                dataBinding.textViewAddress.setText(addressListModel.getHouseName() + "," + addressListModel.getLandmark()
+                        + "" + addressListModel.getStreet() + "," + addressListModel.getCity() + "," + addressListModel.getPincode());
+                dataBinding.textViewPhoneNumber.setText(addressListModel.getPhone());
 
             }
+
         }
+    }
 
 
 }
