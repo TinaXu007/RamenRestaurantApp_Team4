@@ -148,9 +148,9 @@ public class NotificationFragment extends BaseFragment<FragmentNotificationBindi
         //newItem(id=2)
         notificationItemModelList.add(new NotificationItemModel(0,
                 "Miso Ramen is on it's way to being made. Track the route"));
-        notificationItemModelList.add(new NotificationItemModel(1,
+        notificationItemModelList.add(new NotificationItemModel(0,
                 "Pork Dumpling is delivered successfully."));
-        notificationItemModelList.add(new NotificationItemModel(1,
+        notificationItemModelList.add(new NotificationItemModel(0,
                 "Takoyaki is delivered successfully"));
         notificationItemModelList.add(new NotificationItemModel(2,
                 "New item added in the menu. Order it now."));
