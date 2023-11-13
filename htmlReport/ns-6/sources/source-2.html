@@ -1,0 +1,123 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ApplicationComponent</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.dagger.component</a>
+</div>
+
+<h1>Coverage Summary for Class: ApplicationComponent (com.alpharamen.customer.dagger.component)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ApplicationComponent</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.dagger.component;
+&nbsp;
+&nbsp;import android.app.Activity;
+&nbsp;import android.app.Application;
+&nbsp;import androidx.lifecycle.ViewModel;
+&nbsp;import android.content.Context;
+&nbsp;import androidx.fragment.app.Fragment;
+&nbsp;
+&nbsp;import com.alpharamen.customer.application.BaseApp;
+&nbsp;import com.alpharamen.customer.dagger.ApplicationContext;
+&nbsp;import com.alpharamen.customer.dagger.module.ActivityProvider;
+&nbsp;import com.alpharamen.customer.dagger.module.ApplicationModule;
+&nbsp;import com.alpharamen.customer.dagger.module.FragmentProvider;
+&nbsp;import com.alpharamen.customer.dagger.module.ViewModelModule;
+&nbsp;import com.alpharamen.customer.data.local.preference.PreferencesHandler;
+&nbsp;import com.alpharamen.customer.data.remote.WebService;
+&nbsp;import com.alpharamen.customer.utils.InternetUtils;
+&nbsp;
+&nbsp;import java.util.Map;
+&nbsp;
+&nbsp;import javax.inject.Provider;
+&nbsp;import javax.inject.Singleton;
+&nbsp;
+&nbsp;import dagger.Component;
+&nbsp;import dagger.android.AndroidInjector;
+&nbsp;import dagger.android.support.AndroidSupportInjectionModule;
+&nbsp;
+&nbsp;@Singleton
+&nbsp;@Component(modules = {ApplicationModule.class,
+&nbsp;        ViewModelModule.class,
+&nbsp;        AndroidSupportInjectionModule.class,
+&nbsp;        FragmentProvider.class,
+&nbsp;        ActivityProvider.class})
+&nbsp;public interface ApplicationComponent {
+&nbsp;
+&nbsp;    void inject(BaseApp app);
+&nbsp;
+&nbsp;    @ApplicationContext
+&nbsp;    Context getContext();
+&nbsp;
+&nbsp;    Application getApplication();
+&nbsp;
+&nbsp;    WebService getWebService();
+&nbsp;
+&nbsp;    PreferencesHandler getPreferencesHandler();
+&nbsp;
+&nbsp;    //MusicDbHelper getMusicDbHelper();
+&nbsp;
+&nbsp;    InternetUtils getInternetUtils();
+&nbsp;
+&nbsp;    Map&lt;Class&lt;? extends ViewModel&gt;, Provider&lt;ViewModel&gt;&gt; creators();
+&nbsp;
+&nbsp;    Map&lt;Class&lt;? extends Fragment&gt;, Provider&lt;AndroidInjector.Factory&lt;? extends Fragment&gt;&gt;&gt; provideFragment();
+&nbsp;
+&nbsp;    Map&lt;Class&lt;? extends Activity&gt;, Provider&lt;AndroidInjector.Factory&lt;? extends Activity&gt;&gt;&gt; provideActivity();
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

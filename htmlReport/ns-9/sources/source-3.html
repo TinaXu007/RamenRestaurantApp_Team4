@@ -1,0 +1,273 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > FoodDatabase_Impl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.data.local.room</a>
+</div>
+
+<h1>Coverage Summary for Class: FoodDatabase_Impl (com.alpharamen.customer.data.local.room)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FoodDatabase_Impl</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/27)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">FoodDatabase_Impl$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/42)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/69)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.data.local.room;
+&nbsp;
+&nbsp;import androidx.room.DatabaseConfiguration;
+&nbsp;import androidx.room.InvalidationTracker;
+&nbsp;import androidx.room.RoomOpenHelper;
+&nbsp;import androidx.room.RoomOpenHelper.Delegate;
+&nbsp;import androidx.room.util.TableInfo;
+&nbsp;import androidx.room.util.TableInfo.Column;
+&nbsp;import androidx.room.util.TableInfo.ForeignKey;
+&nbsp;import androidx.room.util.TableInfo.Index;
+&nbsp;import androidx.sqlite.db.SupportSQLiteDatabase;
+&nbsp;import androidx.sqlite.db.SupportSQLiteOpenHelper;
+&nbsp;import androidx.sqlite.db.SupportSQLiteOpenHelper.Callback;
+&nbsp;import androidx.sqlite.db.SupportSQLiteOpenHelper.Configuration;
+&nbsp;import java.lang.IllegalStateException;
+&nbsp;import java.lang.Override;
+&nbsp;import java.lang.String;
+&nbsp;import java.lang.SuppressWarnings;
+&nbsp;import java.util.HashMap;
+&nbsp;import java.util.HashSet;
+&nbsp;
+&nbsp;@SuppressWarnings(&quot;unchecked&quot;)
+<b class="nc">&nbsp;public final class FoodDatabase_Impl extends FoodDatabase {</b>
+&nbsp;  private volatile FoodDao _foodDao;
+&nbsp;
+&nbsp;  @Override
+&nbsp;  protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
+<b class="nc">&nbsp;    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {</b>
+&nbsp;      @Override
+&nbsp;      public void createAllTables(SupportSQLiteDatabase _db) {
+<b class="nc">&nbsp;        _db.execSQL(&quot;CREATE TABLE IF NOT EXISTS `notification_tb` (`id` INTEGER NOT NULL, `title` TEXT, `entryId` INTEGER, `desc` TEXT, `image` TEXT, `date` TEXT, `time` TEXT, PRIMARY KEY(`id`))&quot;);</b>
+<b class="nc">&nbsp;        _db.execSQL(&quot;CREATE TABLE IF NOT EXISTS `SearchItemListModel` (`id` INTEGER, `categoryId` INTEGER, `productTitle` TEXT, `productRate` TEXT, `hotelName` TEXT, `itemType` INTEGER NOT NULL, PRIMARY KEY(`id`))&quot;);</b>
+<b class="nc">&nbsp;        _db.execSQL(&quot;CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)&quot;);</b>
+<b class="nc">&nbsp;        _db.execSQL(&quot;INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \&quot;e5c1f48da996d769692a358833bb3146\&quot;)&quot;);</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      @Override
+&nbsp;      public void dropAllTables(SupportSQLiteDatabase _db) {
+<b class="nc">&nbsp;        _db.execSQL(&quot;DROP TABLE IF EXISTS `notification_tb`&quot;);</b>
+<b class="nc">&nbsp;        _db.execSQL(&quot;DROP TABLE IF EXISTS `SearchItemListModel`&quot;);</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      @Override
+&nbsp;      protected void onCreate(SupportSQLiteDatabase _db) {
+<b class="nc">&nbsp;        if (mCallbacks != null) {</b>
+<b class="nc">&nbsp;          for (int _i = 0, _size = mCallbacks.size(); _i &lt; _size; _i++) {</b>
+<b class="nc">&nbsp;            mCallbacks.get(_i).onCreate(_db);</b>
+&nbsp;          }
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+&nbsp;      @Override
+&nbsp;      public void onOpen(SupportSQLiteDatabase _db) {
+<b class="nc">&nbsp;        mDatabase = _db;</b>
+<b class="nc">&nbsp;        internalInitInvalidationTracker(_db);</b>
+<b class="nc">&nbsp;        if (mCallbacks != null) {</b>
+<b class="nc">&nbsp;          for (int _i = 0, _size = mCallbacks.size(); _i &lt; _size; _i++) {</b>
+<b class="nc">&nbsp;            mCallbacks.get(_i).onOpen(_db);</b>
+&nbsp;          }
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+&nbsp;      @Override
+&nbsp;      protected void validateMigration(SupportSQLiteDatabase _db) {
+<b class="nc">&nbsp;        final HashMap&lt;String, TableInfo.Column&gt; _columnsNotificationTb = new HashMap&lt;String, TableInfo.Column&gt;(7);</b>
+<b class="nc">&nbsp;        _columnsNotificationTb.put(&quot;id&quot;, new TableInfo.Column(&quot;id&quot;, &quot;INTEGER&quot;, true, 1));</b>
+<b class="nc">&nbsp;        _columnsNotificationTb.put(&quot;title&quot;, new TableInfo.Column(&quot;title&quot;, &quot;TEXT&quot;, false, 0));</b>
+<b class="nc">&nbsp;        _columnsNotificationTb.put(&quot;entryId&quot;, new TableInfo.Column(&quot;entryId&quot;, &quot;INTEGER&quot;, false, 0));</b>
+<b class="nc">&nbsp;        _columnsNotificationTb.put(&quot;desc&quot;, new TableInfo.Column(&quot;desc&quot;, &quot;TEXT&quot;, false, 0));</b>
+<b class="nc">&nbsp;        _columnsNotificationTb.put(&quot;image&quot;, new TableInfo.Column(&quot;image&quot;, &quot;TEXT&quot;, false, 0));</b>
+<b class="nc">&nbsp;        _columnsNotificationTb.put(&quot;date&quot;, new TableInfo.Column(&quot;date&quot;, &quot;TEXT&quot;, false, 0));</b>
+<b class="nc">&nbsp;        _columnsNotificationTb.put(&quot;time&quot;, new TableInfo.Column(&quot;time&quot;, &quot;TEXT&quot;, false, 0));</b>
+<b class="nc">&nbsp;        final HashSet&lt;TableInfo.ForeignKey&gt; _foreignKeysNotificationTb = new HashSet&lt;TableInfo.ForeignKey&gt;(0);</b>
+<b class="nc">&nbsp;        final HashSet&lt;TableInfo.Index&gt; _indicesNotificationTb = new HashSet&lt;TableInfo.Index&gt;(0);</b>
+<b class="nc">&nbsp;        final TableInfo _infoNotificationTb = new TableInfo(&quot;notification_tb&quot;, _columnsNotificationTb, _foreignKeysNotificationTb, _indicesNotificationTb);</b>
+<b class="nc">&nbsp;        final TableInfo _existingNotificationTb = TableInfo.read(_db, &quot;notification_tb&quot;);</b>
+<b class="nc">&nbsp;        if (! _infoNotificationTb.equals(_existingNotificationTb)) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;Migration didn&#39;t properly handle notification_tb(com.alpharamen.customer.data.local.room.notification.NotificationEntry).\n&quot;</b>
+&nbsp;                  + &quot; Expected:\n&quot; + _infoNotificationTb + &quot;\n&quot;
+&nbsp;                  + &quot; Found:\n&quot; + _existingNotificationTb);
+&nbsp;        }
+<b class="nc">&nbsp;        final HashMap&lt;String, TableInfo.Column&gt; _columnsSearchItemListModel = new HashMap&lt;String, TableInfo.Column&gt;(6);</b>
+<b class="nc">&nbsp;        _columnsSearchItemListModel.put(&quot;id&quot;, new TableInfo.Column(&quot;id&quot;, &quot;INTEGER&quot;, false, 1));</b>
+<b class="nc">&nbsp;        _columnsSearchItemListModel.put(&quot;categoryId&quot;, new TableInfo.Column(&quot;categoryId&quot;, &quot;INTEGER&quot;, false, 0));</b>
+<b class="nc">&nbsp;        _columnsSearchItemListModel.put(&quot;productTitle&quot;, new TableInfo.Column(&quot;productTitle&quot;, &quot;TEXT&quot;, false, 0));</b>
+<b class="nc">&nbsp;        _columnsSearchItemListModel.put(&quot;productRate&quot;, new TableInfo.Column(&quot;productRate&quot;, &quot;TEXT&quot;, false, 0));</b>
+<b class="nc">&nbsp;        _columnsSearchItemListModel.put(&quot;hotelName&quot;, new TableInfo.Column(&quot;hotelName&quot;, &quot;TEXT&quot;, false, 0));</b>
+<b class="nc">&nbsp;        _columnsSearchItemListModel.put(&quot;itemType&quot;, new TableInfo.Column(&quot;itemType&quot;, &quot;INTEGER&quot;, true, 0));</b>
+<b class="nc">&nbsp;        final HashSet&lt;TableInfo.ForeignKey&gt; _foreignKeysSearchItemListModel = new HashSet&lt;TableInfo.ForeignKey&gt;(0);</b>
+<b class="nc">&nbsp;        final HashSet&lt;TableInfo.Index&gt; _indicesSearchItemListModel = new HashSet&lt;TableInfo.Index&gt;(0);</b>
+<b class="nc">&nbsp;        final TableInfo _infoSearchItemListModel = new TableInfo(&quot;SearchItemListModel&quot;, _columnsSearchItemListModel, _foreignKeysSearchItemListModel, _indicesSearchItemListModel);</b>
+<b class="nc">&nbsp;        final TableInfo _existingSearchItemListModel = TableInfo.read(_db, &quot;SearchItemListModel&quot;);</b>
+<b class="nc">&nbsp;        if (! _infoSearchItemListModel.equals(_existingSearchItemListModel)) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;Migration didn&#39;t properly handle SearchItemListModel(com.alpharamen.customer.data.models.SearchItemListModel).\n&quot;</b>
+&nbsp;                  + &quot; Expected:\n&quot; + _infoSearchItemListModel + &quot;\n&quot;
+&nbsp;                  + &quot; Found:\n&quot; + _existingSearchItemListModel);
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }, &quot;e5c1f48da996d769692a358833bb3146&quot;, &quot;545c4c772c962ca3393ea88fa30cf817&quot;);
+<b class="nc">&nbsp;    final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)</b>
+<b class="nc">&nbsp;        .name(configuration.name)</b>
+<b class="nc">&nbsp;        .callback(_openCallback)</b>
+<b class="nc">&nbsp;        .build();</b>
+<b class="nc">&nbsp;    final SupportSQLiteOpenHelper _helper = configuration.sqliteOpenHelperFactory.create(_sqliteConfig);</b>
+<b class="nc">&nbsp;    return _helper;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  protected InvalidationTracker createInvalidationTracker() {
+<b class="nc">&nbsp;    return new InvalidationTracker(this, &quot;notification_tb&quot;,&quot;SearchItemListModel&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void clearAllTables() {
+<b class="nc">&nbsp;    super.assertNotMainThread();</b>
+<b class="nc">&nbsp;    final SupportSQLiteDatabase _db = super.getOpenHelper().getWritableDatabase();</b>
+&nbsp;    try {
+<b class="nc">&nbsp;      super.beginTransaction();</b>
+<b class="nc">&nbsp;      _db.execSQL(&quot;DELETE FROM `notification_tb`&quot;);</b>
+<b class="nc">&nbsp;      _db.execSQL(&quot;DELETE FROM `SearchItemListModel`&quot;);</b>
+<b class="nc">&nbsp;      super.setTransactionSuccessful();</b>
+&nbsp;    } finally {
+<b class="nc">&nbsp;      super.endTransaction();</b>
+<b class="nc">&nbsp;      _db.query(&quot;PRAGMA wal_checkpoint(FULL)&quot;).close();</b>
+<b class="nc">&nbsp;      if (!_db.inTransaction()) {</b>
+<b class="nc">&nbsp;        _db.execSQL(&quot;VACUUM&quot;);</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public FoodDao musicDao() {
+<b class="nc">&nbsp;    if (_foodDao != null) {</b>
+<b class="nc">&nbsp;      return _foodDao;</b>
+&nbsp;    } else {
+<b class="nc">&nbsp;      synchronized(this) {</b>
+<b class="nc">&nbsp;        if(_foodDao == null) {</b>
+<b class="nc">&nbsp;          _foodDao = new FoodDao_Impl(this);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return _foodDao;</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

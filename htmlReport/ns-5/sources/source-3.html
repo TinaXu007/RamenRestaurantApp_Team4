@@ -1,0 +1,338 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > BaseFragment</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.base</a>
+</div>
+
+<h1>Coverage Summary for Class: BaseFragment (com.alpharamen.customer.base)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BaseFragment</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/58)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">BaseFragment$Callback</td>
+  </tr>
+  <tr>
+    <td class="name">BaseFragment$ViewLifecycleOwner</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/21)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/61)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.base;
+&nbsp;
+&nbsp;import androidx.lifecycle.Lifecycle;
+&nbsp;import androidx.lifecycle.LifecycleOwner;
+&nbsp;import androidx.lifecycle.LifecycleRegistry;
+&nbsp;import android.content.Context;
+&nbsp;import androidx.databinding.DataBindingUtil;
+&nbsp;import androidx.databinding.ViewDataBinding;
+&nbsp;import android.os.Bundle;
+&nbsp;import androidx.annotation.LayoutRes;
+&nbsp;import androidx.annotation.NonNull;
+&nbsp;import androidx.annotation.Nullable;
+&nbsp;import androidx.fragment.app.Fragment;
+&nbsp;import android.view.LayoutInflater;
+&nbsp;import android.view.View;
+&nbsp;import android.view.ViewGroup;
+&nbsp;
+&nbsp;import dagger.android.support.AndroidSupportInjection;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;public abstract class BaseFragment&lt;T extends ViewDataBinding, V&gt; extends Fragment {</b>
+&nbsp;
+&nbsp;    private BaseActivity mActivity;
+&nbsp;    private SimpleBaseActivity mSimpleActivity;
+&nbsp;    private View mRootView;
+&nbsp;    private T mViewDataBinding;
+&nbsp;    //private V mViewModel;
+&nbsp;
+<b class="nc">&nbsp;    static class ViewLifecycleOwner implements LifecycleOwner {</b>
+<b class="nc">&nbsp;        private final LifecycleRegistry lifecycleRegistry = new LifecycleRegistry(this);</b>
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public LifecycleRegistry getLifecycle() {
+<b class="nc">&nbsp;            return lifecycleRegistry;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    private ViewLifecycleOwner viewLifecycleOwner;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return the Lifecycle owner of the current view hierarchy,
+&nbsp;     * or null if there is no current view hierarchy.
+&nbsp;     */
+&nbsp;    @Nullable
+&nbsp;    public LifecycleOwner getViewLifecycleOwner() {
+<b class="nc">&nbsp;        return viewLifecycleOwner;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Override for set binding variable
+&nbsp;     *
+&nbsp;     * @return variable id
+&nbsp;     */
+&nbsp;    public abstract int getBindingVariable();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return layout resource id
+&nbsp;     */
+&nbsp;    public abstract
+&nbsp;    @LayoutRes
+&nbsp;    int getLayoutId();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Override for set view model
+&nbsp;     *
+&nbsp;     * @return view model instance
+&nbsp;     */
+&nbsp;    //public abstract V getViewModel();
+&nbsp;    public abstract Object getBindingObject();
+&nbsp;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onAttach(Context context) {
+<b class="nc">&nbsp;        super.onAttach(context);</b>
+<b class="nc">&nbsp;        if (context instanceof BaseActivity) {</b>
+<b class="nc">&nbsp;            BaseActivity activity = (BaseActivity) context;</b>
+<b class="nc">&nbsp;            this.mActivity = activity;</b>
+<b class="nc">&nbsp;            activity.onFragmentAttached();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (context instanceof SimpleBaseActivity) {</b>
+<b class="nc">&nbsp;            SimpleBaseActivity activity = (SimpleBaseActivity) context;</b>
+<b class="nc">&nbsp;            this.mSimpleActivity = activity;</b>
+<b class="nc">&nbsp;            activity.onFragmentAttached();</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onCreate(@Nullable Bundle savedInstanceState) {
+<b class="nc">&nbsp;        performDependencyInjection();</b>
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+&nbsp;        //mViewModel = getViewModel();
+<b class="nc">&nbsp;        setHasOptionsMenu(false);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    @Override
+&nbsp;    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+<b class="nc">&nbsp;        mViewDataBinding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false);</b>
+<b class="nc">&nbsp;        viewLifecycleOwner = new ViewLifecycleOwner();</b>
+<b class="nc">&nbsp;        viewLifecycleOwner.getLifecycle().handleLifecycleEvent(Lifecycle.Event.ON_CREATE);</b>
+<b class="nc">&nbsp;        mRootView = mViewDataBinding.getRoot();</b>
+<b class="nc">&nbsp;        return mRootView;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+<b class="nc">&nbsp;        super.onViewCreated(view, savedInstanceState);</b>
+<b class="nc">&nbsp;        mViewDataBinding.setVariable(getBindingVariable(), getBindingObject());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onStart() {
+<b class="nc">&nbsp;        super.onStart();</b>
+<b class="nc">&nbsp;        if (viewLifecycleOwner != null) {</b>
+<b class="nc">&nbsp;            viewLifecycleOwner.getLifecycle().handleLifecycleEvent(Lifecycle.Event.ON_START);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onStop() {
+<b class="nc">&nbsp;        if (viewLifecycleOwner != null) {</b>
+<b class="nc">&nbsp;            viewLifecycleOwner.getLifecycle().handleLifecycleEvent(Lifecycle.Event.ON_STOP);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        super.onStop();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onResume() {
+<b class="nc">&nbsp;        super.onResume();</b>
+<b class="nc">&nbsp;        if (viewLifecycleOwner != null) {</b>
+<b class="nc">&nbsp;            viewLifecycleOwner.getLifecycle().handleLifecycleEvent(Lifecycle.Event.ON_RESUME);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onDestroyView() {
+<b class="nc">&nbsp;        if (viewLifecycleOwner != null) {</b>
+<b class="nc">&nbsp;            viewLifecycleOwner.getLifecycle().handleLifecycleEvent(Lifecycle.Event.ON_DESTROY);</b>
+<b class="nc">&nbsp;            viewLifecycleOwner = null;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        mRootView = null;</b>
+<b class="nc">&nbsp;        mViewDataBinding = null;</b>
+<b class="nc">&nbsp;        super.onDestroyView();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onPause() {
+<b class="nc">&nbsp;        if (viewLifecycleOwner != null) {</b>
+<b class="nc">&nbsp;            viewLifecycleOwner.getLifecycle().handleLifecycleEvent(Lifecycle.Event.ON_PAUSE);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        super.onPause();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onDetach() {
+<b class="nc">&nbsp;        super.onDetach();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public BaseActivity getBaseActivity() {
+<b class="nc">&nbsp;        return mActivity;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public SimpleBaseActivity getSimpleBaseActivity() {
+<b class="nc">&nbsp;        return mSimpleActivity;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public T getViewDataBinding() {
+<b class="nc">&nbsp;        return mViewDataBinding;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void hideKeyboard() {
+<b class="nc">&nbsp;        if (mActivity != null) {</b>
+<b class="nc">&nbsp;            mActivity.hideKeyboard();</b>
+<b class="nc">&nbsp;        } else if (mSimpleActivity != null) {</b>
+<b class="nc">&nbsp;            mSimpleActivity.hideKeyboard();</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean isNetworkConnected() {
+<b class="nc">&nbsp;        boolean isNetwork = true;</b>
+<b class="nc">&nbsp;        if (mActivity != null)</b>
+<b class="nc">&nbsp;            isNetwork = mActivity.isNetworkConnected();</b>
+<b class="nc">&nbsp;        else if (mSimpleActivity != null)</b>
+<b class="nc">&nbsp;            isNetwork = mSimpleActivity.isNetworkConnected();</b>
+<b class="nc">&nbsp;        return isNetwork;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void showToast(String message) {
+<b class="nc">&nbsp;        if (mActivity != null)</b>
+<b class="nc">&nbsp;            mActivity.showToast(message);</b>
+<b class="nc">&nbsp;        else if (mSimpleActivity != null)</b>
+<b class="nc">&nbsp;            mSimpleActivity.showToast(message);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void performDependencyInjection() {
+<b class="nc">&nbsp;        AndroidSupportInjection.inject(this);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public interface Callback {
+&nbsp;
+&nbsp;        void onFragmentAttached();
+&nbsp;
+&nbsp;        void onFragmentDetached(String tag);
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

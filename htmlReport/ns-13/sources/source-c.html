@@ -1,0 +1,202 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > MyBaseAdapter</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.adapter</a>
+</div>
+
+<h1>Coverage Summary for Class: MyBaseAdapter (com.alpharamen.customer.view.adapter)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MyBaseAdapter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">MyBaseAdapter$MyViewHolder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.adapter;
+&nbsp;
+&nbsp;import androidx.databinding.DataBindingUtil;
+&nbsp;import androidx.databinding.ViewDataBinding;
+&nbsp;import androidx.annotation.NonNull;
+&nbsp;import androidx.databinding.library.baseAdapters.BR;
+&nbsp;import androidx.recyclerview.widget.RecyclerView;
+&nbsp;import android.view.LayoutInflater;
+&nbsp;import android.view.ViewGroup;
+&nbsp;
+&nbsp;
+&nbsp;import com.alpharamen.customer.view.listener.OnAdapterSelectedListener;
+&nbsp;
+<b class="nc">&nbsp;public abstract class MyBaseAdapter extends RecyclerView.Adapter&lt;MyBaseAdapter.MyViewHolder&gt; {</b>
+&nbsp;
+&nbsp;    public class MyViewHolder extends RecyclerView.ViewHolder {
+&nbsp;        // each data item is just a string in this case
+&nbsp;        final ViewDataBinding binding;
+&nbsp;
+<b class="nc">&nbsp;        public MyViewHolder(ViewDataBinding binding) {</b>
+<b class="nc">&nbsp;            super(binding.getRoot());</b>
+<b class="nc">&nbsp;            this.binding = binding;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        public void bind(Object obj) {
+<b class="nc">&nbsp;            binding.setVariable(BR.item, obj);</b>
+<b class="nc">&nbsp;            binding.setVariable(BR.isLast, false);</b>
+<b class="nc">&nbsp;            binding.setVariable(BR.listener, getAdapterClickListener());</b>
+<b class="nc">&nbsp;            binding.executePendingBindings();</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        public void bindLast(Object obj) {
+<b class="nc">&nbsp;            binding.setVariable(BR.item, obj);</b>
+<b class="nc">&nbsp;            binding.setVariable(BR.isLast, true);</b>
+<b class="nc">&nbsp;            binding.setVariable(BR.listener, getAdapterClickListener());</b>
+<b class="nc">&nbsp;            binding.executePendingBindings();</b>
+&nbsp;        }
+&nbsp;
+&nbsp;     /*   public void bindFirst(Object obj) {
+&nbsp;            binding.setVariable(BR.item, obj);
+&nbsp;            binding.setVariable(BR.isFirst, true);
+&nbsp;            binding.setVariable(BR.listener, getAdapterClickListener());
+&nbsp;            binding.executePendingBindings();
+&nbsp;        }*/
+&nbsp;    }
+&nbsp;
+&nbsp;    @NonNull
+&nbsp;    @Override
+&nbsp;    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+<b class="nc">&nbsp;        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());</b>
+<b class="nc">&nbsp;        ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, getLayoutIdForType(viewType), parent, false);</b>
+&nbsp;        // set the view&#39;s size, margins, paddings and layout parameters
+<b class="nc">&nbsp;        return new MyViewHolder(binding);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+&nbsp;
+<b class="nc">&nbsp;        if (position == getItemCount() - 1) {</b>
+<b class="nc">&nbsp;            holder.bindLast(getDataAtPosition(position));</b>
+&nbsp;        } /*else if (position == 0) {
+&nbsp;            holder.bindFirst(getDataAtPosition(position));
+&nbsp;        }*/ else {
+<b class="nc">&nbsp;            holder.bind(getDataAtPosition(position));</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public abstract Object getDataAtPosition(int position);
+&nbsp;
+&nbsp;    public abstract int getLayoutIdForType(int viewType);
+&nbsp;
+&nbsp;    public abstract OnAdapterSelectedListener getAdapterClickListener();
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

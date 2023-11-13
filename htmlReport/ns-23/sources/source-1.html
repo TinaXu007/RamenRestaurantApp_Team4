@@ -1,0 +1,229 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > NotificationActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.view.ui.notification</a>
+</div>
+
+<h1>Coverage Summary for Class: NotificationActivity (com.alpharamen.customer.view.ui.notification)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">NotificationActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">NotificationActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.view.ui.notification;
+&nbsp;
+&nbsp;import androidx.lifecycle.ViewModelProviders;
+&nbsp;import android.content.Context;
+&nbsp;import android.content.Intent;
+&nbsp;import android.os.Bundle;
+&nbsp;import androidx.recyclerview.widget.LinearLayoutManager;
+&nbsp;import android.widget.Toast;
+&nbsp;
+&nbsp;import com.alpharamen.customer.BR;
+&nbsp;import com.alpharamen.customer.R;
+&nbsp;import com.alpharamen.customer.base.BaseActivity;
+&nbsp;import com.alpharamen.customer.data.models.NotificationModel;
+&nbsp;import com.alpharamen.customer.databinding.ActivityNotificationBinding;
+&nbsp;import com.alpharamen.customer.factory.ViewModelProviderFactory;
+&nbsp;import com.alpharamen.customer.view.adapter.NotificationAdapter;
+&nbsp;import com.alpharamen.customer.view.listener.OnAdapterSelectedListener;
+&nbsp;import com.alpharamen.customer.viewmodel.NotificationViewModel;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;import javax.inject.Inject;
+&nbsp;
+<b class="nc">&nbsp;public class NotificationActivity extends BaseActivity&lt;ActivityNotificationBinding, NotificationViewModel&gt; {</b>
+&nbsp;
+&nbsp;    ActivityNotificationBinding activityNotificationBinding;
+&nbsp;    NotificationViewModel notificationViewModel;
+&nbsp;    @Inject
+&nbsp;    ViewModelProviderFactory mViewModelFactory;
+&nbsp;
+&nbsp;    private NotificationAdapter notificationAdapter;
+<b class="nc">&nbsp;    private ArrayList&lt;NotificationModel&gt; arrayList = new ArrayList&lt;&gt;();</b>
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+&nbsp;//        notificationViewModel = ViewModelProviders.of(this, mViewModelFactory).get(NotificationViewModel.class);
+&nbsp;//        activityNotificationBinding = (ActivityNotificationBinding) getViewDataBinding();
+&nbsp;//        activityNotificationBinding.rvNotification.setHasFixedSize(true);
+&nbsp;//        activityNotificationBinding.rvNotification.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+&nbsp;//        notificationAdapter = new NotificationAdapter(arrayList, notificationAdapterListener);
+&nbsp;//        activityNotificationBinding.rvNotification.setAdapter(notificationAdapter);
+&nbsp;//        handleProgressBar();
+&nbsp;//        notificationViewModel.getNotifications().observe(this, notificationBean -&gt; {
+&nbsp;//            if (notificationBean.getData() != null) arrayList.addAll(notificationBean.getData());
+&nbsp;//            notificationAdapter.notifyDataSetChanged();
+&nbsp;//        });
+&nbsp;    }
+&nbsp;
+&nbsp;    private void handleProgressBar() {
+<b class="nc">&nbsp;        notificationViewModel.getIsLoading().observe(this, progressModel -&gt; {</b>
+<b class="nc">&nbsp;            if (progressModel != null &amp;&amp; !progressModel.isHasInternet()){</b>
+<b class="nc">&nbsp;                showToast(&quot;No internet connection&quot;);</b>
+&nbsp;            }
+<b class="nc">&nbsp;            if (progressModel != null &amp;&amp; progressModel.getErrorMessage() != null){</b>
+<b class="nc">&nbsp;                showToast(progressModel.getErrorMessage());</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getBindingVariable() {
+<b class="nc">&nbsp;        return BR.notification;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getLayoutId() {
+<b class="nc">&nbsp;        return R.layout.activity_notification;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public NotificationViewModel getBindingObject() {
+<b class="nc">&nbsp;        return notificationViewModel;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;  /*  @BindingAdapter(&quot;bind:src&quot;)
+&nbsp;    public static void setImageUrl(ImageView view, String url) {
+&nbsp;
+&nbsp;//        Glide.with(view.getContext()).
+&nbsp;//                load(url).
+&nbsp;//                placeholder(R.drawable.battery).
+&nbsp;//                into(view);
+&nbsp;    }*/
+&nbsp;
+<b class="nc">&nbsp;    OnAdapterSelectedListener&lt;NotificationModel&gt; notificationAdapterListener = new OnAdapterSelectedListener&lt;NotificationModel&gt;() {</b>
+&nbsp;        @Override
+&nbsp;        public void onAdapterSelected(NotificationModel model) {
+&nbsp;
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public void onAdapterString(String text) {
+<b class="nc">&nbsp;            Toast.makeText(NotificationActivity.this, &quot;Clicked &quot; + text, Toast.LENGTH_SHORT).show();</b>
+&nbsp;        }
+&nbsp;    };
+&nbsp;
+&nbsp;    public static Intent newIntent(Context context){
+<b class="nc">&nbsp;        return new Intent(context, NotificationActivity.class);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>

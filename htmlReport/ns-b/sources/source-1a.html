@@ -1,0 +1,251 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > PopularListModelNew</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.alpharamen.customer.data.models</a>
+</div>
+
+<h1>Coverage Summary for Class: PopularListModelNew (com.alpharamen.customer.data.models)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PopularListModelNew</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/32)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">PopularListModelNew$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/35)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.alpharamen.customer.data.models;
+&nbsp;
+&nbsp;import android.os.Parcel;
+&nbsp;import android.os.Parcelable;
+&nbsp;
+&nbsp;import com.google.gson.annotations.Expose;
+&nbsp;import com.google.gson.annotations.SerializedName;
+&nbsp;
+&nbsp;public class PopularListModelNew implements Parcelable {
+&nbsp;
+&nbsp;    @SerializedName(&quot;id&quot;)
+&nbsp;    @Expose
+&nbsp;    private Integer id;
+&nbsp;    @SerializedName(&quot;product_title&quot;)
+&nbsp;    @Expose
+&nbsp;    private String productTitle;
+&nbsp;    @SerializedName(&quot;hotel_name&quot;)
+&nbsp;    @Expose
+&nbsp;    private String hotelName;
+&nbsp;    @SerializedName(&quot;rating&quot;)
+&nbsp;    @Expose
+&nbsp;    private String rating;
+&nbsp;    @SerializedName(&quot;item_rate&quot;)
+&nbsp;    @Expose
+&nbsp;    private String itemRate;
+&nbsp;    @SerializedName(&quot;image&quot;)
+&nbsp;    @Expose
+&nbsp;    private String image;
+&nbsp;
+<b class="nc">&nbsp;    protected PopularListModelNew(Parcel in) {</b>
+<b class="nc">&nbsp;        if (in.readByte() == 0) {</b>
+<b class="nc">&nbsp;            id = null;</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            id = in.readInt();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        productTitle = in.readString();</b>
+<b class="nc">&nbsp;        hotelName = in.readString();</b>
+<b class="nc">&nbsp;        rating = in.readString();</b>
+<b class="nc">&nbsp;        itemRate = in.readString();</b>
+<b class="nc">&nbsp;        image = in.readString();</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    public static final Creator&lt;PopularListModelNew&gt; CREATOR = new Creator&lt;PopularListModelNew&gt;() {</b>
+&nbsp;        @Override
+&nbsp;        public PopularListModelNew createFromParcel(Parcel in) {
+<b class="nc">&nbsp;            return new PopularListModelNew(in);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public PopularListModelNew[] newArray(int size) {
+<b class="nc">&nbsp;            return new PopularListModelNew[size];</b>
+&nbsp;        }
+&nbsp;    };
+&nbsp;
+&nbsp;    public Integer getId() {
+<b class="nc">&nbsp;        return id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setId(Integer id) {
+<b class="nc">&nbsp;        this.id = id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getProductTitle() {
+<b class="nc">&nbsp;        return productTitle;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setProductTitle(String productTitle) {
+<b class="nc">&nbsp;        this.productTitle = productTitle;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getHotelName() {
+<b class="nc">&nbsp;        return hotelName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setHotelName(String hotelName) {
+<b class="nc">&nbsp;        this.hotelName = hotelName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getRating() {
+<b class="nc">&nbsp;        return rating;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setRating(String rating) {
+<b class="nc">&nbsp;        this.rating = rating;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getItemRate() {
+<b class="nc">&nbsp;        return itemRate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setItemRate(String itemRate) {
+<b class="nc">&nbsp;        this.itemRate = itemRate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getImage() {
+<b class="nc">&nbsp;        return image;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setImage(String image) {
+<b class="nc">&nbsp;        this.image = image;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int describeContents() {
+<b class="nc">&nbsp;        return 0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void writeToParcel(Parcel dest, int flags) {
+<b class="nc">&nbsp;        if (id == null) {</b>
+<b class="nc">&nbsp;            dest.writeByte((byte) 0);</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            dest.writeByte((byte) 1);</b>
+<b class="nc">&nbsp;            dest.writeInt(id);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        dest.writeString(productTitle);</b>
+<b class="nc">&nbsp;        dest.writeString(hotelName);</b>
+<b class="nc">&nbsp;        dest.writeString(rating);</b>
+<b class="nc">&nbsp;        dest.writeString(itemRate);</b>
+<b class="nc">&nbsp;        dest.writeString(image);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-13 15:02</div>
+</div>
+</body>
+</html>
