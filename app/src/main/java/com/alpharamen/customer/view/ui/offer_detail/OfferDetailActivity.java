@@ -106,16 +106,16 @@ public class OfferDetailActivity extends BaseActivity implements View.OnClickLis
 
     private void populateData() {
 
-        aboutOfferModels.add(new AboutOfferModel("1. 50% cashback, upto Rs.200 when you pay using this offer."));
-        aboutOfferModels.add(new AboutOfferModel("2. Use promocode \"FIRST50\""));
-        aboutOfferModels.add(new AboutOfferModel("3. 50% cashback, upto Rs.200 when you pay using this offer."));
-        aboutOfferModels.add(new AboutOfferModel("4. Use promocode \"FIRST50\""));
+        aboutOfferModels.add(new AboutOfferModel("1. 10% points rewards, upto 20 points when you pay using this offer."));
+        aboutOfferModels.add(new AboutOfferModel("2. Use promocode \"REWARDS10\""));
+        aboutOfferModels.add(new AboutOfferModel("3. 50% cashback, upto 20 points when you pay using this offer."));
+        aboutOfferModels.add(new AboutOfferModel("4. Use promocode \"REWARDS10\""));
 
 
-        termsAndConditionsModels.add(new TermsAndConditionsModel("1. 50% cashback, upto Rs.200 when you pay using this offer."));
-        termsAndConditionsModels.add(new TermsAndConditionsModel("2. Use promocode \"FIRST50\""));
-        termsAndConditionsModels.add(new TermsAndConditionsModel("3. 50% cashback, upto Rs.200 when you pay using this offer."));
-        termsAndConditionsModels.add(new TermsAndConditionsModel("4. Use promocode \"FIRST50\""));
+        termsAndConditionsModels.add(new TermsAndConditionsModel("1. 10% points rewards, upto 20 points when you pay using this offer."));
+        termsAndConditionsModels.add(new TermsAndConditionsModel("2. Use promocode \"REWARDS10\""));
+        termsAndConditionsModels.add(new TermsAndConditionsModel("3. 10% points rewards, upto 20 points when you pay using this offer."));
+        termsAndConditionsModels.add(new TermsAndConditionsModel("4. Use promocode \"REWARDS10\""));
     }
 
     @Override

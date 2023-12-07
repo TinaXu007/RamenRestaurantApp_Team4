@@ -58,7 +58,7 @@
     <string name="rate_and_distance">0.3km, 5 stars</string>
 
 
-    <string name="detail_page_hub_name">Mintzza Food Mall</string>
+    <string name="detail_page_hub_name">Alpha Ramen </string>
     <string name="item_rate_demo">56</string>
     <string name="offer_percent_symbol">% off</string>
     <string name="offer_percent">10</string>
@@ -96,7 +96,7 @@
     <string name="change_address">Change Address</string>
     <string name="no_item_sign">No items in your cart order now</string>
     <string name="cart_heading">My Cart</string>
-    <string name="total_amount_cart">₹184</string>
+    <string name="total_amount_cart">$184</string>
     <string name="items_amount_cart">168</string>
     <string name="delivery_charge">20</string>
     <string name="price_details">Price Details</string>
@@ -142,7 +142,7 @@
     <string name="remove_from_cart">REMOVE FROM CART</string>
     <string name="order_now">ORDER NOW</string>
     <string name="checkout">CHECK OUT</string>
-    <string name="rate_zero">₹0.00</string>
+    <string name="rate_zero">$0.00</string>
     <string name="rate">56</string>
     <string name="about_us">About Us</string>
     <string name="rate_app">Rate App</string>

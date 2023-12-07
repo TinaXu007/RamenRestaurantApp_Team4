@@ -67,14 +67,14 @@ public class MyOrdersActivity extends BaseActivity<ActivityMyOrdersBinding, MyOr
 
     private void populateData() {
 
-        myordersItemModels.add(new MyordersItemModel("Miso Ramen", "Mintzza Food Mall", "₹56", "Pending", 0));
-        myordersItemModels.add(new MyordersItemModel("Miso Ramen", "Mintzza Food Mall", "₹56", "Pending", 0));
-        myordersItemModels.add(new MyordersItemModel("Miso Ramen", "Mintzza Food Mall", "₹56", "Cancelled", 1));
-        myordersItemModels.add(new MyordersItemModel("Miso Ramen", "Mintzza Food Mall", "₹56", "Delivered", 2));
-        myordersItemModels.add(new MyordersItemModel("Miso Ramen", "Mintzza Food Mall", "₹56", "Delivered", 2));
-        myordersItemModels.add(new MyordersItemModel("Miso Ramen", "Mintzza Food Mall", "₹56", "Delivered", 2));
-        myordersItemModels.add(new MyordersItemModel("Miso Ramen", "Mintzza Food Mall", "₹56", "Delivered", 2));
-        myordersItemModels.add(new MyordersItemModel("Miso Ramen", "Mintzza Food Mall", "₹56", "Delivered", 2));
+        myordersItemModels.add(new MyordersItemModel("Miso Ramen", "Alpha Ramen ", "$15.99", "Pending", 0));
+        myordersItemModels.add(new MyordersItemModel("Tokoyaki", "Alpha Ramen ", "$5.99", "Pending", 0));
+        myordersItemModels.add(new MyordersItemModel("Chicken Ramen", "Alpha Ramen ", "$14.99", "Cancelled", 1));
+        myordersItemModels.add(new MyordersItemModel("Beef Ramen", "Alpha Ramen ", "$16.99", "Delivered", 2));
+        myordersItemModels.add(new MyordersItemModel("Spicy Miso Ramen", "Alpha Ramen ", "$16.99", "Delivered", 2));
+        myordersItemModels.add(new MyordersItemModel("Shoyu Ramen", "Alpha Ramen ", "$13.99", "Delivered", 2));
+        myordersItemModels.add(new MyordersItemModel("Tonkotsu Ramen", "Alpha Ramen ", "$15.99", "Delivered", 2));
+        myordersItemModels.add(new MyordersItemModel("Kimchi Ramen", "Alpha Ramen ", "$16.99", "Delivered", 2));
 
 
     }

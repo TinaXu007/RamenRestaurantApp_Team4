@@ -153,7 +153,7 @@
                             app:layout_constraintBottom_toBottomOf="@+id/text_view_discount_price"
                             app:layout_constraintStart_toEndOf="@+id/text_view_discount_price"
                             app:layout_constraintTop_toTopOf="@+id/text_view_discount_price"
-                            tools:text="₹60" />
+                            tools:text="$60" />
 
                         <TextView
                             android:id="@+id/text_view_offer_percent"

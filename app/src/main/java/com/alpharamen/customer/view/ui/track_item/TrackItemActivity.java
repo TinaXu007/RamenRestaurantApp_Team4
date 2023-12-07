@@ -107,8 +107,8 @@ public class TrackItemActivity extends BaseActivity<ActivityTrackItemBinding, Tr
         mGoogleMap = googleMap;
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-        placeLatitude = 10.263600;
-        placeLongitude = 76.345001;
+        placeLatitude = 41.462370;
+        placeLongitude = -82.028990;
 
         LatLng latLng = new LatLng(placeLatitude, placeLongitude);
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 13));
