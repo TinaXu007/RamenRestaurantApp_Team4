@@ -105,11 +105,10 @@ public class AddressListActivity extends BaseActivity<ActivityAddressListBinding
     };
 
     private void populateData() {
-
-        addressListModel.add(new AddressListModel("steve", "webandcrafts indeevaram",
-                "korratty-nalukkett road", "Koratty", "infopark", "680308", "9656757030"));
-        addressListModel.add(new AddressListModel("edwin", "webandcrafts indeevaram",
-                "korratty-nalukkett road", "Koratty", "infopark", "680308", "9656757030"));
+        addressListModel.add(new AddressListModel("Shawn", "",
+                "3916 Clock Pointe Trail #101", "Stow", "OH", "44224", "+13305150679"));
+        addressListModel.add(new AddressListModel("Ben", "",
+                "449 S Meridian St 3rd Floor", "Ravenna", "OH", "44266", "+13302973598"));
       /*  addressListModel.add(new AddressListModel("Antony Leons", "webandcrafts indeevaram",
                 "korratty-nalukkett road", "Koratty", "infopark", "680308", "9656757030"));*/
     }
